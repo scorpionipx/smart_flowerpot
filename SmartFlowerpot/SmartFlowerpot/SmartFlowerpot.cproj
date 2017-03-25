@@ -118,6 +118,24 @@
     </ToolchainSettings>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="DigitalLED.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="DigitalLED.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="DigitalLED_config.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="driverAdc.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="driverAdc.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Global.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="main.c">
       <SubType>compile</SubType>
     </Compile>
