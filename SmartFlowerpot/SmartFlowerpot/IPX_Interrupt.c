@@ -11,6 +11,7 @@
 #include <util/delay.h>
 #include <avr/interrupt.h>
 
+unsigned int display_refresh_counter = 0;
 
 void init_Interrupt(void)
 {
@@ -24,5 +25,10 @@ void init_Interrupt(void)
 
 ISR(TIMER0_COMP_vect) /*RUNS EVERY 1MS*/
 {
-	
+	display_refresh_counter ++;
+	if (display_refresh_counter >= DISPLAY_REFRESH_RATE)
+	{
+		display_refresh_counter = 0;
+		
+	}
 }

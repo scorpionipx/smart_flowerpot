@@ -15,6 +15,9 @@
 // Average soil moisture level threshold when water pump should be turned on
 #define SOIL_MOISTURE_LOW_LEVEL_THRESHOLD_AVERAGE 35
 
+// Time between display refresh rate, measured in ms
+#define DISPLAY_REFRESH_RATE 1000
+
 
 typedef signed char sint8;
 typedef unsigned char uint8;
