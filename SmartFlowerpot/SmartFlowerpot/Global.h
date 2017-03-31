@@ -18,6 +18,12 @@
 // Time between display refresh rate, measured in ms
 #define DISPLAY_REFRESH_RATE 1000
 
+// String to display for humidity level
+#define SENSOR_1_TITLE "Sensor 1: "
+#define SENSOR_2_TITLE "Sensor 2: "
+
+#define HUMIDITY_LEVEL_UNIT "%"
+
 
 typedef signed char sint8;
 typedef unsigned char uint8;

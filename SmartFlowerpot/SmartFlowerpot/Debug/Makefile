@@ -38,6 +38,7 @@ SUBDIRS :=
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS +=  \
 ../driverAdc.c \
+../IPX_Interrupt.c \
 ../IPX_LCD_Display.c \
 ../main.c
 
@@ -50,21 +51,25 @@ ASM_SRCS +=
 
 OBJS +=  \
 driverAdc.o \
+IPX_Interrupt.o \
 IPX_LCD_Display.o \
 main.o
 
 OBJS_AS_ARGS +=  \
 driverAdc.o \
+IPX_Interrupt.o \
 IPX_LCD_Display.o \
 main.o
 
 C_DEPS +=  \
 driverAdc.d \
+IPX_Interrupt.d \
 IPX_LCD_Display.d \
 main.d
 
 C_DEPS_AS_ARGS +=  \
 driverAdc.d \
+IPX_Interrupt.d \
 IPX_LCD_Display.d \
 main.d
 
@@ -82,6 +87,8 @@ LINKER_SCRIPT_DEP+=
 
 
 # AVR32/GNU C Compiler
+
+
 
 
 
