@@ -2,6 +2,7 @@
 
 void ADC_Init(void)
 {
+		DDRA = 0x00;
 	    // AREF = AVcc
 	    ADMUX = (1<<REFS0);
 	    

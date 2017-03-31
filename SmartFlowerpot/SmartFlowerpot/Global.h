@@ -18,6 +18,9 @@
 // Time between display refresh rate, measured in ms
 #define DISPLAY_REFRESH_RATE 1000
 
+// Timer between humidity level data acquisition, measured in ms 
+#define SENSORS_READ_INTERVAL 1000
+
 // String to display for humidity level
 #define SENSOR_1_TITLE "Sensor 1: "
 #define SENSOR_2_TITLE "Sensor 2: "
@@ -34,7 +37,8 @@ typedef unsigned long uint32;
 
 /* Exported Variables */
 /*============================================================================*/
-
+unsigned int humidity_level_sensor_1;
+unsigned int humidity_level_sensor_2;
 
 #endif /* GLOBAL_H_ */ 
 
