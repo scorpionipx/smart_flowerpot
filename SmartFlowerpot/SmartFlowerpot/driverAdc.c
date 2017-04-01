@@ -31,3 +31,22 @@ uint16_t ADC_GetValue(uint8_t ch)
 	
 	return (ADC);
 }
+
+void read_humidity_level(int sensor)
+{
+	switch(sensor)
+	{
+		case 1:
+		{
+			humidity_level_sensor_1 = (((uint32_t)ADC_GetValue(0) * 100) / 1023);
+		}
+		case 2:
+		{
+			humidity_level_sensor_2 = (((uint32_t)ADC_GetValue(1) * 100) / 1023);
+		}
+		default:
+		{
+			break;
+		}
+	}
+}

@@ -37,7 +37,7 @@ ISR(TIMER0_COMP_vect) /*RUNS EVERY 1MS*/
 	read_humidity_counter ++;
 	if(read_humidity_counter >= SENSORS_READ_INTERVAL)
 	{
-		humidity_level_sensor_1 = ADC_GetValue(0);
-		humidity_level_sensor_2 = ADC_GetValue(1);
+		read_humidity_level(SENSOR_1);
+		read_humidity_level(SENSOR_2);
 	}
 }

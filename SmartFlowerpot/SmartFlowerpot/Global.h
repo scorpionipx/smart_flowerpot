@@ -27,6 +27,9 @@
 
 #define HUMIDITY_LEVEL_UNIT "%"
 
+#define SENSOR_1 1
+#define SENSOR_2 2
+
 
 typedef signed char sint8;
 typedef unsigned char uint8;
