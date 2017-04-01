@@ -10,6 +10,7 @@
 #include <util/delay.h>
 #include <string.h>
 
+#define MAX_CHARS_PER_ROW 16
 
 void put_Char_LCD_Display(int ch, int type)
 {
@@ -45,6 +46,7 @@ void init_LCD_Display(void)
 	put_Char_LCD_Display(0x01,0);//clear display
 }
 
+// display string
 void put_string(const char *_string)
 {
 	int ch_index;
@@ -57,12 +59,26 @@ void put_string(const char *_string)
 // displays humidity percentage title
 void display_umidity_level_title()
 {
+	int index;
+	
+	put_Char_LCD_Display(0x01,0);
+	
 	put_Char_LCD_Display(0x80, 0);
 	put_string(SENSOR_1_TITLE);
+	for(index = 0; index<MAX_CHARS_PER_ROW-(strlen(SENSOR_1_TITLE)) - 1; index++)
+	{
+		put_Char_LCD_Display(' ', 1);
+	}
+	
 	put_Char_LCD_Display(0xC0, 0);
 	put_string(SENSOR_2_TITLE);
+	for(index = 0; index<MAX_CHARS_PER_ROW-(strlen(SENSOR_2_TITLE)) - 1; index++)
+	{
+		put_Char_LCD_Display(' ', 1);
+	}
 }
 
+// self made itoa
 const char * humidity_level_int_value_to_string(int value)
 {
 	int first_digit;
@@ -119,7 +135,34 @@ void display_umidity_level_values(int umidity_level_sensor_1, int umidity_level_
 	put_Char_LCD_Display(0x80 + sensor_1_display_offset, 0);
 	put_string(humidity_level_int_value_to_string(umidity_level_sensor_1));
 	put_string(HUMIDITY_LEVEL_UNIT);
+	put_string("  ");
+	
 	put_Char_LCD_Display(0xC0 + sensor_2_display_offset, 0);
 	put_string(humidity_level_int_value_to_string(umidity_level_sensor_2));
 	put_string(HUMIDITY_LEVEL_UNIT);
+	put_string("  ");
+}
+
+
+void display_clock_title()
+{	
+	put_Char_LCD_Display(0x01,0);
+	
+	put_Char_LCD_Display(0x80, 0);
+	put_string(CLOCK_DATE_TITLE);
+	
+	put_Char_LCD_Display(0xC0, 0);
+	put_string(CLOCK_TIME_TITLE);
+}
+
+void display_clock_values()
+{
+	int clock_date_display_offset = strlen(CLOCK_DATE_TITLE);
+	int clock_time_display_offset = strlen(CLOCK_TIME_TITLE);
+	
+	put_Char_LCD_Display(0x80 + clock_date_display_offset, 0);
+	put_string(" 01 APR 2017");
+	
+	put_Char_LCD_Display(0xC0 + clock_time_display_offset, 0);
+	put_string(" 23:42:51");
 }

@@ -16,20 +16,28 @@
 #define SOIL_MOISTURE_LOW_LEVEL_THRESHOLD_AVERAGE 35
 
 // Time between display refresh rate, measured in ms
-#define DISPLAY_REFRESH_RATE 1000
+#define DISPLAY_REFRESH_RATE 1500
 
 // Timer between humidity level data acquisition, measured in ms 
 #define SENSORS_READ_INTERVAL 1000
 
-// String to display for humidity level
+// Strings to display for humidity level
 #define SENSOR_1_TITLE "Sensor 1: "
 #define SENSOR_2_TITLE "Sensor 2: "
 
 #define HUMIDITY_LEVEL_UNIT "%"
 
+// Sensor entity
 #define SENSOR_1 1
 #define SENSOR_2 2
 
+// Strings to display for clock
+#define CLOCK_DATE_TITLE "Date"
+#define CLOCK_TIME_TITLE "Time"
+
+// Menus 
+#define SENSOR_VALUES_MENU 0
+#define CLOCK_MENU 1
 
 typedef signed char sint8;
 typedef unsigned char uint8;
@@ -42,6 +50,7 @@ typedef unsigned long uint32;
 /*============================================================================*/
 unsigned int humidity_level_sensor_1;
 unsigned int humidity_level_sensor_2;
+char MENU;
 
 #endif /* GLOBAL_H_ */ 
 
