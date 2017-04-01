@@ -39,10 +39,12 @@ void read_humidity_level(int sensor)
 		case 1:
 		{
 			humidity_level_sensor_1 = (((uint32_t)ADC_GetValue(0) * 100) / 1023);
+			break;
 		}
 		case 2:
 		{
 			humidity_level_sensor_2 = (((uint32_t)ADC_GetValue(1) * 100) / 1023);
+			break;
 		}
 		default:
 		{
