@@ -124,6 +124,12 @@
     <Compile Include="driverAdc.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="driverSwitch.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="driverSwitch.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="Global.h">
       <SubType>compile</SubType>
     </Compile>

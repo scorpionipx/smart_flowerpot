@@ -127,18 +127,18 @@ const char * humidity_level_int_value_to_string(int value)
 }
 
 // displays humidity percentage level read from every sensor
-void display_umidity_level_values(int umidity_level_sensor_1, int umidity_level_sensor_2)
+void display_umidity_level_values()
 {
 	int sensor_1_display_offset = strlen(SENSOR_1_TITLE);
 	int sensor_2_display_offset = strlen(SENSOR_2_TITLE);
 	
 	put_Char_LCD_Display(0x80 + sensor_1_display_offset, 0);
-	put_string(humidity_level_int_value_to_string(umidity_level_sensor_1));
+	put_string(humidity_level_int_value_to_string(humidity_level_sensor_1));
 	put_string(HUMIDITY_LEVEL_UNIT);
 	put_string("  ");
 	
 	put_Char_LCD_Display(0xC0 + sensor_2_display_offset, 0);
-	put_string(humidity_level_int_value_to_string(umidity_level_sensor_2));
+	put_string(humidity_level_int_value_to_string(humidity_level_sensor_2));
 	put_string(HUMIDITY_LEVEL_UNIT);
 	put_string("  ");
 }
@@ -174,3 +174,26 @@ void display_clock_values()
 	put_Char_LCD_Display(0xC0 + clock_time_display_offset, 0);
 	put_string(" 23:42:51");
 }
+
+void display_values()
+{
+	switch(MENU)
+	{
+		case CLOCK_MENU:
+		{
+			display_clock_values();
+			break;
+		}
+		case SENSOR_VALUES_MENU:
+		{
+			display_umidity_level_values();
+			break;
+		}
+		default:
+		{
+			put_Char_LCD_Display(0x80, 0);
+			put_string("error");
+		}
+	}
+}
+
