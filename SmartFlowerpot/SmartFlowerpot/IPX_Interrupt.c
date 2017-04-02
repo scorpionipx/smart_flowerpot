@@ -66,8 +66,8 @@ void init_interrupt_200ms()
 ISR (TIMER1_COMPA_vect)
 {
 	// toggle led here
-	PORTB ^= (1 << 0);
-	display_umidity_level_values(humidity_level_sensor_1, humidity_level_sensor_2);
+	display_values();
+	PORTB ^= (1 << 0);  // toggles the led
 	read_humidity_counter ++;
 	if (read_humidity_counter >= READ_SENSORS_VALUES_PERIOD)
 	{

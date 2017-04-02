@@ -12,6 +12,7 @@
 #include "IPX_LCD_Display.h"
 #include "driverAdc.h"
 #include "IPX_Interrupt.h"
+#include "driverSwitch.h"
 
 void init_globals();
 
@@ -20,6 +21,7 @@ int main(void)
 	init_globals();
 	
 	DDRB |= (1 << 0);
+	Switch_Init();
 	
 	init_interrupt_10ms();
 	init_interrupt_200ms();
@@ -33,12 +35,12 @@ int main(void)
 	
     while (1) 
     {
-    }
+	}
 }
 
 void init_globals()
 {
-	MENU = CLOCK_MENU;
+	MENU = SENSOR_VALUES_MENU;
 	
 	humidity_level_sensor_1 = 0;
 	humidity_level_sensor_2 = 0;

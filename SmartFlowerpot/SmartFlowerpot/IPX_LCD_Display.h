@@ -26,5 +26,6 @@ void display_clock_title();
 void put_string(const char *_string);
 void display_clock_values();
 void display_initializing_message();
+void display_values();
 
 #endif /* IPX_LCD_DISPLAY_H_ */
