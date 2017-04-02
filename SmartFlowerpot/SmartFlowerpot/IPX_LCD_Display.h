@@ -25,5 +25,6 @@ void display_umidity_level_values(int umidity_level_sensor_1, int umidity_level_
 void display_clock_title();
 void put_string(const char *_string);
 void display_clock_values();
+void display_initializing_message();
 
 #endif /* IPX_LCD_DISPLAY_H_ */

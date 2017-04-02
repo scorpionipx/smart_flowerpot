@@ -13,24 +13,33 @@
 #include "driverAdc.h"
 #include "IPX_Interrupt.h"
 
+void init_globals();
 
 int main(void)
 {
-	MENU = SENSOR_VALUES_MENU;
-	MENU = CLOCK_MENU;
+	init_globals();
 	
-	humidity_level_sensor_1 = 0;
-	humidity_level_sensor_2 = 0;
+	DDRB |= (1 << 0);
 	
-	sei();
-	init_Interrupt();
+	init_interrupt_10ms();
+	init_interrupt_200ms();
 	ADC_Init();
 	init_LCD_Display();
 	
-	display_clock_title();
+	display_initializing_message();
+	_delay_ms(1000);
+	display_umidity_level_title();
+	sei();
 	
     while (1) 
     {
     }
 }
 
+void init_globals()
+{
+	MENU = CLOCK_MENU;
+	
+	humidity_level_sensor_1 = 0;
+	humidity_level_sensor_2 = 0;
+}

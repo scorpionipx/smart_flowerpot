@@ -155,6 +155,14 @@ void display_clock_title()
 	put_string(CLOCK_TIME_TITLE);
 }
 
+void display_initializing_message()
+{
+	put_Char_LCD_Display(0x01,0);
+	
+	put_Char_LCD_Display(0x80, 0);
+	put_string("Initializing...");
+}
+
 void display_clock_values()
 {
 	int clock_date_display_offset = strlen(CLOCK_DATE_TITLE);
