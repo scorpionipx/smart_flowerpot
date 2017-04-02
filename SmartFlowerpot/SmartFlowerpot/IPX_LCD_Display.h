@@ -20,10 +20,11 @@
 
 void put_Char_LCD_Display(int ch, int type);
 void init_LCD_Display(void);
-void display_Authors(void);
-void display_Info(void);
-void display_Duty_Cycle_L(void);
-void display_Duty_Cycle_R(void);
-void display_Speed(void);
+void display_umidity_level_title();
+void display_umidity_level_values(int umidity_level_sensor_1, int umidity_level_sensor_2);
+void display_clock_title();
+void put_string(const char *_string);
+void display_clock_values();
+void display_initializing_message();
 
 #endif /* IPX_LCD_DISPLAY_H_ */

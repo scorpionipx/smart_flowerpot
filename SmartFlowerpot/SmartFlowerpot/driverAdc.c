@@ -2,6 +2,7 @@
 
 void ADC_Init(void)
 {
+		DDRA = 0x00;
 	    // AREF = AVcc
 	    ADMUX = (1<<REFS0);
 	    
@@ -29,4 +30,25 @@ uint16_t ADC_GetValue(uint8_t ch)
 	while(ADCSRA & (1<<ADSC));
 	
 	return (ADC);
+}
+
+void read_humidity_level(int sensor)
+{
+	switch(sensor)
+	{
+		case 1:
+		{
+			humidity_level_sensor_1 = (((uint32_t)ADC_GetValue(0) * 100) / 1023);
+			break;
+		}
+		case 2:
+		{
+			humidity_level_sensor_2 = (((uint32_t)ADC_GetValue(1) * 100) / 1023);
+			break;
+		}
+		default:
+		{
+			break;
+		}
+	}
 }

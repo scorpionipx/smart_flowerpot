@@ -4,6 +4,8 @@
 
 driverAdc.c
 
+IPX_Interrupt.c
+
 IPX_LCD_Display.c
 
 main.c
