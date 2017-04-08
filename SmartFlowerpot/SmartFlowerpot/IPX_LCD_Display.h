@@ -27,5 +27,8 @@ void put_string(const char *_string);
 void display_clock_values();
 void display_initializing_message();
 void display_values();
+void display_tank_water_level_title();
+void display_tank_water_level();
+void display_error_title();
 
 #endif /* IPX_LCD_DISPLAY_H_ */

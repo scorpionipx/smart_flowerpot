@@ -14,7 +14,7 @@ IPX_Interrupt.d IPX_Interrupt.o: .././IPX_Interrupt.c .././Global.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\delay_basic.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\math.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\interrupt.h \
- .././IPX_LCD_Display.h .././driverAdc.h
+ .././IPX_LCD_Display.h .././driverAdc.h .././Menu.h
 
 .././Global.h:
 
@@ -51,3 +51,5 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\
 .././IPX_LCD_Display.h:
 
 .././driverAdc.h:
+
+.././Menu.h:

@@ -38,10 +38,10 @@ SUBDIRS :=
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS +=  \
 ../driverAdc.c \
-../driverSwitch.c \
 ../IPX_Interrupt.c \
 ../IPX_LCD_Display.c \
-../main.c
+../main.c \
+../Menu.c
 
 
 PREPROCESSING_SRCS += 
@@ -52,31 +52,31 @@ ASM_SRCS +=
 
 OBJS +=  \
 driverAdc.o \
-driverSwitch.o \
 IPX_Interrupt.o \
 IPX_LCD_Display.o \
-main.o
+main.o \
+Menu.o
 
 OBJS_AS_ARGS +=  \
 driverAdc.o \
-driverSwitch.o \
 IPX_Interrupt.o \
 IPX_LCD_Display.o \
-main.o
+main.o \
+Menu.o
 
 C_DEPS +=  \
 driverAdc.d \
-driverSwitch.d \
 IPX_Interrupt.d \
 IPX_LCD_Display.d \
-main.d
+main.d \
+Menu.d
 
 C_DEPS_AS_ARGS +=  \
 driverAdc.d \
-driverSwitch.d \
 IPX_Interrupt.d \
 IPX_LCD_Display.d \
-main.d
+main.d \
+Menu.d
 
 OUTPUT_FILE_PATH +=SmartFlowerpot.elf
 

@@ -12,19 +12,19 @@
 #include <avr/interrupt.h>
 #include "IPX_LCD_Display.h"
 #include "driverAdc.h"
+#include "Menu.h"
 
 #define INTERRUPT_200MS 200
 #define INTERRUPT_10MS 10
 
 #define READ_SENSORS_VALUES_PERIOD SENSORS_READ_INTERVAL / INTERRUPT_200MS
 
-unsigned int display_refresh_counter = 500;
 unsigned int read_humidity_counter = 0;
 
 volatile int interruptCnt = 0;
 
 //10 ms timer
-void init_interrupt_10ms(void)
+void init_interrupt_10ms()
 {
 	/* clear timer on compare mode , output normal port , 256 prescaler */
 	TCCR0 = (1u << WGM01) | (1u << CS02) | (1u << CS00);

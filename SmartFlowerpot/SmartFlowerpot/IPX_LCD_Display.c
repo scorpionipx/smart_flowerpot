@@ -61,7 +61,7 @@ void display_umidity_level_title()
 {
 	int index;
 	
-	put_Char_LCD_Display(0x01,0);
+	put_Char_LCD_Display(0x01,0); // clear LCD
 	
 	put_Char_LCD_Display(0x80, 0);
 	put_string(SENSOR_1_TITLE);
@@ -76,6 +76,36 @@ void display_umidity_level_title()
 	{
 		put_Char_LCD_Display(' ', 1);
 	}
+}
+
+// displays error title
+void display_error_title()
+{	
+	put_Char_LCD_Display(0x01,0); // clear LCD
+	
+	put_Char_LCD_Display(0x80, 0);
+	put_string(ERROR_TITLE);
+}
+
+void display_error()
+{
+	put_Char_LCD_Display(0xC0, 0);
+	put_string(ERROR);
+}
+
+// display tank water level title
+void display_tank_water_level_title()
+{
+	put_Char_LCD_Display(0x01,0); // clear LCD
+	
+	put_Char_LCD_Display(0x80, 0); // go to row 0, column 0
+	put_string(TANK_WATER_LEVEL_TITLE);
+}
+
+void display_tank_water_level()
+{
+	put_Char_LCD_Display(0xC0, 0);
+	put_string("-------");
 }
 
 // self made itoa
@@ -189,10 +219,21 @@ void display_values()
 			display_umidity_level_values();
 			break;
 		}
+		case ERROR_MENU:
+		{
+			display_error();
+			break;
+		}
+		case TANK_WATER_LEVEL_MENU:
+		{
+			display_tank_water_level();
+			break;
+		}
 		default:
 		{
 			put_Char_LCD_Display(0x80, 0);
 			put_string("error");
+			break;
 		}
 	}
 }
