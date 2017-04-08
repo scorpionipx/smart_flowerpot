@@ -12,6 +12,9 @@
 
 #define MAX_CHARS_PER_ROW 16
 
+void init_custom_characters();
+void init_custom_character_level();
+
 void put_Char_LCD_Display(int ch, int type)
 {
 	PORTC = (PORTC&0x0F)|(ch&0xF0);
@@ -44,6 +47,151 @@ void init_LCD_Display(void)
 	put_Char_LCD_Display(0x80,0);
 	_delay_ms(5);
 	put_Char_LCD_Display(0x01,0);//clear display
+	init_custom_characters();
+}
+
+void init_custom_character_level()
+{
+	switch(WATER_LEVEL)
+	{
+		case 0:
+		{
+			// tank water level 0
+			put_Char_LCD_Display(80, 0);
+			put_Char_LCD_Display(0b00000, 1);
+			put_Char_LCD_Display(0b00000, 1);
+			put_Char_LCD_Display(0b00000, 1);
+			put_Char_LCD_Display(0b00000, 1);
+			put_Char_LCD_Display(0b00000, 1);
+			put_Char_LCD_Display(0b00000, 1);
+			put_Char_LCD_Display(0b00000, 1);
+			put_Char_LCD_Display(0b11111, 1);
+			break;
+		}
+		case 1:
+		{
+			// tank water level 1
+			put_Char_LCD_Display(80, 0);
+			put_Char_LCD_Display(0b00000, 1);
+			put_Char_LCD_Display(0b00000, 1);
+			put_Char_LCD_Display(0b00000, 1);
+			put_Char_LCD_Display(0b00000, 1);
+			put_Char_LCD_Display(0b00000, 1);
+			put_Char_LCD_Display(0b11111, 1);
+			put_Char_LCD_Display(0b00000, 1);
+			put_Char_LCD_Display(0b11111, 1);
+			break;
+		}
+		case 2:
+		{
+			// tank water level 2
+			put_Char_LCD_Display(80, 0);
+			put_Char_LCD_Display(0b00000, 1);
+			put_Char_LCD_Display(0b00000, 1);
+			put_Char_LCD_Display(0b00000, 1);
+			put_Char_LCD_Display(0b00000, 1);
+			put_Char_LCD_Display(0b11111, 1);
+			put_Char_LCD_Display(0b11111, 1);
+			put_Char_LCD_Display(0b00000, 1);
+			put_Char_LCD_Display(0b11111, 1);
+			break;
+		}
+		case 3:
+		{
+			// tank water level 3
+			put_Char_LCD_Display(80, 0);
+			put_Char_LCD_Display(0b00000, 1);
+			put_Char_LCD_Display(0b00000, 1);
+			put_Char_LCD_Display(0b00000, 1);
+			put_Char_LCD_Display(0b11111, 1);
+			put_Char_LCD_Display(0b11111, 1);
+			put_Char_LCD_Display(0b11111, 1);
+			put_Char_LCD_Display(0b00000, 1);
+			put_Char_LCD_Display(0b11111, 1);
+			break;
+		}
+		case 4:
+		{
+			// tank water level 4
+			put_Char_LCD_Display(80, 0);
+			put_Char_LCD_Display(0b00000, 1);
+			put_Char_LCD_Display(0b00000, 1);
+			put_Char_LCD_Display(0b11111, 1);
+			put_Char_LCD_Display(0b11111, 1);
+			put_Char_LCD_Display(0b11111, 1);
+			put_Char_LCD_Display(0b11111, 1);
+			put_Char_LCD_Display(0b00000, 1);
+			put_Char_LCD_Display(0b11111, 1);
+			break;
+		}
+		case 5:
+		{
+			// tank water level 5
+			put_Char_LCD_Display(80, 0);
+			put_Char_LCD_Display(0b00000, 1);
+			put_Char_LCD_Display(0b11111, 1);
+			put_Char_LCD_Display(0b11111, 1);
+			put_Char_LCD_Display(0b11111, 1);
+			put_Char_LCD_Display(0b11111, 1);
+			put_Char_LCD_Display(0b11111, 1);
+			put_Char_LCD_Display(0b00000, 1);
+			put_Char_LCD_Display(0b11111, 1);
+			break;
+		}
+		case 6:
+		{
+			// tank water level 6
+			put_Char_LCD_Display(80, 0);
+			put_Char_LCD_Display(0b11111, 1);
+			put_Char_LCD_Display(0b11111, 1);
+			put_Char_LCD_Display(0b11111, 1);
+			put_Char_LCD_Display(0b11111, 1);
+			put_Char_LCD_Display(0b11111, 1);
+			put_Char_LCD_Display(0b11111, 1);
+			put_Char_LCD_Display(0b00000, 1);
+			put_Char_LCD_Display(0b11111, 1);
+			break;
+		}
+		default:
+		{
+			// tank water level 0
+			put_Char_LCD_Display(80, 0);
+			put_Char_LCD_Display(0b00000, 1);
+			put_Char_LCD_Display(0b00000, 1);
+			put_Char_LCD_Display(0b00000, 1);
+			put_Char_LCD_Display(0b00000, 1);
+			put_Char_LCD_Display(0b00000, 1);
+			put_Char_LCD_Display(0b00000, 1);
+			put_Char_LCD_Display(0b00000, 1);
+			put_Char_LCD_Display(0b11111, 1);
+			break;
+		}
+	}
+}
+
+void init_custom_characters()
+{
+	// tank water level start character
+	put_Char_LCD_Display(64, 0);
+	put_Char_LCD_Display(0b00001, 1);
+	put_Char_LCD_Display(0b00001, 1);
+	put_Char_LCD_Display(0b00001, 1);
+	put_Char_LCD_Display(0b00001, 1);
+	put_Char_LCD_Display(0b00011, 1);
+	put_Char_LCD_Display(0b00111, 1);
+	put_Char_LCD_Display(0b01101, 1);
+	put_Char_LCD_Display(0b11001, 1);
+	
+	// tank water level end character
+	put_Char_LCD_Display(72, 0);
+	put_Char_LCD_Display(0b10000, 1);
+	put_Char_LCD_Display(0b10000, 1);
+	put_Char_LCD_Display(0b10000, 1);
+	put_Char_LCD_Display(0b10000, 1);
+	put_Char_LCD_Display(0b11000, 1);
+	put_Char_LCD_Display(0b11100, 1);
+	put_Char_LCD_Display(0b10110, 1);
+	put_Char_LCD_Display(0b10011, 1);
 }
 
 // display string
@@ -104,8 +252,14 @@ void display_tank_water_level_title()
 
 void display_tank_water_level()
 {
+	init_custom_character_level(WATER_LEVEL);
 	put_Char_LCD_Display(0xC0, 0);
-	put_string("-------");
+	put_Char_LCD_Display(SPECIAL_CHARACTER_TANK_LEVEL_START, 1);
+	for(short i = 0; i < 8; i++)
+	{
+		put_Char_LCD_Display(SPECIAL_CHARACTER_TANK_WATER_LEVEL, 1);
+	}
+	put_Char_LCD_Display(SPECIAL_CHARACTER_TANK_LEVEL_END, 1);
 }
 
 // self made itoa

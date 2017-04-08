@@ -67,4 +67,5 @@ void init_globals()
 	
 	humidity_level_sensor_1 = 0;
 	humidity_level_sensor_2 = 0;
+	WATER_LEVEL = 4;
 }

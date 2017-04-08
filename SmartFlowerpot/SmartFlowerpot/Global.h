@@ -39,7 +39,7 @@
 #define ERROR_TITLE "ERRORS OCCURRED:"
 
 // String to display for tan water level
-#define TANK_WATER_LEVEL_TITLE "WATER LEVEL"
+#define TANK_WATER_LEVEL_TITLE "TANK WATER LEVEL"
 
 // ERRORS
 #define ERROR_NO_ERROR "No errors"
@@ -52,6 +52,11 @@
 #define SENSOR_VALUES_MENU 1
 #define CLOCK_MENU 2
 #define TANK_WATER_LEVEL_MENU 3
+
+#define SPECIAL_CHARACTER_TANK_LEVEL_START 0
+#define SPECIAL_CHARACTER_TANK_LEVEL_END 1
+#define SPECIAL_CHARACTER_TANK_WATER_LEVEL 2
+
 
 typedef signed char sint8;
 typedef unsigned char uint8;
@@ -67,6 +72,7 @@ unsigned int humidity_level_sensor_2;
 char MENU;
 char MENUs[10];
 char ERROR[16];
+unsigned char WATER_LEVEL;
 
 #endif /* GLOBAL_H_ */ 
 

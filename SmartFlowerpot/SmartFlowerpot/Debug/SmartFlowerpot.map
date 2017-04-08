@@ -6,6 +6,8 @@ c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/..
                               driverAdc.o (__udivmodsi4)
 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr5\libgcc.a(_exit.o)
                               C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.1.130/gcc/dev/atmega32a/avr5/crtatmega32a.o (exit)
+c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr5\libgcc.a(_tablejump2.o)
+                              IPX_LCD_Display.o (__tablejump2__)
 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr5\libgcc.a(_copy_data.o)
                               IPX_LCD_Display.o (__do_copy_data)
 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr5\libgcc.a(_clear_bss.o)
@@ -19,6 +21,7 @@ Allocating common symbols
 Common symbol       size              file
 
 MENUs               0xa               driverAdc.o
+WATER_LEVEL         0x1               driverAdc.o
 humidity_level_sensor_1
                     0x2               driverAdc.o
 humidity_level_sensor_2
@@ -89,6 +92,21 @@ Discarded input sections
                 0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr5\libgcc.a(_exit.o)
  .text.libgcc.fixed
                 0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr5\libgcc.a(_exit.o)
+ .text          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr5\libgcc.a(_tablejump2.o)
+ .data          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr5\libgcc.a(_tablejump2.o)
+ .bss           0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr5\libgcc.a(_tablejump2.o)
+ .text.libgcc.mul
+                0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr5\libgcc.a(_tablejump2.o)
+ .text.libgcc.div
+                0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr5\libgcc.a(_tablejump2.o)
+ .text.libgcc.prologue
+                0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr5\libgcc.a(_tablejump2.o)
+ .text.libgcc.builtins
+                0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr5\libgcc.a(_tablejump2.o)
+ .text.libgcc.fmul
+                0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr5\libgcc.a(_tablejump2.o)
+ .text.libgcc.fixed
+                0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr5\libgcc.a(_tablejump2.o)
  .text          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr5\libgcc.a(_copy_data.o)
  .data          0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr5\libgcc.a(_copy_data.o)
  .bss           0x00000000        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr5\libgcc.a(_copy_data.o)
@@ -277,51 +295,53 @@ END GROUP
 .rela.plt
  *(.rela.plt)
 
-.text           0x00000000      0x78c
+.text           0x00000000      0xc4a
  *(.vectors)
  .vectors       0x00000000       0x54 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.1.130/gcc/dev/atmega32a/avr5/crtatmega32a.o
                 0x00000000                __vector_default
                 0x00000000                __vectors
  *(.vectors)
  *(.progmem.gcc*)
-                0x00000054                . = ALIGN (0x2)
-                0x00000054                __trampolines_start = .
+ .progmem.gcc_sw_table.init_custom_character_level
+                0x00000054        0xe IPX_LCD_Display.o
+                0x00000062                . = ALIGN (0x2)
+                0x00000062                __trampolines_start = .
  *(.trampolines)
- .trampolines   0x00000054        0x0 linker stubs
+ .trampolines   0x00000062        0x0 linker stubs
  *(.trampolines*)
-                0x00000054                __trampolines_end = .
+                0x00000062                __trampolines_end = .
  *libprintf_flt.a:*(.progmem.data)
  *libc.a:*(.progmem.data)
  *(.progmem*)
-                0x00000054                . = ALIGN (0x2)
+                0x00000062                . = ALIGN (0x2)
  *(.jumptables)
  *(.jumptables*)
  *(.lowtext)
  *(.lowtext*)
-                0x00000054                __ctors_start = .
+                0x00000062                __ctors_start = .
  *(.ctors)
-                0x00000054                __ctors_end = .
-                0x00000054                __dtors_start = .
+                0x00000062                __ctors_end = .
+                0x00000062                __dtors_start = .
  *(.dtors)
-                0x00000054                __dtors_end = .
+                0x00000062                __dtors_end = .
  SORT(*)(.ctors)
  SORT(*)(.dtors)
  *(.init0)
- .init0         0x00000054        0x0 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.1.130/gcc/dev/atmega32a/avr5/crtatmega32a.o
-                0x00000054                __init
+ .init0         0x00000062        0x0 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.1.130/gcc/dev/atmega32a/avr5/crtatmega32a.o
+                0x00000062                __init
  *(.init0)
  *(.init1)
  *(.init1)
  *(.init2)
- .init2         0x00000054        0xc C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.1.130/gcc/dev/atmega32a/avr5/crtatmega32a.o
+ .init2         0x00000062        0xc C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.1.130/gcc/dev/atmega32a/avr5/crtatmega32a.o
  *(.init2)
  *(.init3)
  *(.init3)
  *(.init4)
- .init4         0x00000060       0x16 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr5\libgcc.a(_copy_data.o)
-                0x00000060                __do_copy_data
- .init4         0x00000076       0x10 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr5\libgcc.a(_clear_bss.o)
-                0x00000076                __do_clear_bss
+ .init4         0x0000006e       0x16 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr5\libgcc.a(_copy_data.o)
+                0x0000006e                __do_copy_data
+ .init4         0x00000084       0x10 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr5\libgcc.a(_clear_bss.o)
+                0x00000084                __do_clear_bss
  *(.init4)
  *(.init5)
  *(.init5)
@@ -332,128 +352,136 @@ END GROUP
  *(.init8)
  *(.init8)
  *(.init9)
- .init9         0x00000086        0x8 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.1.130/gcc/dev/atmega32a/avr5/crtatmega32a.o
+ .init9         0x00000094        0x8 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.1.130/gcc/dev/atmega32a/avr5/crtatmega32a.o
  *(.init9)
  *(.text)
- .text          0x0000008e        0x4 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.1.130/gcc/dev/atmega32a/avr5/crtatmega32a.o
-                0x0000008e                __vector_1
-                0x0000008e                __vector_12
-                0x0000008e                __bad_interrupt
-                0x0000008e                __vector_6
-                0x0000008e                __vector_3
-                0x0000008e                __vector_11
-                0x0000008e                __vector_13
-                0x0000008e                __vector_17
-                0x0000008e                __vector_19
-                0x0000008e                __vector_5
-                0x0000008e                __vector_4
-                0x0000008e                __vector_9
-                0x0000008e                __vector_2
-                0x0000008e                __vector_15
-                0x0000008e                __vector_8
-                0x0000008e                __vector_14
-                0x0000008e                __vector_16
-                0x0000008e                __vector_18
-                0x0000008e                __vector_20
-                0x00000092                . = ALIGN (0x2)
+ .text          0x0000009c        0x4 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.1.130/gcc/dev/atmega32a/avr5/crtatmega32a.o
+                0x0000009c                __vector_1
+                0x0000009c                __vector_12
+                0x0000009c                __bad_interrupt
+                0x0000009c                __vector_6
+                0x0000009c                __vector_3
+                0x0000009c                __vector_11
+                0x0000009c                __vector_13
+                0x0000009c                __vector_17
+                0x0000009c                __vector_19
+                0x0000009c                __vector_5
+                0x0000009c                __vector_4
+                0x0000009c                __vector_9
+                0x0000009c                __vector_2
+                0x0000009c                __vector_15
+                0x0000009c                __vector_8
+                0x0000009c                __vector_14
+                0x0000009c                __vector_16
+                0x0000009c                __vector_18
+                0x0000009c                __vector_20
+                0x000000a0                . = ALIGN (0x2)
  *(.text.*)
  .text.ADC_Init
-                0x00000092        0xc driverAdc.o
-                0x00000092                ADC_Init
+                0x000000a0        0xc driverAdc.o
+                0x000000a0                ADC_Init
  .text.ADC_GetValue
-                0x0000009e       0x16 driverAdc.o
-                0x0000009e                ADC_GetValue
+                0x000000ac       0x16 driverAdc.o
+                0x000000ac                ADC_GetValue
  .text.read_humidity_level
-                0x000000b4       0x58 driverAdc.o
-                0x000000b4                read_humidity_level
+                0x000000c2       0x58 driverAdc.o
+                0x000000c2                read_humidity_level
  .text.init_interrupt_10ms
-                0x0000010c       0x10 IPX_Interrupt.o
-                0x0000010c                init_interrupt_10ms
+                0x0000011a       0x10 IPX_Interrupt.o
+                0x0000011a                init_interrupt_10ms
  .text.__vector_10
-                0x0000011c       0x34 IPX_Interrupt.o
-                0x0000011c                __vector_10
+                0x0000012a       0x34 IPX_Interrupt.o
+                0x0000012a                __vector_10
  .text.init_interrupt_200ms
-                0x00000150       0x1a IPX_Interrupt.o
-                0x00000150                init_interrupt_200ms
+                0x0000015e       0x1a IPX_Interrupt.o
+                0x0000015e                init_interrupt_200ms
  .text.__vector_7
-                0x0000016a       0x82 IPX_Interrupt.o
-                0x0000016a                __vector_7
+                0x00000178       0x82 IPX_Interrupt.o
+                0x00000178                __vector_7
  .text.put_Char_LCD_Display
-                0x000001ec       0x5e IPX_LCD_Display.o
-                0x000001ec                put_Char_LCD_Display
+                0x000001fa       0x5e IPX_LCD_Display.o
+                0x000001fa                put_Char_LCD_Display
+ .text.init_custom_character_level
+                0x00000258      0x38a IPX_LCD_Display.o
+                0x00000258                init_custom_character_level
+ .text.init_custom_characters
+                0x000005e2       0xda IPX_LCD_Display.o
+                0x000005e2                init_custom_characters
  .text.init_LCD_Display
-                0x0000024a       0xba IPX_LCD_Display.o
-                0x0000024a                init_LCD_Display
+                0x000006bc       0xbe IPX_LCD_Display.o
+                0x000006bc                init_LCD_Display
  .text.put_string
-                0x00000304       0x4a IPX_LCD_Display.o
-                0x00000304                put_string
+                0x0000077a       0x4a IPX_LCD_Display.o
+                0x0000077a                put_string
  .text.display_umidity_level_title
-                0x0000034e       0x6c IPX_LCD_Display.o
-                0x0000034e                display_umidity_level_title
+                0x000007c4       0x6c IPX_LCD_Display.o
+                0x000007c4                display_umidity_level_title
  .text.display_error_title
-                0x000003ba       0x22 IPX_LCD_Display.o
-                0x000003ba                display_error_title
+                0x00000830       0x22 IPX_LCD_Display.o
+                0x00000830                display_error_title
  .text.display_error
-                0x000003dc       0x16 IPX_LCD_Display.o
-                0x000003dc                display_error
+                0x00000852       0x16 IPX_LCD_Display.o
+                0x00000852                display_error
  .text.display_tank_water_level_title
-                0x000003f2       0x22 IPX_LCD_Display.o
-                0x000003f2                display_tank_water_level_title
+                0x00000868       0x22 IPX_LCD_Display.o
+                0x00000868                display_tank_water_level_title
  .text.display_tank_water_level
-                0x00000414       0x16 IPX_LCD_Display.o
-                0x00000414                display_tank_water_level
+                0x0000088a       0x4c IPX_LCD_Display.o
+                0x0000088a                display_tank_water_level
  .text.humidity_level_int_value_to_string
-                0x0000042a       0x6a IPX_LCD_Display.o
-                0x0000042a                humidity_level_int_value_to_string
+                0x000008d6       0x6a IPX_LCD_Display.o
+                0x000008d6                humidity_level_int_value_to_string
  .text.display_umidity_level_values
-                0x00000494       0x5a IPX_LCD_Display.o
-                0x00000494                display_umidity_level_values
+                0x00000940       0x5a IPX_LCD_Display.o
+                0x00000940                display_umidity_level_values
  .text.display_clock_title
-                0x000004ee       0x36 IPX_LCD_Display.o
-                0x000004ee                display_clock_title
+                0x0000099a       0x36 IPX_LCD_Display.o
+                0x0000099a                display_clock_title
  .text.display_initializing_message
-                0x00000524       0x22 IPX_LCD_Display.o
-                0x00000524                display_initializing_message
+                0x000009d0       0x22 IPX_LCD_Display.o
+                0x000009d0                display_initializing_message
  .text.display_clock_values
-                0x00000546       0x2a IPX_LCD_Display.o
-                0x00000546                display_clock_values
+                0x000009f2       0x2a IPX_LCD_Display.o
+                0x000009f2                display_clock_values
  .text.display_values
-                0x00000570       0x42 IPX_LCD_Display.o
-                0x00000570                display_values
- .text.init_uC  0x000005b2        0x4 main.o
-                0x000005b2                init_uC
+                0x00000a1c       0x42 IPX_LCD_Display.o
+                0x00000a1c                display_values
+ .text.init_uC  0x00000a5e        0x4 main.o
+                0x00000a5e                init_uC
  .text.init_globals
-                0x000005b6       0x44 main.o
-                0x000005b6                init_globals
+                0x00000a62       0x4a main.o
+                0x00000a62                init_globals
  .text.general_init
-                0x000005fa        0xa main.o
-                0x000005fa                general_init
- .text.main     0x00000604       0x34 main.o
-                0x00000604                main
+                0x00000aac        0xa main.o
+                0x00000aac                general_init
+ .text.main     0x00000ab6       0x34 main.o
+                0x00000ab6                main
  .text.set_menu_title
-                0x00000638       0x40 Menu.o
-                0x00000638                set_menu_title
+                0x00000aea       0x40 Menu.o
+                0x00000aea                set_menu_title
  .text.change_menu
-                0x00000678       0x5e Menu.o
-                0x00000678                change_menu
+                0x00000b2a       0x5e Menu.o
+                0x00000b2a                change_menu
  .text.libgcc.div
-                0x000006d6       0x28 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr5\libgcc.a(_divmodhi4.o)
-                0x000006d6                _div
-                0x000006d6                __divmodhi4
+                0x00000b88       0x28 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr5\libgcc.a(_divmodhi4.o)
+                0x00000b88                _div
+                0x00000b88                __divmodhi4
  .text.libgcc.div
-                0x000006fe       0x44 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr5\libgcc.a(_udivmodsi4.o)
-                0x000006fe                __udivmodsi4
+                0x00000bb0       0x44 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr5\libgcc.a(_udivmodsi4.o)
+                0x00000bb0                __udivmodsi4
+ .text.libgcc   0x00000bf4        0xc c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr5\libgcc.a(_tablejump2.o)
+                0x00000bf4                __tablejump2__
  .text.libgcc.mul
-                0x00000742       0x1e c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr5\libgcc.a(_umulhisi3.o)
-                0x00000742                __umulhisi3
+                0x00000c00       0x1e c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr5\libgcc.a(_umulhisi3.o)
+                0x00000c00                __umulhisi3
  .text.libgcc.div
-                0x00000760       0x28 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr5\libgcc.a(_udivmodhi4.o)
-                0x00000760                __udivmodhi4
-                0x00000788                . = ALIGN (0x2)
+                0x00000c1e       0x28 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr5\libgcc.a(_udivmodhi4.o)
+                0x00000c1e                __udivmodhi4
+                0x00000c46                . = ALIGN (0x2)
  *(.fini9)
- .fini9         0x00000788        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr5\libgcc.a(_exit.o)
-                0x00000788                _exit
-                0x00000788                exit
+ .fini9         0x00000c46        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr5\libgcc.a(_exit.o)
+                0x00000c46                _exit
+                0x00000c46                exit
  *(.fini9)
  *(.fini8)
  *(.fini8)
@@ -472,56 +500,58 @@ END GROUP
  *(.fini1)
  *(.fini1)
  *(.fini0)
- .fini0         0x00000788        0x4 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr5\libgcc.a(_exit.o)
+ .fini0         0x00000c46        0x4 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr5\libgcc.a(_exit.o)
  *(.fini0)
-                0x0000078c                _etext = .
+                0x00000c4a                _etext = .
 
-.data           0x00800060       0x92 load address 0x0000078c
+.data           0x00800060       0x90 load address 0x00000c4a
                 0x00800060                PROVIDE (__data_start, .)
  *(.data)
  *(.data*)
  *(.rodata)
  *(.rodata*)
  .rodata.str1.1
-                0x00800060       0x77 IPX_LCD_Display.o
+                0x00800060       0x74 IPX_LCD_Display.o
  .rodata.str1.1
-                0x008000d7        0xa main.o
+                0x008000d4        0xa main.o
  .rodata.str1.1
-                0x008000e1       0x11 Menu.o
+                0x008000de       0x11 Menu.o
                                  0x1b (size before relaxing)
  *(.gnu.linkonce.d*)
-                0x008000f2                . = ALIGN (0x2)
-                0x008000f2                _edata = .
-                0x008000f2                PROVIDE (__data_end, .)
+                0x008000f0                . = ALIGN (0x2)
+ *fill*         0x008000ef        0x1 
+                0x008000f0                _edata = .
+                0x008000f0                PROVIDE (__data_end, .)
 
-.bss            0x008000f2       0x27
-                0x008000f2                PROVIDE (__bss_start, .)
+.bss            0x008000f0       0x28
+                0x008000f0                PROVIDE (__bss_start, .)
  *(.bss)
  *(.bss*)
  .bss.interruptCnt
-                0x008000f2        0x2 IPX_Interrupt.o
-                0x008000f2                interruptCnt
+                0x008000f0        0x2 IPX_Interrupt.o
+                0x008000f0                interruptCnt
  .bss.read_humidity_counter
-                0x008000f4        0x2 IPX_Interrupt.o
-                0x008000f4                read_humidity_counter
- .bss.humidity_level.1793
-                0x008000f6        0x4 IPX_LCD_Display.o
+                0x008000f2        0x2 IPX_Interrupt.o
+                0x008000f2                read_humidity_counter
+ .bss.humidity_level.1813
+                0x008000f4        0x4 IPX_LCD_Display.o
  *(COMMON)
- COMMON         0x008000fa       0x1f driverAdc.o
-                0x008000fa                MENUs
-                0x00800104                humidity_level_sensor_1
-                0x00800106                humidity_level_sensor_2
-                0x00800108                MENU
-                0x00800109                ERROR
-                0x00800119                PROVIDE (__bss_end, .)
-                0x0000078c                __data_load_start = LOADADDR (.data)
-                0x0000081e                __data_load_end = (__data_load_start + SIZEOF (.data))
+ COMMON         0x008000f8       0x20 driverAdc.o
+                0x008000f8                MENUs
+                0x00800102                WATER_LEVEL
+                0x00800103                humidity_level_sensor_1
+                0x00800105                humidity_level_sensor_2
+                0x00800107                MENU
+                0x00800108                ERROR
+                0x00800118                PROVIDE (__bss_end, .)
+                0x00000c4a                __data_load_start = LOADADDR (.data)
+                0x00000cda                __data_load_end = (__data_load_start + SIZEOF (.data))
 
-.noinit         0x00800119        0x0
+.noinit         0x00800118        0x0
                 [!provide]                PROVIDE (__noinit_start, .)
  *(.noinit*)
                 [!provide]                PROVIDE (__noinit_end, .)
-                0x00800119                _end = .
+                0x00800118                _end = .
                 [!provide]                PROVIDE (__heap_start, .)
 
 .eeprom         0x00810000        0x0
@@ -590,77 +620,77 @@ END GROUP
 .debug_sfnames
  *(.debug_sfnames)
 
-.debug_aranges  0x00000000      0x150
+.debug_aranges  0x00000000      0x160
  *(.debug_aranges)
  .debug_aranges
                 0x00000000       0x30 driverAdc.o
  .debug_aranges
                 0x00000030       0x38 IPX_Interrupt.o
  .debug_aranges
-                0x00000068       0x88 IPX_LCD_Display.o
+                0x00000068       0x98 IPX_LCD_Display.o
  .debug_aranges
-                0x000000f0       0x38 main.o
+                0x00000100       0x38 main.o
  .debug_aranges
-                0x00000128       0x28 Menu.o
+                0x00000138       0x28 Menu.o
 
 .debug_pubnames
  *(.debug_pubnames)
 
-.debug_info     0x00000000     0x1902
+.debug_info     0x00000000     0x2618
  *(.debug_info .gnu.linkonce.wi.*)
  .debug_info    0x00000000      0x4e6 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.1.130/gcc/dev/atmega32a/avr5/crtatmega32a.o
- .debug_info    0x000004e6      0x19a driverAdc.o
- .debug_info    0x00000680      0x1d8 IPX_Interrupt.o
- .debug_info    0x00000858      0xbb5 IPX_LCD_Display.o
- .debug_info    0x0000140d      0x287 main.o
- .debug_info    0x00001694      0x26e Menu.o
+ .debug_info    0x000004e6      0x1ac driverAdc.o
+ .debug_info    0x00000692      0x1ea IPX_Interrupt.o
+ .debug_info    0x0000087c     0x1883 IPX_LCD_Display.o
+ .debug_info    0x000020ff      0x299 main.o
+ .debug_info    0x00002398      0x280 Menu.o
 
-.debug_abbrev   0x00000000      0xb6c
+.debug_abbrev   0x00000000      0xbc9
  *(.debug_abbrev)
  .debug_abbrev  0x00000000      0x4a3 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.1.130/gcc/dev/atmega32a/avr5/crtatmega32a.o
  .debug_abbrev  0x000004a3       0xec driverAdc.o
  .debug_abbrev  0x0000058f      0x108 IPX_Interrupt.o
- .debug_abbrev  0x00000697      0x1e6 IPX_LCD_Display.o
- .debug_abbrev  0x0000087d      0x190 main.o
- .debug_abbrev  0x00000a0d      0x15f Menu.o
+ .debug_abbrev  0x00000697      0x243 IPX_LCD_Display.o
+ .debug_abbrev  0x000008da      0x190 main.o
+ .debug_abbrev  0x00000a6a      0x15f Menu.o
 
-.debug_line     0x00000000      0xc36
+.debug_line     0x00000000      0xed7
  *(.debug_line .debug_line.* .debug_line_end)
  .debug_line    0x00000000      0x115 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.1.130/gcc/dev/atmega32a/avr5/crtatmega32a.o
  .debug_line    0x00000115      0x122 driverAdc.o
  .debug_line    0x00000237      0x17d IPX_Interrupt.o
- .debug_line    0x000003b4      0x49e IPX_LCD_Display.o
- .debug_line    0x00000852      0x224 main.o
- .debug_line    0x00000a76      0x1c0 Menu.o
+ .debug_line    0x000003b4      0x739 IPX_LCD_Display.o
+ .debug_line    0x00000aed      0x22a main.o
+ .debug_line    0x00000d17      0x1c0 Menu.o
 
-.debug_frame    0x00000000      0x2a8
+.debug_frame    0x00000000      0x2d4
  *(.debug_frame)
  .debug_frame   0x00000000       0x44 driverAdc.o
  .debug_frame   0x00000044       0xb0 IPX_Interrupt.o
- .debug_frame   0x000000f4      0x12c IPX_LCD_Display.o
- .debug_frame   0x00000220       0x54 main.o
- .debug_frame   0x00000274       0x34 Menu.o
+ .debug_frame   0x000000f4      0x158 IPX_LCD_Display.o
+ .debug_frame   0x0000024c       0x54 main.o
+ .debug_frame   0x000002a0       0x34 Menu.o
 
-.debug_str      0x00000000      0x6a1
+.debug_str      0x00000000      0x6e0
  *(.debug_str)
  .debug_str     0x00000000      0x196 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.1.130/gcc/dev/atmega32a/avr5/crtatmega32a.o
- .debug_str     0x00000196      0x1da driverAdc.o
-                                0x213 (size before relaxing)
- .debug_str     0x00000370       0x87 IPX_Interrupt.o
-                                0x263 (size before relaxing)
- .debug_str     0x000003f7      0x23e IPX_LCD_Display.o
-                                0x437 (size before relaxing)
- .debug_str     0x00000635       0x3f main.o
-                                0x2a9 (size before relaxing)
- .debug_str     0x00000674       0x2d Menu.o
-                                0x2a3 (size before relaxing)
+ .debug_str     0x00000196      0x1e6 driverAdc.o
+                                0x21f (size before relaxing)
+ .debug_str     0x0000037c       0x87 IPX_Interrupt.o
+                                0x26f (size before relaxing)
+ .debug_str     0x00000403      0x27b IPX_LCD_Display.o
+                                0x480 (size before relaxing)
+ .debug_str     0x0000067e       0x3f main.o
+                                0x2b5 (size before relaxing)
+ .debug_str     0x000006bd       0x23 Menu.o
+                                0x2af (size before relaxing)
 
-.debug_loc      0x00000000      0x689
+.debug_loc      0x00000000      0x6f9
  *(.debug_loc)
  .debug_loc     0x00000000       0x81 driverAdc.o
  .debug_loc     0x00000081      0x114 IPX_Interrupt.o
- .debug_loc     0x00000195      0x348 IPX_LCD_Display.o
- .debug_loc     0x000004dd      0x1ac Menu.o
+ .debug_loc     0x00000195      0x3b8 IPX_LCD_Display.o
+ .debug_loc     0x0000054d      0x1ac Menu.o
 
 .debug_macinfo
  *(.debug_macinfo)
@@ -680,13 +710,13 @@ END GROUP
 .debug_pubtypes
  *(.debug_pubtypes)
 
-.debug_ranges   0x00000000      0x100
+.debug_ranges   0x00000000      0x110
  *(.debug_ranges)
  .debug_ranges  0x00000000       0x20 driverAdc.o
  .debug_ranges  0x00000020       0x28 IPX_Interrupt.o
- .debug_ranges  0x00000048       0x78 IPX_LCD_Display.o
- .debug_ranges  0x000000c0       0x28 main.o
- .debug_ranges  0x000000e8       0x18 Menu.o
+ .debug_ranges  0x00000048       0x88 IPX_LCD_Display.o
+ .debug_ranges  0x000000d0       0x28 main.o
+ .debug_ranges  0x000000f8       0x18 Menu.o
 
 .debug_macro
  *(.debug_macro)
