@@ -14,6 +14,7 @@
 #include "driverAdc.h"
 #include "IPX_Interrupt.h"
 #include "Menu.h"
+#include "WaterLevelSensor.h"
 
 void general_init();
 void init_globals();
@@ -27,6 +28,7 @@ int main(void)
 	init_interrupt_200ms();
 	ADC_Init();
 	init_LCD_Display();
+	init_ipx_water_level_sensor();
 	
 	
 	display_initializing_message();
@@ -67,5 +69,5 @@ void init_globals()
 	
 	humidity_level_sensor_1 = 0;
 	humidity_level_sensor_2 = 0;
-	WATER_LEVEL = 4;
+	WATER_LEVEL = 0;
 }

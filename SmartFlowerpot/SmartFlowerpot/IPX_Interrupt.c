@@ -13,13 +13,16 @@
 #include "IPX_LCD_Display.h"
 #include "driverAdc.h"
 #include "Menu.h"
+#include "WaterLevelSensor.h"
 
 #define INTERRUPT_200MS 200
 #define INTERRUPT_10MS 10
 
 #define READ_SENSORS_VALUES_PERIOD SENSORS_READ_INTERVAL / INTERRUPT_200MS
+#define READ_TANK_WATER_LEVEL_PERIOD TANK_WATER_LEVEL_READ_INTERVAL / INTERRUPT_200MS
 
 unsigned int read_humidity_counter = 0;
+unsigned int read_tank_water_level_counter = 201;
 
 volatile int interruptCnt = 0;
 
@@ -74,5 +77,10 @@ ISR (TIMER1_COMPA_vect)
 		read_humidity_counter = 0;
 		read_humidity_level(SENSOR_1);
 		read_humidity_level(SENSOR_2);
+	}
+	read_tank_water_level_counter ++;
+	if (read_tank_water_level_counter >= READ_TANK_WATER_LEVEL_PERIOD)
+	{
+		read_tank_water_level();
 	}
 }

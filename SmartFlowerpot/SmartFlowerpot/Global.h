@@ -21,6 +21,9 @@
 // Timer between humidity level data acquisition, measured in ms 
 #define SENSORS_READ_INTERVAL 600
 
+// Timer between water level in tank data acquisition, measured in ms 
+#define TANK_WATER_LEVEL_READ_INTERVAL 600
+
 // Strings to display for humidity level
 #define SENSOR_1_TITLE "Sensor 1: "
 #define SENSOR_2_TITLE "Sensor 2: "
