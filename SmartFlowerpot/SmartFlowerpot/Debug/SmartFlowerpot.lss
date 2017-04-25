@@ -3,31 +3,31 @@ SmartFlowerpot.elf:     file format elf32-avr
 
 Sections:
 Idx Name          Size      VMA       LMA       File off  Algn
-  0 .text         00000cc2  00000000  00000000  00000094  2**1
+  0 .text         00000d5a  00000000  00000000  00000094  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
-  1 .data         00000092  00800060  00000cc2  00000d56  2**0
+  1 .data         00000092  00800060  00000d5a  00000dee  2**0
                   CONTENTS, ALLOC, LOAD, DATA
-  2 .bss          00000028  008000f2  008000f2  00000de8  2**0
+  2 .bss          00000029  008000f2  008000f2  00000e80  2**0
                   ALLOC
-  3 .comment      00000030  00000000  00000000  00000de8  2**0
+  3 .comment      00000030  00000000  00000000  00000e80  2**0
                   CONTENTS, READONLY
-  4 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  00000e18  2**2
+  4 .note.gnu.avr.deviceinfo 0000003c  00000000  00000000  00000eb0  2**2
                   CONTENTS, READONLY
-  5 .debug_aranges 00000188  00000000  00000000  00000e54  2**0
+  5 .debug_aranges 000001b8  00000000  00000000  00000eec  2**0
                   CONTENTS, READONLY, DEBUGGING
-  6 .debug_info   0000279f  00000000  00000000  00000fdc  2**0
+  6 .debug_info   00002aa6  00000000  00000000  000010a4  2**0
                   CONTENTS, READONLY, DEBUGGING
-  7 .debug_abbrev 00000c66  00000000  00000000  0000377b  2**0
+  7 .debug_abbrev 00000db7  00000000  00000000  00003b4a  2**0
                   CONTENTS, READONLY, DEBUGGING
-  8 .debug_line   0000105c  00000000  00000000  000043e1  2**0
+  8 .debug_line   0000123c  00000000  00000000  00004901  2**0
                   CONTENTS, READONLY, DEBUGGING
-  9 .debug_frame  00000308  00000000  00000000  00005440  2**2
+  9 .debug_frame  0000035c  00000000  00000000  00005b40  2**2
                   CONTENTS, READONLY, DEBUGGING
- 10 .debug_str    00000741  00000000  00000000  00005748  2**0
+ 10 .debug_str    0000078d  00000000  00000000  00005e9c  2**0
                   CONTENTS, READONLY, DEBUGGING
- 11 .debug_loc    000006f9  00000000  00000000  00005e89  2**0
+ 11 .debug_loc    00000762  00000000  00000000  00006629  2**0
                   CONTENTS, READONLY, DEBUGGING
- 12 .debug_ranges 00000128  00000000  00000000  00006582  2**0
+ 12 .debug_ranges 00000148  00000000  00000000  00006d8b  2**0
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -46,7 +46,7 @@ Disassembly of section .text:
   28:	0c 94 95 00 	jmp	0x12a	; 0x12a <__vector_10>
   2c:	0c 94 4e 00 	jmp	0x9c	; 0x9c <__bad_interrupt>
   30:	0c 94 4e 00 	jmp	0x9c	; 0x9c <__bad_interrupt>
-  34:	0c 94 4e 00 	jmp	0x9c	; 0x9c <__bad_interrupt>
+  34:	0c 94 5a 05 	jmp	0xab4	; 0xab4 <__vector_13>
   38:	0c 94 4e 00 	jmp	0x9c	; 0x9c <__bad_interrupt>
   3c:	0c 94 4e 00 	jmp	0x9c	; 0x9c <__bad_interrupt>
   40:	0c 94 4e 00 	jmp	0x9c	; 0x9c <__bad_interrupt>
@@ -54,13 +54,13 @@ Disassembly of section .text:
   48:	0c 94 4e 00 	jmp	0x9c	; 0x9c <__bad_interrupt>
   4c:	0c 94 4e 00 	jmp	0x9c	; 0x9c <__bad_interrupt>
   50:	0c 94 4e 00 	jmp	0x9c	; 0x9c <__bad_interrupt>
-  54:	46 01       	movw	r8, r12
-  56:	7d 01       	movw	r14, r26
-  58:	b4 01       	movw	r22, r8
-  5a:	eb 01       	movw	r28, r22
-  5c:	22 02       	muls	r18, r18
-  5e:	59 02       	muls	r21, r25
-  60:	90 02       	muls	r25, r16
+  54:	5b 01       	movw	r10, r22
+  56:	92 01       	movw	r18, r4
+  58:	c9 01       	movw	r24, r18
+  5a:	00 02       	muls	r16, r16
+  5c:	37 02       	muls	r19, r23
+  5e:	6e 02       	muls	r22, r30
+  60:	a5 02       	muls	r26, r21
 
 00000062 <__ctors_end>:
   62:	11 24       	eor	r1, r1
@@ -74,8 +74,8 @@ Disassembly of section .text:
   6e:	10 e0       	ldi	r17, 0x00	; 0
   70:	a0 e6       	ldi	r26, 0x60	; 96
   72:	b0 e0       	ldi	r27, 0x00	; 0
-  74:	e2 ec       	ldi	r30, 0xC2	; 194
-  76:	fc e0       	ldi	r31, 0x0C	; 12
+  74:	ea e5       	ldi	r30, 0x5A	; 90
+  76:	fd e0       	ldi	r31, 0x0D	; 13
   78:	02 c0       	rjmp	.+4      	; 0x7e <__do_copy_data+0x10>
   7a:	05 90       	lpm	r0, Z+
   7c:	0d 92       	st	X+, r0
@@ -93,11 +93,11 @@ Disassembly of section .text:
   8c:	1d 92       	st	X+, r1
 
 0000008e <.do_clear_bss_start>:
-  8e:	aa 31       	cpi	r26, 0x1A	; 26
+  8e:	ab 31       	cpi	r26, 0x1B	; 27
   90:	b2 07       	cpc	r27, r18
   92:	e1 f7       	brne	.-8      	; 0x8c <.do_clear_bss_loop>
-  94:	0e 94 67 05 	call	0xace	; 0xace <main>
-  98:	0c 94 5f 06 	jmp	0xcbe	; 0xcbe <_exit>
+  94:	0e 94 b1 05 	call	0xb62	; 0xb62 <main>
+  98:	0c 94 ab 06 	jmp	0xd56	; 0xd56 <_exit>
 
 0000009c <__bad_interrupt>:
   9c:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
@@ -179,12 +179,12 @@ void read_humidity_level(int sensor)
   d4:	9c 01       	movw	r18, r24
   d6:	a4 e6       	ldi	r26, 0x64	; 100
   d8:	b0 e0       	ldi	r27, 0x00	; 0
-  da:	0e 94 3c 06 	call	0xc78	; 0xc78 <__umulhisi3>
+  da:	0e 94 88 06 	call	0xd10	; 0xd10 <__umulhisi3>
   de:	2f ef       	ldi	r18, 0xFF	; 255
   e0:	33 e0       	ldi	r19, 0x03	; 3
   e2:	40 e0       	ldi	r20, 0x00	; 0
   e4:	50 e0       	ldi	r21, 0x00	; 0
-  e6:	0e 94 14 06 	call	0xc28	; 0xc28 <__udivmodsi4>
+  e6:	0e 94 60 06 	call	0xcc0	; 0xcc0 <__udivmodsi4>
   ea:	30 93 06 01 	sts	0x0106, r19	; 0x800106 <humidity_level_sensor_1+0x1>
   ee:	20 93 05 01 	sts	0x0105, r18	; 0x800105 <humidity_level_sensor_1>
 			break;
@@ -198,12 +198,12 @@ void read_humidity_level(int sensor)
   fa:	9c 01       	movw	r18, r24
   fc:	a4 e6       	ldi	r26, 0x64	; 100
   fe:	b0 e0       	ldi	r27, 0x00	; 0
- 100:	0e 94 3c 06 	call	0xc78	; 0xc78 <__umulhisi3>
+ 100:	0e 94 88 06 	call	0xd10	; 0xd10 <__umulhisi3>
  104:	2f ef       	ldi	r18, 0xFF	; 255
  106:	33 e0       	ldi	r19, 0x03	; 3
  108:	40 e0       	ldi	r20, 0x00	; 0
  10a:	50 e0       	ldi	r21, 0x00	; 0
- 10c:	0e 94 14 06 	call	0xc28	; 0xc28 <__udivmodsi4>
+ 10c:	0e 94 60 06 	call	0xcc0	; 0xcc0 <__udivmodsi4>
  110:	30 93 08 01 	sts	0x0108, r19	; 0x800108 <humidity_level_sensor_2+0x1>
  114:	20 93 07 01 	sts	0x0107, r18	; 0x800107 <humidity_level_sensor_2>
  118:	08 95       	ret
@@ -320,7 +320,7 @@ ISR (TIMER1_COMPA_vect)
  198:	ff 93       	push	r31
 	// toggle led here
 	display_values();
- 19a:	0e 94 1b 05 	call	0xa36	; 0xa36 <display_values>
+ 19a:	0e 94 30 05 	call	0xa60	; 0xa60 <display_values>
 	PORTB ^= (1 << 0);  // toggles the led
  19e:	98 b3       	in	r25, 0x18	; 24
  1a0:	81 e0       	ldi	r24, 0x01	; 1
@@ -361,1868 +361,1984 @@ ISR (TIMER1_COMPA_vect)
  1d8:	80 91 60 00 	lds	r24, 0x0060	; 0x800060 <__data_start>
  1dc:	90 91 61 00 	lds	r25, 0x0061	; 0x800061 <__data_start+0x1>
  1e0:	01 96       	adiw	r24, 0x01	; 1
- 1e2:	90 93 61 00 	sts	0x0061, r25	; 0x800061 <__data_start+0x1>
- 1e6:	80 93 60 00 	sts	0x0060, r24	; 0x800060 <__data_start>
 	if (read_tank_water_level_counter >= READ_TANK_WATER_LEVEL_PERIOD)
- 1ea:	03 97       	sbiw	r24, 0x03	; 3
- 1ec:	10 f0       	brcs	.+4      	; 0x1f2 <__vector_7+0x7a>
+ 1e2:	83 30       	cpi	r24, 0x03	; 3
+ 1e4:	91 05       	cpc	r25, r1
+ 1e6:	28 f4       	brcc	.+10     	; 0x1f2 <__vector_7+0x7a>
 	{
+		read_humidity_counter = 0;
+		read_humidity_level(SENSOR_1);
+		read_humidity_level(SENSOR_2);
+	}
+	read_tank_water_level_counter ++;
+ 1e8:	90 93 61 00 	sts	0x0061, r25	; 0x800061 <__data_start+0x1>
+ 1ec:	80 93 60 00 	sts	0x0060, r24	; 0x800060 <__data_start>
+ 1f0:	15 c0       	rjmp	.+42     	; 0x21c <__vector_7+0xa4>
+	if (read_tank_water_level_counter >= READ_TANK_WATER_LEVEL_PERIOD)
+	{
+		read_tank_water_level_counter = 0;
+ 1f2:	10 92 61 00 	sts	0x0061, r1	; 0x800061 <__data_start+0x1>
+ 1f6:	10 92 60 00 	sts	0x0060, r1	; 0x800060 <__data_start>
+		
 		read_tank_water_level();
- 1ee:	0e 94 d9 05 	call	0xbb2	; 0xbb2 <read_tank_water_level>
+ 1fa:	0e 94 25 06 	call	0xc4a	; 0xc4a <read_tank_water_level>
+		send_uart_data_tank_water_level();
+ 1fe:	60 91 04 01 	lds	r22, 0x0104	; 0x800104 <WATER_LEVEL>
+ 202:	81 e0       	ldi	r24, 0x01	; 1
+ 204:	0e 94 69 05 	call	0xad2	; 0xad2 <send_uart_8bits_data>
+		send_uart_data_humidity_sensor_1();
+ 208:	60 91 05 01 	lds	r22, 0x0105	; 0x800105 <humidity_level_sensor_1>
+ 20c:	82 e0       	ldi	r24, 0x02	; 2
+ 20e:	0e 94 69 05 	call	0xad2	; 0xad2 <send_uart_8bits_data>
+		send_uart_data_humidity_sensor_2();
+ 212:	60 91 07 01 	lds	r22, 0x0107	; 0x800107 <humidity_level_sensor_2>
+ 216:	83 e0       	ldi	r24, 0x03	; 3
+ 218:	0e 94 69 05 	call	0xad2	; 0xad2 <send_uart_8bits_data>
 	}
 }
- 1f2:	ff 91       	pop	r31
- 1f4:	ef 91       	pop	r30
- 1f6:	bf 91       	pop	r27
- 1f8:	af 91       	pop	r26
- 1fa:	9f 91       	pop	r25
- 1fc:	8f 91       	pop	r24
- 1fe:	7f 91       	pop	r23
- 200:	6f 91       	pop	r22
- 202:	5f 91       	pop	r21
- 204:	4f 91       	pop	r20
- 206:	3f 91       	pop	r19
- 208:	2f 91       	pop	r18
- 20a:	0f 90       	pop	r0
- 20c:	0f be       	out	0x3f, r0	; 63
- 20e:	0f 90       	pop	r0
- 210:	1f 90       	pop	r1
- 212:	18 95       	reti
+ 21c:	ff 91       	pop	r31
+ 21e:	ef 91       	pop	r30
+ 220:	bf 91       	pop	r27
+ 222:	af 91       	pop	r26
+ 224:	9f 91       	pop	r25
+ 226:	8f 91       	pop	r24
+ 228:	7f 91       	pop	r23
+ 22a:	6f 91       	pop	r22
+ 22c:	5f 91       	pop	r21
+ 22e:	4f 91       	pop	r20
+ 230:	3f 91       	pop	r19
+ 232:	2f 91       	pop	r18
+ 234:	0f 90       	pop	r0
+ 236:	0f be       	out	0x3f, r0	; 63
+ 238:	0f 90       	pop	r0
+ 23a:	1f 90       	pop	r1
+ 23c:	18 95       	reti
 
-00000214 <put_Char_LCD_Display>:
+0000023e <put_Char_LCD_Display>:
 void init_custom_characters();
 void init_custom_character_level();
 
 void put_Char_LCD_Display(int ch, int type)
 {
 	PORTC = (PORTC&0x0F)|(ch&0xF0);
- 214:	25 b3       	in	r18, 0x15	; 21
- 216:	38 2f       	mov	r19, r24
- 218:	30 7f       	andi	r19, 0xF0	; 240
- 21a:	2f 70       	andi	r18, 0x0F	; 15
- 21c:	23 2b       	or	r18, r19
- 21e:	25 bb       	out	0x15, r18	; 21
+ 23e:	25 b3       	in	r18, 0x15	; 21
+ 240:	38 2f       	mov	r19, r24
+ 242:	30 7f       	andi	r19, 0xF0	; 240
+ 244:	2f 70       	andi	r18, 0x0F	; 15
+ 246:	23 2b       	or	r18, r19
+ 248:	25 bb       	out	0x15, r18	; 21
 	PORTC = (PORTC&0xFE)|(type&0x01);
- 220:	25 b3       	in	r18, 0x15	; 21
- 222:	61 70       	andi	r22, 0x01	; 1
- 224:	2e 7f       	andi	r18, 0xFE	; 254
- 226:	26 2b       	or	r18, r22
- 228:	25 bb       	out	0x15, r18	; 21
+ 24a:	25 b3       	in	r18, 0x15	; 21
+ 24c:	61 70       	andi	r22, 0x01	; 1
+ 24e:	2e 7f       	andi	r18, 0xFE	; 254
+ 250:	26 2b       	or	r18, r22
+ 252:	25 bb       	out	0x15, r18	; 21
 	PORTC = PORTC|0x02;
- 22a:	a9 9a       	sbi	0x15, 1	; 21
+ 254:	a9 9a       	sbi	0x15, 1	; 21
 	#else
 		//round up by default
 		__ticks_dc = (uint32_t)(ceil(fabs(__tmp)));
 	#endif
 
 	__builtin_avr_delay_cycles(__ticks_dc);
- 22c:	ef e1       	ldi	r30, 0x1F	; 31
- 22e:	fe e4       	ldi	r31, 0x4E	; 78
- 230:	31 97       	sbiw	r30, 0x01	; 1
- 232:	f1 f7       	brne	.-4      	; 0x230 <put_Char_LCD_Display+0x1c>
- 234:	00 c0       	rjmp	.+0      	; 0x236 <put_Char_LCD_Display+0x22>
- 236:	00 00       	nop
+ 256:	ef e1       	ldi	r30, 0x1F	; 31
+ 258:	fe e4       	ldi	r31, 0x4E	; 78
+ 25a:	31 97       	sbiw	r30, 0x01	; 1
+ 25c:	f1 f7       	brne	.-4      	; 0x25a <put_Char_LCD_Display+0x1c>
+ 25e:	00 c0       	rjmp	.+0      	; 0x260 <put_Char_LCD_Display+0x22>
+ 260:	00 00       	nop
 	_delay_ms(5);
 	PORTC &= 0xFC;
- 238:	25 b3       	in	r18, 0x15	; 21
- 23a:	2c 7f       	andi	r18, 0xFC	; 252
- 23c:	25 bb       	out	0x15, r18	; 21
+ 262:	25 b3       	in	r18, 0x15	; 21
+ 264:	2c 7f       	andi	r18, 0xFC	; 252
+ 266:	25 bb       	out	0x15, r18	; 21
 	PORTC = (PORTC&0x0F)|((ch<<4)&0xF0);
- 23e:	25 b3       	in	r18, 0x15	; 21
- 240:	82 95       	swap	r24
- 242:	92 95       	swap	r25
- 244:	90 7f       	andi	r25, 0xF0	; 240
- 246:	98 27       	eor	r25, r24
- 248:	80 7f       	andi	r24, 0xF0	; 240
- 24a:	98 27       	eor	r25, r24
- 24c:	92 2f       	mov	r25, r18
- 24e:	9f 70       	andi	r25, 0x0F	; 15
- 250:	89 2b       	or	r24, r25
- 252:	85 bb       	out	0x15, r24	; 21
+ 268:	25 b3       	in	r18, 0x15	; 21
+ 26a:	82 95       	swap	r24
+ 26c:	92 95       	swap	r25
+ 26e:	90 7f       	andi	r25, 0xF0	; 240
+ 270:	98 27       	eor	r25, r24
+ 272:	80 7f       	andi	r24, 0xF0	; 240
+ 274:	98 27       	eor	r25, r24
+ 276:	92 2f       	mov	r25, r18
+ 278:	9f 70       	andi	r25, 0x0F	; 15
+ 27a:	89 2b       	or	r24, r25
+ 27c:	85 bb       	out	0x15, r24	; 21
 	PORTC = (PORTC&0xFE)|(type&0x01);
- 254:	85 b3       	in	r24, 0x15	; 21
- 256:	8e 7f       	andi	r24, 0xFE	; 254
- 258:	68 2b       	or	r22, r24
- 25a:	65 bb       	out	0x15, r22	; 21
+ 27e:	85 b3       	in	r24, 0x15	; 21
+ 280:	8e 7f       	andi	r24, 0xFE	; 254
+ 282:	68 2b       	or	r22, r24
+ 284:	65 bb       	out	0x15, r22	; 21
 	PORTC = PORTC|0x02;
- 25c:	a9 9a       	sbi	0x15, 1	; 21
- 25e:	8f e1       	ldi	r24, 0x1F	; 31
- 260:	9e e4       	ldi	r25, 0x4E	; 78
- 262:	01 97       	sbiw	r24, 0x01	; 1
- 264:	f1 f7       	brne	.-4      	; 0x262 <put_Char_LCD_Display+0x4e>
- 266:	00 c0       	rjmp	.+0      	; 0x268 <put_Char_LCD_Display+0x54>
- 268:	00 00       	nop
+ 286:	a9 9a       	sbi	0x15, 1	; 21
+ 288:	8f e1       	ldi	r24, 0x1F	; 31
+ 28a:	9e e4       	ldi	r25, 0x4E	; 78
+ 28c:	01 97       	sbiw	r24, 0x01	; 1
+ 28e:	f1 f7       	brne	.-4      	; 0x28c <put_Char_LCD_Display+0x4e>
+ 290:	00 c0       	rjmp	.+0      	; 0x292 <put_Char_LCD_Display+0x54>
+ 292:	00 00       	nop
 	_delay_ms(5);
 	PORTC &= 0xFC;
- 26a:	85 b3       	in	r24, 0x15	; 21
- 26c:	8c 7f       	andi	r24, 0xFC	; 252
- 26e:	85 bb       	out	0x15, r24	; 21
- 270:	08 95       	ret
+ 294:	85 b3       	in	r24, 0x15	; 21
+ 296:	8c 7f       	andi	r24, 0xFC	; 252
+ 298:	85 bb       	out	0x15, r24	; 21
+ 29a:	08 95       	ret
 
-00000272 <init_custom_character_level>:
+0000029c <init_custom_character_level>:
 	init_custom_characters();
 }
 
 void init_custom_character_level()
 {
 	switch(WATER_LEVEL)
- 272:	e0 91 04 01 	lds	r30, 0x0104	; 0x800104 <WATER_LEVEL>
- 276:	8e 2f       	mov	r24, r30
- 278:	90 e0       	ldi	r25, 0x00	; 0
- 27a:	87 30       	cpi	r24, 0x07	; 7
- 27c:	91 05       	cpc	r25, r1
- 27e:	08 f0       	brcs	.+2      	; 0x282 <init_custom_character_level+0x10>
- 280:	86 c1       	rjmp	.+780    	; 0x58e <__LOCK_REGION_LENGTH__+0x18e>
- 282:	fc 01       	movw	r30, r24
- 284:	e6 5d       	subi	r30, 0xD6	; 214
- 286:	ff 4f       	sbci	r31, 0xFF	; 255
- 288:	0c 94 36 06 	jmp	0xc6c	; 0xc6c <__tablejump2__>
+ 29c:	e0 91 04 01 	lds	r30, 0x0104	; 0x800104 <WATER_LEVEL>
+ 2a0:	8e 2f       	mov	r24, r30
+ 2a2:	90 e0       	ldi	r25, 0x00	; 0
+ 2a4:	87 30       	cpi	r24, 0x07	; 7
+ 2a6:	91 05       	cpc	r25, r1
+ 2a8:	08 f0       	brcs	.+2      	; 0x2ac <init_custom_character_level+0x10>
+ 2aa:	86 c1       	rjmp	.+780    	; 0x5b8 <__LOCK_REGION_LENGTH__+0x1b8>
+ 2ac:	fc 01       	movw	r30, r24
+ 2ae:	e6 5d       	subi	r30, 0xD6	; 214
+ 2b0:	ff 4f       	sbci	r31, 0xFF	; 255
+ 2b2:	0c 94 82 06 	jmp	0xd04	; 0xd04 <__tablejump2__>
 	{
 		case 0:
 		{
 			// tank water level 0
 			put_Char_LCD_Display(80, 0);
- 28c:	60 e0       	ldi	r22, 0x00	; 0
- 28e:	70 e0       	ldi	r23, 0x00	; 0
- 290:	80 e5       	ldi	r24, 0x50	; 80
- 292:	90 e0       	ldi	r25, 0x00	; 0
- 294:	0e 94 0a 01 	call	0x214	; 0x214 <put_Char_LCD_Display>
+ 2b6:	60 e0       	ldi	r22, 0x00	; 0
+ 2b8:	70 e0       	ldi	r23, 0x00	; 0
+ 2ba:	80 e5       	ldi	r24, 0x50	; 80
+ 2bc:	90 e0       	ldi	r25, 0x00	; 0
+ 2be:	0e 94 1f 01 	call	0x23e	; 0x23e <put_Char_LCD_Display>
 			put_Char_LCD_Display(0b00000, 1);
- 298:	61 e0       	ldi	r22, 0x01	; 1
- 29a:	70 e0       	ldi	r23, 0x00	; 0
- 29c:	80 e0       	ldi	r24, 0x00	; 0
- 29e:	90 e0       	ldi	r25, 0x00	; 0
- 2a0:	0e 94 0a 01 	call	0x214	; 0x214 <put_Char_LCD_Display>
+ 2c2:	61 e0       	ldi	r22, 0x01	; 1
+ 2c4:	70 e0       	ldi	r23, 0x00	; 0
+ 2c6:	80 e0       	ldi	r24, 0x00	; 0
+ 2c8:	90 e0       	ldi	r25, 0x00	; 0
+ 2ca:	0e 94 1f 01 	call	0x23e	; 0x23e <put_Char_LCD_Display>
 			put_Char_LCD_Display(0b00000, 1);
- 2a4:	61 e0       	ldi	r22, 0x01	; 1
- 2a6:	70 e0       	ldi	r23, 0x00	; 0
- 2a8:	80 e0       	ldi	r24, 0x00	; 0
- 2aa:	90 e0       	ldi	r25, 0x00	; 0
- 2ac:	0e 94 0a 01 	call	0x214	; 0x214 <put_Char_LCD_Display>
+ 2ce:	61 e0       	ldi	r22, 0x01	; 1
+ 2d0:	70 e0       	ldi	r23, 0x00	; 0
+ 2d2:	80 e0       	ldi	r24, 0x00	; 0
+ 2d4:	90 e0       	ldi	r25, 0x00	; 0
+ 2d6:	0e 94 1f 01 	call	0x23e	; 0x23e <put_Char_LCD_Display>
 			put_Char_LCD_Display(0b00000, 1);
- 2b0:	61 e0       	ldi	r22, 0x01	; 1
- 2b2:	70 e0       	ldi	r23, 0x00	; 0
- 2b4:	80 e0       	ldi	r24, 0x00	; 0
- 2b6:	90 e0       	ldi	r25, 0x00	; 0
- 2b8:	0e 94 0a 01 	call	0x214	; 0x214 <put_Char_LCD_Display>
+ 2da:	61 e0       	ldi	r22, 0x01	; 1
+ 2dc:	70 e0       	ldi	r23, 0x00	; 0
+ 2de:	80 e0       	ldi	r24, 0x00	; 0
+ 2e0:	90 e0       	ldi	r25, 0x00	; 0
+ 2e2:	0e 94 1f 01 	call	0x23e	; 0x23e <put_Char_LCD_Display>
 			put_Char_LCD_Display(0b00000, 1);
- 2bc:	61 e0       	ldi	r22, 0x01	; 1
- 2be:	70 e0       	ldi	r23, 0x00	; 0
- 2c0:	80 e0       	ldi	r24, 0x00	; 0
- 2c2:	90 e0       	ldi	r25, 0x00	; 0
- 2c4:	0e 94 0a 01 	call	0x214	; 0x214 <put_Char_LCD_Display>
+ 2e6:	61 e0       	ldi	r22, 0x01	; 1
+ 2e8:	70 e0       	ldi	r23, 0x00	; 0
+ 2ea:	80 e0       	ldi	r24, 0x00	; 0
+ 2ec:	90 e0       	ldi	r25, 0x00	; 0
+ 2ee:	0e 94 1f 01 	call	0x23e	; 0x23e <put_Char_LCD_Display>
 			put_Char_LCD_Display(0b00000, 1);
- 2c8:	61 e0       	ldi	r22, 0x01	; 1
- 2ca:	70 e0       	ldi	r23, 0x00	; 0
- 2cc:	80 e0       	ldi	r24, 0x00	; 0
- 2ce:	90 e0       	ldi	r25, 0x00	; 0
- 2d0:	0e 94 0a 01 	call	0x214	; 0x214 <put_Char_LCD_Display>
+ 2f2:	61 e0       	ldi	r22, 0x01	; 1
+ 2f4:	70 e0       	ldi	r23, 0x00	; 0
+ 2f6:	80 e0       	ldi	r24, 0x00	; 0
+ 2f8:	90 e0       	ldi	r25, 0x00	; 0
+ 2fa:	0e 94 1f 01 	call	0x23e	; 0x23e <put_Char_LCD_Display>
 			put_Char_LCD_Display(0b00000, 1);
- 2d4:	61 e0       	ldi	r22, 0x01	; 1
- 2d6:	70 e0       	ldi	r23, 0x00	; 0
- 2d8:	80 e0       	ldi	r24, 0x00	; 0
- 2da:	90 e0       	ldi	r25, 0x00	; 0
- 2dc:	0e 94 0a 01 	call	0x214	; 0x214 <put_Char_LCD_Display>
+ 2fe:	61 e0       	ldi	r22, 0x01	; 1
+ 300:	70 e0       	ldi	r23, 0x00	; 0
+ 302:	80 e0       	ldi	r24, 0x00	; 0
+ 304:	90 e0       	ldi	r25, 0x00	; 0
+ 306:	0e 94 1f 01 	call	0x23e	; 0x23e <put_Char_LCD_Display>
 			put_Char_LCD_Display(0b00000, 1);
- 2e0:	61 e0       	ldi	r22, 0x01	; 1
- 2e2:	70 e0       	ldi	r23, 0x00	; 0
- 2e4:	80 e0       	ldi	r24, 0x00	; 0
- 2e6:	90 e0       	ldi	r25, 0x00	; 0
- 2e8:	0e 94 0a 01 	call	0x214	; 0x214 <put_Char_LCD_Display>
+ 30a:	61 e0       	ldi	r22, 0x01	; 1
+ 30c:	70 e0       	ldi	r23, 0x00	; 0
+ 30e:	80 e0       	ldi	r24, 0x00	; 0
+ 310:	90 e0       	ldi	r25, 0x00	; 0
+ 312:	0e 94 1f 01 	call	0x23e	; 0x23e <put_Char_LCD_Display>
 			put_Char_LCD_Display(0b11111, 1);
- 2ec:	61 e0       	ldi	r22, 0x01	; 1
- 2ee:	70 e0       	ldi	r23, 0x00	; 0
- 2f0:	8f e1       	ldi	r24, 0x1F	; 31
- 2f2:	90 e0       	ldi	r25, 0x00	; 0
- 2f4:	0e 94 0a 01 	call	0x214	; 0x214 <put_Char_LCD_Display>
+ 316:	61 e0       	ldi	r22, 0x01	; 1
+ 318:	70 e0       	ldi	r23, 0x00	; 0
+ 31a:	8f e1       	ldi	r24, 0x1F	; 31
+ 31c:	90 e0       	ldi	r25, 0x00	; 0
+ 31e:	0e 94 1f 01 	call	0x23e	; 0x23e <put_Char_LCD_Display>
 			break;
- 2f8:	08 95       	ret
+ 322:	08 95       	ret
 		}
 		case 1:
 		{
 			// tank water level 1
 			put_Char_LCD_Display(80, 0);
- 2fa:	60 e0       	ldi	r22, 0x00	; 0
- 2fc:	70 e0       	ldi	r23, 0x00	; 0
- 2fe:	80 e5       	ldi	r24, 0x50	; 80
- 300:	90 e0       	ldi	r25, 0x00	; 0
- 302:	0e 94 0a 01 	call	0x214	; 0x214 <put_Char_LCD_Display>
+ 324:	60 e0       	ldi	r22, 0x00	; 0
+ 326:	70 e0       	ldi	r23, 0x00	; 0
+ 328:	80 e5       	ldi	r24, 0x50	; 80
+ 32a:	90 e0       	ldi	r25, 0x00	; 0
+ 32c:	0e 94 1f 01 	call	0x23e	; 0x23e <put_Char_LCD_Display>
 			put_Char_LCD_Display(0b00000, 1);
- 306:	61 e0       	ldi	r22, 0x01	; 1
- 308:	70 e0       	ldi	r23, 0x00	; 0
- 30a:	80 e0       	ldi	r24, 0x00	; 0
- 30c:	90 e0       	ldi	r25, 0x00	; 0
- 30e:	0e 94 0a 01 	call	0x214	; 0x214 <put_Char_LCD_Display>
+ 330:	61 e0       	ldi	r22, 0x01	; 1
+ 332:	70 e0       	ldi	r23, 0x00	; 0
+ 334:	80 e0       	ldi	r24, 0x00	; 0
+ 336:	90 e0       	ldi	r25, 0x00	; 0
+ 338:	0e 94 1f 01 	call	0x23e	; 0x23e <put_Char_LCD_Display>
 			put_Char_LCD_Display(0b00000, 1);
- 312:	61 e0       	ldi	r22, 0x01	; 1
- 314:	70 e0       	ldi	r23, 0x00	; 0
- 316:	80 e0       	ldi	r24, 0x00	; 0
- 318:	90 e0       	ldi	r25, 0x00	; 0
- 31a:	0e 94 0a 01 	call	0x214	; 0x214 <put_Char_LCD_Display>
+ 33c:	61 e0       	ldi	r22, 0x01	; 1
+ 33e:	70 e0       	ldi	r23, 0x00	; 0
+ 340:	80 e0       	ldi	r24, 0x00	; 0
+ 342:	90 e0       	ldi	r25, 0x00	; 0
+ 344:	0e 94 1f 01 	call	0x23e	; 0x23e <put_Char_LCD_Display>
 			put_Char_LCD_Display(0b00000, 1);
- 31e:	61 e0       	ldi	r22, 0x01	; 1
- 320:	70 e0       	ldi	r23, 0x00	; 0
- 322:	80 e0       	ldi	r24, 0x00	; 0
- 324:	90 e0       	ldi	r25, 0x00	; 0
- 326:	0e 94 0a 01 	call	0x214	; 0x214 <put_Char_LCD_Display>
+ 348:	61 e0       	ldi	r22, 0x01	; 1
+ 34a:	70 e0       	ldi	r23, 0x00	; 0
+ 34c:	80 e0       	ldi	r24, 0x00	; 0
+ 34e:	90 e0       	ldi	r25, 0x00	; 0
+ 350:	0e 94 1f 01 	call	0x23e	; 0x23e <put_Char_LCD_Display>
 			put_Char_LCD_Display(0b00000, 1);
- 32a:	61 e0       	ldi	r22, 0x01	; 1
- 32c:	70 e0       	ldi	r23, 0x00	; 0
- 32e:	80 e0       	ldi	r24, 0x00	; 0
- 330:	90 e0       	ldi	r25, 0x00	; 0
- 332:	0e 94 0a 01 	call	0x214	; 0x214 <put_Char_LCD_Display>
+ 354:	61 e0       	ldi	r22, 0x01	; 1
+ 356:	70 e0       	ldi	r23, 0x00	; 0
+ 358:	80 e0       	ldi	r24, 0x00	; 0
+ 35a:	90 e0       	ldi	r25, 0x00	; 0
+ 35c:	0e 94 1f 01 	call	0x23e	; 0x23e <put_Char_LCD_Display>
 			put_Char_LCD_Display(0b00000, 1);
- 336:	61 e0       	ldi	r22, 0x01	; 1
- 338:	70 e0       	ldi	r23, 0x00	; 0
- 33a:	80 e0       	ldi	r24, 0x00	; 0
- 33c:	90 e0       	ldi	r25, 0x00	; 0
- 33e:	0e 94 0a 01 	call	0x214	; 0x214 <put_Char_LCD_Display>
+ 360:	61 e0       	ldi	r22, 0x01	; 1
+ 362:	70 e0       	ldi	r23, 0x00	; 0
+ 364:	80 e0       	ldi	r24, 0x00	; 0
+ 366:	90 e0       	ldi	r25, 0x00	; 0
+ 368:	0e 94 1f 01 	call	0x23e	; 0x23e <put_Char_LCD_Display>
 			put_Char_LCD_Display(0b11111, 1);
- 342:	61 e0       	ldi	r22, 0x01	; 1
- 344:	70 e0       	ldi	r23, 0x00	; 0
- 346:	8f e1       	ldi	r24, 0x1F	; 31
- 348:	90 e0       	ldi	r25, 0x00	; 0
- 34a:	0e 94 0a 01 	call	0x214	; 0x214 <put_Char_LCD_Display>
+ 36c:	61 e0       	ldi	r22, 0x01	; 1
+ 36e:	70 e0       	ldi	r23, 0x00	; 0
+ 370:	8f e1       	ldi	r24, 0x1F	; 31
+ 372:	90 e0       	ldi	r25, 0x00	; 0
+ 374:	0e 94 1f 01 	call	0x23e	; 0x23e <put_Char_LCD_Display>
 			put_Char_LCD_Display(0b00000, 1);
- 34e:	61 e0       	ldi	r22, 0x01	; 1
- 350:	70 e0       	ldi	r23, 0x00	; 0
- 352:	80 e0       	ldi	r24, 0x00	; 0
- 354:	90 e0       	ldi	r25, 0x00	; 0
- 356:	0e 94 0a 01 	call	0x214	; 0x214 <put_Char_LCD_Display>
+ 378:	61 e0       	ldi	r22, 0x01	; 1
+ 37a:	70 e0       	ldi	r23, 0x00	; 0
+ 37c:	80 e0       	ldi	r24, 0x00	; 0
+ 37e:	90 e0       	ldi	r25, 0x00	; 0
+ 380:	0e 94 1f 01 	call	0x23e	; 0x23e <put_Char_LCD_Display>
 			put_Char_LCD_Display(0b11111, 1);
- 35a:	61 e0       	ldi	r22, 0x01	; 1
- 35c:	70 e0       	ldi	r23, 0x00	; 0
- 35e:	8f e1       	ldi	r24, 0x1F	; 31
- 360:	90 e0       	ldi	r25, 0x00	; 0
- 362:	0e 94 0a 01 	call	0x214	; 0x214 <put_Char_LCD_Display>
+ 384:	61 e0       	ldi	r22, 0x01	; 1
+ 386:	70 e0       	ldi	r23, 0x00	; 0
+ 388:	8f e1       	ldi	r24, 0x1F	; 31
+ 38a:	90 e0       	ldi	r25, 0x00	; 0
+ 38c:	0e 94 1f 01 	call	0x23e	; 0x23e <put_Char_LCD_Display>
 			break;
- 366:	08 95       	ret
+ 390:	08 95       	ret
 		}
 		case 2:
 		{
 			// tank water level 2
 			put_Char_LCD_Display(80, 0);
- 368:	60 e0       	ldi	r22, 0x00	; 0
- 36a:	70 e0       	ldi	r23, 0x00	; 0
- 36c:	80 e5       	ldi	r24, 0x50	; 80
- 36e:	90 e0       	ldi	r25, 0x00	; 0
- 370:	0e 94 0a 01 	call	0x214	; 0x214 <put_Char_LCD_Display>
+ 392:	60 e0       	ldi	r22, 0x00	; 0
+ 394:	70 e0       	ldi	r23, 0x00	; 0
+ 396:	80 e5       	ldi	r24, 0x50	; 80
+ 398:	90 e0       	ldi	r25, 0x00	; 0
+ 39a:	0e 94 1f 01 	call	0x23e	; 0x23e <put_Char_LCD_Display>
 			put_Char_LCD_Display(0b00000, 1);
- 374:	61 e0       	ldi	r22, 0x01	; 1
- 376:	70 e0       	ldi	r23, 0x00	; 0
- 378:	80 e0       	ldi	r24, 0x00	; 0
- 37a:	90 e0       	ldi	r25, 0x00	; 0
- 37c:	0e 94 0a 01 	call	0x214	; 0x214 <put_Char_LCD_Display>
+ 39e:	61 e0       	ldi	r22, 0x01	; 1
+ 3a0:	70 e0       	ldi	r23, 0x00	; 0
+ 3a2:	80 e0       	ldi	r24, 0x00	; 0
+ 3a4:	90 e0       	ldi	r25, 0x00	; 0
+ 3a6:	0e 94 1f 01 	call	0x23e	; 0x23e <put_Char_LCD_Display>
 			put_Char_LCD_Display(0b00000, 1);
- 380:	61 e0       	ldi	r22, 0x01	; 1
- 382:	70 e0       	ldi	r23, 0x00	; 0
- 384:	80 e0       	ldi	r24, 0x00	; 0
- 386:	90 e0       	ldi	r25, 0x00	; 0
- 388:	0e 94 0a 01 	call	0x214	; 0x214 <put_Char_LCD_Display>
+ 3aa:	61 e0       	ldi	r22, 0x01	; 1
+ 3ac:	70 e0       	ldi	r23, 0x00	; 0
+ 3ae:	80 e0       	ldi	r24, 0x00	; 0
+ 3b0:	90 e0       	ldi	r25, 0x00	; 0
+ 3b2:	0e 94 1f 01 	call	0x23e	; 0x23e <put_Char_LCD_Display>
 			put_Char_LCD_Display(0b00000, 1);
- 38c:	61 e0       	ldi	r22, 0x01	; 1
- 38e:	70 e0       	ldi	r23, 0x00	; 0
- 390:	80 e0       	ldi	r24, 0x00	; 0
- 392:	90 e0       	ldi	r25, 0x00	; 0
- 394:	0e 94 0a 01 	call	0x214	; 0x214 <put_Char_LCD_Display>
+ 3b6:	61 e0       	ldi	r22, 0x01	; 1
+ 3b8:	70 e0       	ldi	r23, 0x00	; 0
+ 3ba:	80 e0       	ldi	r24, 0x00	; 0
+ 3bc:	90 e0       	ldi	r25, 0x00	; 0
+ 3be:	0e 94 1f 01 	call	0x23e	; 0x23e <put_Char_LCD_Display>
 			put_Char_LCD_Display(0b00000, 1);
- 398:	61 e0       	ldi	r22, 0x01	; 1
- 39a:	70 e0       	ldi	r23, 0x00	; 0
- 39c:	80 e0       	ldi	r24, 0x00	; 0
- 39e:	90 e0       	ldi	r25, 0x00	; 0
- 3a0:	0e 94 0a 01 	call	0x214	; 0x214 <put_Char_LCD_Display>
+ 3c2:	61 e0       	ldi	r22, 0x01	; 1
+ 3c4:	70 e0       	ldi	r23, 0x00	; 0
+ 3c6:	80 e0       	ldi	r24, 0x00	; 0
+ 3c8:	90 e0       	ldi	r25, 0x00	; 0
+ 3ca:	0e 94 1f 01 	call	0x23e	; 0x23e <put_Char_LCD_Display>
 			put_Char_LCD_Display(0b11111, 1);
- 3a4:	61 e0       	ldi	r22, 0x01	; 1
- 3a6:	70 e0       	ldi	r23, 0x00	; 0
- 3a8:	8f e1       	ldi	r24, 0x1F	; 31
- 3aa:	90 e0       	ldi	r25, 0x00	; 0
- 3ac:	0e 94 0a 01 	call	0x214	; 0x214 <put_Char_LCD_Display>
+ 3ce:	61 e0       	ldi	r22, 0x01	; 1
+ 3d0:	70 e0       	ldi	r23, 0x00	; 0
+ 3d2:	8f e1       	ldi	r24, 0x1F	; 31
+ 3d4:	90 e0       	ldi	r25, 0x00	; 0
+ 3d6:	0e 94 1f 01 	call	0x23e	; 0x23e <put_Char_LCD_Display>
 			put_Char_LCD_Display(0b11111, 1);
- 3b0:	61 e0       	ldi	r22, 0x01	; 1
- 3b2:	70 e0       	ldi	r23, 0x00	; 0
- 3b4:	8f e1       	ldi	r24, 0x1F	; 31
- 3b6:	90 e0       	ldi	r25, 0x00	; 0
- 3b8:	0e 94 0a 01 	call	0x214	; 0x214 <put_Char_LCD_Display>
+ 3da:	61 e0       	ldi	r22, 0x01	; 1
+ 3dc:	70 e0       	ldi	r23, 0x00	; 0
+ 3de:	8f e1       	ldi	r24, 0x1F	; 31
+ 3e0:	90 e0       	ldi	r25, 0x00	; 0
+ 3e2:	0e 94 1f 01 	call	0x23e	; 0x23e <put_Char_LCD_Display>
 			put_Char_LCD_Display(0b00000, 1);
- 3bc:	61 e0       	ldi	r22, 0x01	; 1
- 3be:	70 e0       	ldi	r23, 0x00	; 0
- 3c0:	80 e0       	ldi	r24, 0x00	; 0
- 3c2:	90 e0       	ldi	r25, 0x00	; 0
- 3c4:	0e 94 0a 01 	call	0x214	; 0x214 <put_Char_LCD_Display>
+ 3e6:	61 e0       	ldi	r22, 0x01	; 1
+ 3e8:	70 e0       	ldi	r23, 0x00	; 0
+ 3ea:	80 e0       	ldi	r24, 0x00	; 0
+ 3ec:	90 e0       	ldi	r25, 0x00	; 0
+ 3ee:	0e 94 1f 01 	call	0x23e	; 0x23e <put_Char_LCD_Display>
 			put_Char_LCD_Display(0b11111, 1);
- 3c8:	61 e0       	ldi	r22, 0x01	; 1
- 3ca:	70 e0       	ldi	r23, 0x00	; 0
- 3cc:	8f e1       	ldi	r24, 0x1F	; 31
- 3ce:	90 e0       	ldi	r25, 0x00	; 0
- 3d0:	0e 94 0a 01 	call	0x214	; 0x214 <put_Char_LCD_Display>
+ 3f2:	61 e0       	ldi	r22, 0x01	; 1
+ 3f4:	70 e0       	ldi	r23, 0x00	; 0
+ 3f6:	8f e1       	ldi	r24, 0x1F	; 31
+ 3f8:	90 e0       	ldi	r25, 0x00	; 0
+ 3fa:	0e 94 1f 01 	call	0x23e	; 0x23e <put_Char_LCD_Display>
 			break;
- 3d4:	08 95       	ret
+ 3fe:	08 95       	ret
 		}
 		case 3:
 		{
 			// tank water level 3
 			put_Char_LCD_Display(80, 0);
- 3d6:	60 e0       	ldi	r22, 0x00	; 0
- 3d8:	70 e0       	ldi	r23, 0x00	; 0
- 3da:	80 e5       	ldi	r24, 0x50	; 80
- 3dc:	90 e0       	ldi	r25, 0x00	; 0
- 3de:	0e 94 0a 01 	call	0x214	; 0x214 <put_Char_LCD_Display>
+ 400:	60 e0       	ldi	r22, 0x00	; 0
+ 402:	70 e0       	ldi	r23, 0x00	; 0
+ 404:	80 e5       	ldi	r24, 0x50	; 80
+ 406:	90 e0       	ldi	r25, 0x00	; 0
+ 408:	0e 94 1f 01 	call	0x23e	; 0x23e <put_Char_LCD_Display>
 			put_Char_LCD_Display(0b00000, 1);
- 3e2:	61 e0       	ldi	r22, 0x01	; 1
- 3e4:	70 e0       	ldi	r23, 0x00	; 0
- 3e6:	80 e0       	ldi	r24, 0x00	; 0
- 3e8:	90 e0       	ldi	r25, 0x00	; 0
- 3ea:	0e 94 0a 01 	call	0x214	; 0x214 <put_Char_LCD_Display>
+ 40c:	61 e0       	ldi	r22, 0x01	; 1
+ 40e:	70 e0       	ldi	r23, 0x00	; 0
+ 410:	80 e0       	ldi	r24, 0x00	; 0
+ 412:	90 e0       	ldi	r25, 0x00	; 0
+ 414:	0e 94 1f 01 	call	0x23e	; 0x23e <put_Char_LCD_Display>
 			put_Char_LCD_Display(0b00000, 1);
- 3ee:	61 e0       	ldi	r22, 0x01	; 1
- 3f0:	70 e0       	ldi	r23, 0x00	; 0
- 3f2:	80 e0       	ldi	r24, 0x00	; 0
- 3f4:	90 e0       	ldi	r25, 0x00	; 0
- 3f6:	0e 94 0a 01 	call	0x214	; 0x214 <put_Char_LCD_Display>
+ 418:	61 e0       	ldi	r22, 0x01	; 1
+ 41a:	70 e0       	ldi	r23, 0x00	; 0
+ 41c:	80 e0       	ldi	r24, 0x00	; 0
+ 41e:	90 e0       	ldi	r25, 0x00	; 0
+ 420:	0e 94 1f 01 	call	0x23e	; 0x23e <put_Char_LCD_Display>
 			put_Char_LCD_Display(0b00000, 1);
- 3fa:	61 e0       	ldi	r22, 0x01	; 1
- 3fc:	70 e0       	ldi	r23, 0x00	; 0
- 3fe:	80 e0       	ldi	r24, 0x00	; 0
- 400:	90 e0       	ldi	r25, 0x00	; 0
- 402:	0e 94 0a 01 	call	0x214	; 0x214 <put_Char_LCD_Display>
+ 424:	61 e0       	ldi	r22, 0x01	; 1
+ 426:	70 e0       	ldi	r23, 0x00	; 0
+ 428:	80 e0       	ldi	r24, 0x00	; 0
+ 42a:	90 e0       	ldi	r25, 0x00	; 0
+ 42c:	0e 94 1f 01 	call	0x23e	; 0x23e <put_Char_LCD_Display>
 			put_Char_LCD_Display(0b11111, 1);
- 406:	61 e0       	ldi	r22, 0x01	; 1
- 408:	70 e0       	ldi	r23, 0x00	; 0
- 40a:	8f e1       	ldi	r24, 0x1F	; 31
- 40c:	90 e0       	ldi	r25, 0x00	; 0
- 40e:	0e 94 0a 01 	call	0x214	; 0x214 <put_Char_LCD_Display>
+ 430:	61 e0       	ldi	r22, 0x01	; 1
+ 432:	70 e0       	ldi	r23, 0x00	; 0
+ 434:	8f e1       	ldi	r24, 0x1F	; 31
+ 436:	90 e0       	ldi	r25, 0x00	; 0
+ 438:	0e 94 1f 01 	call	0x23e	; 0x23e <put_Char_LCD_Display>
 			put_Char_LCD_Display(0b11111, 1);
- 412:	61 e0       	ldi	r22, 0x01	; 1
- 414:	70 e0       	ldi	r23, 0x00	; 0
- 416:	8f e1       	ldi	r24, 0x1F	; 31
- 418:	90 e0       	ldi	r25, 0x00	; 0
- 41a:	0e 94 0a 01 	call	0x214	; 0x214 <put_Char_LCD_Display>
+ 43c:	61 e0       	ldi	r22, 0x01	; 1
+ 43e:	70 e0       	ldi	r23, 0x00	; 0
+ 440:	8f e1       	ldi	r24, 0x1F	; 31
+ 442:	90 e0       	ldi	r25, 0x00	; 0
+ 444:	0e 94 1f 01 	call	0x23e	; 0x23e <put_Char_LCD_Display>
 			put_Char_LCD_Display(0b11111, 1);
- 41e:	61 e0       	ldi	r22, 0x01	; 1
- 420:	70 e0       	ldi	r23, 0x00	; 0
- 422:	8f e1       	ldi	r24, 0x1F	; 31
- 424:	90 e0       	ldi	r25, 0x00	; 0
- 426:	0e 94 0a 01 	call	0x214	; 0x214 <put_Char_LCD_Display>
+ 448:	61 e0       	ldi	r22, 0x01	; 1
+ 44a:	70 e0       	ldi	r23, 0x00	; 0
+ 44c:	8f e1       	ldi	r24, 0x1F	; 31
+ 44e:	90 e0       	ldi	r25, 0x00	; 0
+ 450:	0e 94 1f 01 	call	0x23e	; 0x23e <put_Char_LCD_Display>
 			put_Char_LCD_Display(0b00000, 1);
- 42a:	61 e0       	ldi	r22, 0x01	; 1
- 42c:	70 e0       	ldi	r23, 0x00	; 0
- 42e:	80 e0       	ldi	r24, 0x00	; 0
- 430:	90 e0       	ldi	r25, 0x00	; 0
- 432:	0e 94 0a 01 	call	0x214	; 0x214 <put_Char_LCD_Display>
+ 454:	61 e0       	ldi	r22, 0x01	; 1
+ 456:	70 e0       	ldi	r23, 0x00	; 0
+ 458:	80 e0       	ldi	r24, 0x00	; 0
+ 45a:	90 e0       	ldi	r25, 0x00	; 0
+ 45c:	0e 94 1f 01 	call	0x23e	; 0x23e <put_Char_LCD_Display>
 			put_Char_LCD_Display(0b11111, 1);
- 436:	61 e0       	ldi	r22, 0x01	; 1
- 438:	70 e0       	ldi	r23, 0x00	; 0
- 43a:	8f e1       	ldi	r24, 0x1F	; 31
- 43c:	90 e0       	ldi	r25, 0x00	; 0
- 43e:	0e 94 0a 01 	call	0x214	; 0x214 <put_Char_LCD_Display>
+ 460:	61 e0       	ldi	r22, 0x01	; 1
+ 462:	70 e0       	ldi	r23, 0x00	; 0
+ 464:	8f e1       	ldi	r24, 0x1F	; 31
+ 466:	90 e0       	ldi	r25, 0x00	; 0
+ 468:	0e 94 1f 01 	call	0x23e	; 0x23e <put_Char_LCD_Display>
 			break;
- 442:	08 95       	ret
+ 46c:	08 95       	ret
 		}
 		case 4:
 		{
 			// tank water level 4
 			put_Char_LCD_Display(80, 0);
- 444:	60 e0       	ldi	r22, 0x00	; 0
- 446:	70 e0       	ldi	r23, 0x00	; 0
- 448:	80 e5       	ldi	r24, 0x50	; 80
- 44a:	90 e0       	ldi	r25, 0x00	; 0
- 44c:	0e 94 0a 01 	call	0x214	; 0x214 <put_Char_LCD_Display>
+ 46e:	60 e0       	ldi	r22, 0x00	; 0
+ 470:	70 e0       	ldi	r23, 0x00	; 0
+ 472:	80 e5       	ldi	r24, 0x50	; 80
+ 474:	90 e0       	ldi	r25, 0x00	; 0
+ 476:	0e 94 1f 01 	call	0x23e	; 0x23e <put_Char_LCD_Display>
 			put_Char_LCD_Display(0b00000, 1);
- 450:	61 e0       	ldi	r22, 0x01	; 1
- 452:	70 e0       	ldi	r23, 0x00	; 0
- 454:	80 e0       	ldi	r24, 0x00	; 0
- 456:	90 e0       	ldi	r25, 0x00	; 0
- 458:	0e 94 0a 01 	call	0x214	; 0x214 <put_Char_LCD_Display>
+ 47a:	61 e0       	ldi	r22, 0x01	; 1
+ 47c:	70 e0       	ldi	r23, 0x00	; 0
+ 47e:	80 e0       	ldi	r24, 0x00	; 0
+ 480:	90 e0       	ldi	r25, 0x00	; 0
+ 482:	0e 94 1f 01 	call	0x23e	; 0x23e <put_Char_LCD_Display>
 			put_Char_LCD_Display(0b00000, 1);
- 45c:	61 e0       	ldi	r22, 0x01	; 1
- 45e:	70 e0       	ldi	r23, 0x00	; 0
- 460:	80 e0       	ldi	r24, 0x00	; 0
- 462:	90 e0       	ldi	r25, 0x00	; 0
- 464:	0e 94 0a 01 	call	0x214	; 0x214 <put_Char_LCD_Display>
+ 486:	61 e0       	ldi	r22, 0x01	; 1
+ 488:	70 e0       	ldi	r23, 0x00	; 0
+ 48a:	80 e0       	ldi	r24, 0x00	; 0
+ 48c:	90 e0       	ldi	r25, 0x00	; 0
+ 48e:	0e 94 1f 01 	call	0x23e	; 0x23e <put_Char_LCD_Display>
 			put_Char_LCD_Display(0b11111, 1);
- 468:	61 e0       	ldi	r22, 0x01	; 1
- 46a:	70 e0       	ldi	r23, 0x00	; 0
- 46c:	8f e1       	ldi	r24, 0x1F	; 31
- 46e:	90 e0       	ldi	r25, 0x00	; 0
- 470:	0e 94 0a 01 	call	0x214	; 0x214 <put_Char_LCD_Display>
+ 492:	61 e0       	ldi	r22, 0x01	; 1
+ 494:	70 e0       	ldi	r23, 0x00	; 0
+ 496:	8f e1       	ldi	r24, 0x1F	; 31
+ 498:	90 e0       	ldi	r25, 0x00	; 0
+ 49a:	0e 94 1f 01 	call	0x23e	; 0x23e <put_Char_LCD_Display>
 			put_Char_LCD_Display(0b11111, 1);
- 474:	61 e0       	ldi	r22, 0x01	; 1
- 476:	70 e0       	ldi	r23, 0x00	; 0
- 478:	8f e1       	ldi	r24, 0x1F	; 31
- 47a:	90 e0       	ldi	r25, 0x00	; 0
- 47c:	0e 94 0a 01 	call	0x214	; 0x214 <put_Char_LCD_Display>
+ 49e:	61 e0       	ldi	r22, 0x01	; 1
+ 4a0:	70 e0       	ldi	r23, 0x00	; 0
+ 4a2:	8f e1       	ldi	r24, 0x1F	; 31
+ 4a4:	90 e0       	ldi	r25, 0x00	; 0
+ 4a6:	0e 94 1f 01 	call	0x23e	; 0x23e <put_Char_LCD_Display>
 			put_Char_LCD_Display(0b11111, 1);
- 480:	61 e0       	ldi	r22, 0x01	; 1
- 482:	70 e0       	ldi	r23, 0x00	; 0
- 484:	8f e1       	ldi	r24, 0x1F	; 31
- 486:	90 e0       	ldi	r25, 0x00	; 0
- 488:	0e 94 0a 01 	call	0x214	; 0x214 <put_Char_LCD_Display>
+ 4aa:	61 e0       	ldi	r22, 0x01	; 1
+ 4ac:	70 e0       	ldi	r23, 0x00	; 0
+ 4ae:	8f e1       	ldi	r24, 0x1F	; 31
+ 4b0:	90 e0       	ldi	r25, 0x00	; 0
+ 4b2:	0e 94 1f 01 	call	0x23e	; 0x23e <put_Char_LCD_Display>
 			put_Char_LCD_Display(0b11111, 1);
- 48c:	61 e0       	ldi	r22, 0x01	; 1
- 48e:	70 e0       	ldi	r23, 0x00	; 0
- 490:	8f e1       	ldi	r24, 0x1F	; 31
- 492:	90 e0       	ldi	r25, 0x00	; 0
- 494:	0e 94 0a 01 	call	0x214	; 0x214 <put_Char_LCD_Display>
+ 4b6:	61 e0       	ldi	r22, 0x01	; 1
+ 4b8:	70 e0       	ldi	r23, 0x00	; 0
+ 4ba:	8f e1       	ldi	r24, 0x1F	; 31
+ 4bc:	90 e0       	ldi	r25, 0x00	; 0
+ 4be:	0e 94 1f 01 	call	0x23e	; 0x23e <put_Char_LCD_Display>
 			put_Char_LCD_Display(0b00000, 1);
- 498:	61 e0       	ldi	r22, 0x01	; 1
- 49a:	70 e0       	ldi	r23, 0x00	; 0
- 49c:	80 e0       	ldi	r24, 0x00	; 0
- 49e:	90 e0       	ldi	r25, 0x00	; 0
- 4a0:	0e 94 0a 01 	call	0x214	; 0x214 <put_Char_LCD_Display>
+ 4c2:	61 e0       	ldi	r22, 0x01	; 1
+ 4c4:	70 e0       	ldi	r23, 0x00	; 0
+ 4c6:	80 e0       	ldi	r24, 0x00	; 0
+ 4c8:	90 e0       	ldi	r25, 0x00	; 0
+ 4ca:	0e 94 1f 01 	call	0x23e	; 0x23e <put_Char_LCD_Display>
 			put_Char_LCD_Display(0b11111, 1);
- 4a4:	61 e0       	ldi	r22, 0x01	; 1
- 4a6:	70 e0       	ldi	r23, 0x00	; 0
- 4a8:	8f e1       	ldi	r24, 0x1F	; 31
- 4aa:	90 e0       	ldi	r25, 0x00	; 0
- 4ac:	0e 94 0a 01 	call	0x214	; 0x214 <put_Char_LCD_Display>
+ 4ce:	61 e0       	ldi	r22, 0x01	; 1
+ 4d0:	70 e0       	ldi	r23, 0x00	; 0
+ 4d2:	8f e1       	ldi	r24, 0x1F	; 31
+ 4d4:	90 e0       	ldi	r25, 0x00	; 0
+ 4d6:	0e 94 1f 01 	call	0x23e	; 0x23e <put_Char_LCD_Display>
 			break;
- 4b0:	08 95       	ret
+ 4da:	08 95       	ret
 		}
 		case 5:
 		{
 			// tank water level 5
 			put_Char_LCD_Display(80, 0);
- 4b2:	60 e0       	ldi	r22, 0x00	; 0
- 4b4:	70 e0       	ldi	r23, 0x00	; 0
- 4b6:	80 e5       	ldi	r24, 0x50	; 80
- 4b8:	90 e0       	ldi	r25, 0x00	; 0
- 4ba:	0e 94 0a 01 	call	0x214	; 0x214 <put_Char_LCD_Display>
+ 4dc:	60 e0       	ldi	r22, 0x00	; 0
+ 4de:	70 e0       	ldi	r23, 0x00	; 0
+ 4e0:	80 e5       	ldi	r24, 0x50	; 80
+ 4e2:	90 e0       	ldi	r25, 0x00	; 0
+ 4e4:	0e 94 1f 01 	call	0x23e	; 0x23e <put_Char_LCD_Display>
 			put_Char_LCD_Display(0b00000, 1);
- 4be:	61 e0       	ldi	r22, 0x01	; 1
- 4c0:	70 e0       	ldi	r23, 0x00	; 0
- 4c2:	80 e0       	ldi	r24, 0x00	; 0
- 4c4:	90 e0       	ldi	r25, 0x00	; 0
- 4c6:	0e 94 0a 01 	call	0x214	; 0x214 <put_Char_LCD_Display>
+ 4e8:	61 e0       	ldi	r22, 0x01	; 1
+ 4ea:	70 e0       	ldi	r23, 0x00	; 0
+ 4ec:	80 e0       	ldi	r24, 0x00	; 0
+ 4ee:	90 e0       	ldi	r25, 0x00	; 0
+ 4f0:	0e 94 1f 01 	call	0x23e	; 0x23e <put_Char_LCD_Display>
 			put_Char_LCD_Display(0b11111, 1);
- 4ca:	61 e0       	ldi	r22, 0x01	; 1
- 4cc:	70 e0       	ldi	r23, 0x00	; 0
- 4ce:	8f e1       	ldi	r24, 0x1F	; 31
- 4d0:	90 e0       	ldi	r25, 0x00	; 0
- 4d2:	0e 94 0a 01 	call	0x214	; 0x214 <put_Char_LCD_Display>
+ 4f4:	61 e0       	ldi	r22, 0x01	; 1
+ 4f6:	70 e0       	ldi	r23, 0x00	; 0
+ 4f8:	8f e1       	ldi	r24, 0x1F	; 31
+ 4fa:	90 e0       	ldi	r25, 0x00	; 0
+ 4fc:	0e 94 1f 01 	call	0x23e	; 0x23e <put_Char_LCD_Display>
 			put_Char_LCD_Display(0b11111, 1);
- 4d6:	61 e0       	ldi	r22, 0x01	; 1
- 4d8:	70 e0       	ldi	r23, 0x00	; 0
- 4da:	8f e1       	ldi	r24, 0x1F	; 31
- 4dc:	90 e0       	ldi	r25, 0x00	; 0
- 4de:	0e 94 0a 01 	call	0x214	; 0x214 <put_Char_LCD_Display>
+ 500:	61 e0       	ldi	r22, 0x01	; 1
+ 502:	70 e0       	ldi	r23, 0x00	; 0
+ 504:	8f e1       	ldi	r24, 0x1F	; 31
+ 506:	90 e0       	ldi	r25, 0x00	; 0
+ 508:	0e 94 1f 01 	call	0x23e	; 0x23e <put_Char_LCD_Display>
 			put_Char_LCD_Display(0b11111, 1);
- 4e2:	61 e0       	ldi	r22, 0x01	; 1
- 4e4:	70 e0       	ldi	r23, 0x00	; 0
- 4e6:	8f e1       	ldi	r24, 0x1F	; 31
- 4e8:	90 e0       	ldi	r25, 0x00	; 0
- 4ea:	0e 94 0a 01 	call	0x214	; 0x214 <put_Char_LCD_Display>
+ 50c:	61 e0       	ldi	r22, 0x01	; 1
+ 50e:	70 e0       	ldi	r23, 0x00	; 0
+ 510:	8f e1       	ldi	r24, 0x1F	; 31
+ 512:	90 e0       	ldi	r25, 0x00	; 0
+ 514:	0e 94 1f 01 	call	0x23e	; 0x23e <put_Char_LCD_Display>
 			put_Char_LCD_Display(0b11111, 1);
- 4ee:	61 e0       	ldi	r22, 0x01	; 1
- 4f0:	70 e0       	ldi	r23, 0x00	; 0
- 4f2:	8f e1       	ldi	r24, 0x1F	; 31
- 4f4:	90 e0       	ldi	r25, 0x00	; 0
- 4f6:	0e 94 0a 01 	call	0x214	; 0x214 <put_Char_LCD_Display>
+ 518:	61 e0       	ldi	r22, 0x01	; 1
+ 51a:	70 e0       	ldi	r23, 0x00	; 0
+ 51c:	8f e1       	ldi	r24, 0x1F	; 31
+ 51e:	90 e0       	ldi	r25, 0x00	; 0
+ 520:	0e 94 1f 01 	call	0x23e	; 0x23e <put_Char_LCD_Display>
 			put_Char_LCD_Display(0b11111, 1);
- 4fa:	61 e0       	ldi	r22, 0x01	; 1
- 4fc:	70 e0       	ldi	r23, 0x00	; 0
- 4fe:	8f e1       	ldi	r24, 0x1F	; 31
- 500:	90 e0       	ldi	r25, 0x00	; 0
- 502:	0e 94 0a 01 	call	0x214	; 0x214 <put_Char_LCD_Display>
+ 524:	61 e0       	ldi	r22, 0x01	; 1
+ 526:	70 e0       	ldi	r23, 0x00	; 0
+ 528:	8f e1       	ldi	r24, 0x1F	; 31
+ 52a:	90 e0       	ldi	r25, 0x00	; 0
+ 52c:	0e 94 1f 01 	call	0x23e	; 0x23e <put_Char_LCD_Display>
 			put_Char_LCD_Display(0b00000, 1);
- 506:	61 e0       	ldi	r22, 0x01	; 1
- 508:	70 e0       	ldi	r23, 0x00	; 0
- 50a:	80 e0       	ldi	r24, 0x00	; 0
- 50c:	90 e0       	ldi	r25, 0x00	; 0
- 50e:	0e 94 0a 01 	call	0x214	; 0x214 <put_Char_LCD_Display>
+ 530:	61 e0       	ldi	r22, 0x01	; 1
+ 532:	70 e0       	ldi	r23, 0x00	; 0
+ 534:	80 e0       	ldi	r24, 0x00	; 0
+ 536:	90 e0       	ldi	r25, 0x00	; 0
+ 538:	0e 94 1f 01 	call	0x23e	; 0x23e <put_Char_LCD_Display>
 			put_Char_LCD_Display(0b11111, 1);
- 512:	61 e0       	ldi	r22, 0x01	; 1
- 514:	70 e0       	ldi	r23, 0x00	; 0
- 516:	8f e1       	ldi	r24, 0x1F	; 31
- 518:	90 e0       	ldi	r25, 0x00	; 0
- 51a:	0e 94 0a 01 	call	0x214	; 0x214 <put_Char_LCD_Display>
+ 53c:	61 e0       	ldi	r22, 0x01	; 1
+ 53e:	70 e0       	ldi	r23, 0x00	; 0
+ 540:	8f e1       	ldi	r24, 0x1F	; 31
+ 542:	90 e0       	ldi	r25, 0x00	; 0
+ 544:	0e 94 1f 01 	call	0x23e	; 0x23e <put_Char_LCD_Display>
 			break;
- 51e:	08 95       	ret
+ 548:	08 95       	ret
 		}
 		case 6:
 		{
 			// tank water level 6
 			put_Char_LCD_Display(80, 0);
- 520:	60 e0       	ldi	r22, 0x00	; 0
- 522:	70 e0       	ldi	r23, 0x00	; 0
- 524:	80 e5       	ldi	r24, 0x50	; 80
- 526:	90 e0       	ldi	r25, 0x00	; 0
- 528:	0e 94 0a 01 	call	0x214	; 0x214 <put_Char_LCD_Display>
+ 54a:	60 e0       	ldi	r22, 0x00	; 0
+ 54c:	70 e0       	ldi	r23, 0x00	; 0
+ 54e:	80 e5       	ldi	r24, 0x50	; 80
+ 550:	90 e0       	ldi	r25, 0x00	; 0
+ 552:	0e 94 1f 01 	call	0x23e	; 0x23e <put_Char_LCD_Display>
 			put_Char_LCD_Display(0b11111, 1);
- 52c:	61 e0       	ldi	r22, 0x01	; 1
- 52e:	70 e0       	ldi	r23, 0x00	; 0
- 530:	8f e1       	ldi	r24, 0x1F	; 31
- 532:	90 e0       	ldi	r25, 0x00	; 0
- 534:	0e 94 0a 01 	call	0x214	; 0x214 <put_Char_LCD_Display>
+ 556:	61 e0       	ldi	r22, 0x01	; 1
+ 558:	70 e0       	ldi	r23, 0x00	; 0
+ 55a:	8f e1       	ldi	r24, 0x1F	; 31
+ 55c:	90 e0       	ldi	r25, 0x00	; 0
+ 55e:	0e 94 1f 01 	call	0x23e	; 0x23e <put_Char_LCD_Display>
 			put_Char_LCD_Display(0b11111, 1);
- 538:	61 e0       	ldi	r22, 0x01	; 1
- 53a:	70 e0       	ldi	r23, 0x00	; 0
- 53c:	8f e1       	ldi	r24, 0x1F	; 31
- 53e:	90 e0       	ldi	r25, 0x00	; 0
- 540:	0e 94 0a 01 	call	0x214	; 0x214 <put_Char_LCD_Display>
+ 562:	61 e0       	ldi	r22, 0x01	; 1
+ 564:	70 e0       	ldi	r23, 0x00	; 0
+ 566:	8f e1       	ldi	r24, 0x1F	; 31
+ 568:	90 e0       	ldi	r25, 0x00	; 0
+ 56a:	0e 94 1f 01 	call	0x23e	; 0x23e <put_Char_LCD_Display>
 			put_Char_LCD_Display(0b11111, 1);
- 544:	61 e0       	ldi	r22, 0x01	; 1
- 546:	70 e0       	ldi	r23, 0x00	; 0
- 548:	8f e1       	ldi	r24, 0x1F	; 31
- 54a:	90 e0       	ldi	r25, 0x00	; 0
- 54c:	0e 94 0a 01 	call	0x214	; 0x214 <put_Char_LCD_Display>
+ 56e:	61 e0       	ldi	r22, 0x01	; 1
+ 570:	70 e0       	ldi	r23, 0x00	; 0
+ 572:	8f e1       	ldi	r24, 0x1F	; 31
+ 574:	90 e0       	ldi	r25, 0x00	; 0
+ 576:	0e 94 1f 01 	call	0x23e	; 0x23e <put_Char_LCD_Display>
 			put_Char_LCD_Display(0b11111, 1);
- 550:	61 e0       	ldi	r22, 0x01	; 1
- 552:	70 e0       	ldi	r23, 0x00	; 0
- 554:	8f e1       	ldi	r24, 0x1F	; 31
- 556:	90 e0       	ldi	r25, 0x00	; 0
- 558:	0e 94 0a 01 	call	0x214	; 0x214 <put_Char_LCD_Display>
+ 57a:	61 e0       	ldi	r22, 0x01	; 1
+ 57c:	70 e0       	ldi	r23, 0x00	; 0
+ 57e:	8f e1       	ldi	r24, 0x1F	; 31
+ 580:	90 e0       	ldi	r25, 0x00	; 0
+ 582:	0e 94 1f 01 	call	0x23e	; 0x23e <put_Char_LCD_Display>
 			put_Char_LCD_Display(0b11111, 1);
- 55c:	61 e0       	ldi	r22, 0x01	; 1
- 55e:	70 e0       	ldi	r23, 0x00	; 0
- 560:	8f e1       	ldi	r24, 0x1F	; 31
- 562:	90 e0       	ldi	r25, 0x00	; 0
- 564:	0e 94 0a 01 	call	0x214	; 0x214 <put_Char_LCD_Display>
+ 586:	61 e0       	ldi	r22, 0x01	; 1
+ 588:	70 e0       	ldi	r23, 0x00	; 0
+ 58a:	8f e1       	ldi	r24, 0x1F	; 31
+ 58c:	90 e0       	ldi	r25, 0x00	; 0
+ 58e:	0e 94 1f 01 	call	0x23e	; 0x23e <put_Char_LCD_Display>
 			put_Char_LCD_Display(0b11111, 1);
- 568:	61 e0       	ldi	r22, 0x01	; 1
- 56a:	70 e0       	ldi	r23, 0x00	; 0
- 56c:	8f e1       	ldi	r24, 0x1F	; 31
- 56e:	90 e0       	ldi	r25, 0x00	; 0
- 570:	0e 94 0a 01 	call	0x214	; 0x214 <put_Char_LCD_Display>
+ 592:	61 e0       	ldi	r22, 0x01	; 1
+ 594:	70 e0       	ldi	r23, 0x00	; 0
+ 596:	8f e1       	ldi	r24, 0x1F	; 31
+ 598:	90 e0       	ldi	r25, 0x00	; 0
+ 59a:	0e 94 1f 01 	call	0x23e	; 0x23e <put_Char_LCD_Display>
 			put_Char_LCD_Display(0b00000, 1);
- 574:	61 e0       	ldi	r22, 0x01	; 1
- 576:	70 e0       	ldi	r23, 0x00	; 0
- 578:	80 e0       	ldi	r24, 0x00	; 0
- 57a:	90 e0       	ldi	r25, 0x00	; 0
- 57c:	0e 94 0a 01 	call	0x214	; 0x214 <put_Char_LCD_Display>
+ 59e:	61 e0       	ldi	r22, 0x01	; 1
+ 5a0:	70 e0       	ldi	r23, 0x00	; 0
+ 5a2:	80 e0       	ldi	r24, 0x00	; 0
+ 5a4:	90 e0       	ldi	r25, 0x00	; 0
+ 5a6:	0e 94 1f 01 	call	0x23e	; 0x23e <put_Char_LCD_Display>
 			put_Char_LCD_Display(0b11111, 1);
- 580:	61 e0       	ldi	r22, 0x01	; 1
- 582:	70 e0       	ldi	r23, 0x00	; 0
- 584:	8f e1       	ldi	r24, 0x1F	; 31
- 586:	90 e0       	ldi	r25, 0x00	; 0
- 588:	0e 94 0a 01 	call	0x214	; 0x214 <put_Char_LCD_Display>
+ 5aa:	61 e0       	ldi	r22, 0x01	; 1
+ 5ac:	70 e0       	ldi	r23, 0x00	; 0
+ 5ae:	8f e1       	ldi	r24, 0x1F	; 31
+ 5b0:	90 e0       	ldi	r25, 0x00	; 0
+ 5b2:	0e 94 1f 01 	call	0x23e	; 0x23e <put_Char_LCD_Display>
 			break;
- 58c:	08 95       	ret
+ 5b6:	08 95       	ret
 		}
 		default:
 		{
 			// tank water level 0
 			put_Char_LCD_Display(80, 0);
- 58e:	60 e0       	ldi	r22, 0x00	; 0
- 590:	70 e0       	ldi	r23, 0x00	; 0
- 592:	80 e5       	ldi	r24, 0x50	; 80
- 594:	90 e0       	ldi	r25, 0x00	; 0
- 596:	0e 94 0a 01 	call	0x214	; 0x214 <put_Char_LCD_Display>
+ 5b8:	60 e0       	ldi	r22, 0x00	; 0
+ 5ba:	70 e0       	ldi	r23, 0x00	; 0
+ 5bc:	80 e5       	ldi	r24, 0x50	; 80
+ 5be:	90 e0       	ldi	r25, 0x00	; 0
+ 5c0:	0e 94 1f 01 	call	0x23e	; 0x23e <put_Char_LCD_Display>
 			put_Char_LCD_Display(0b00000, 1);
- 59a:	61 e0       	ldi	r22, 0x01	; 1
- 59c:	70 e0       	ldi	r23, 0x00	; 0
- 59e:	80 e0       	ldi	r24, 0x00	; 0
- 5a0:	90 e0       	ldi	r25, 0x00	; 0
- 5a2:	0e 94 0a 01 	call	0x214	; 0x214 <put_Char_LCD_Display>
+ 5c4:	61 e0       	ldi	r22, 0x01	; 1
+ 5c6:	70 e0       	ldi	r23, 0x00	; 0
+ 5c8:	80 e0       	ldi	r24, 0x00	; 0
+ 5ca:	90 e0       	ldi	r25, 0x00	; 0
+ 5cc:	0e 94 1f 01 	call	0x23e	; 0x23e <put_Char_LCD_Display>
 			put_Char_LCD_Display(0b00000, 1);
- 5a6:	61 e0       	ldi	r22, 0x01	; 1
- 5a8:	70 e0       	ldi	r23, 0x00	; 0
- 5aa:	80 e0       	ldi	r24, 0x00	; 0
- 5ac:	90 e0       	ldi	r25, 0x00	; 0
- 5ae:	0e 94 0a 01 	call	0x214	; 0x214 <put_Char_LCD_Display>
+ 5d0:	61 e0       	ldi	r22, 0x01	; 1
+ 5d2:	70 e0       	ldi	r23, 0x00	; 0
+ 5d4:	80 e0       	ldi	r24, 0x00	; 0
+ 5d6:	90 e0       	ldi	r25, 0x00	; 0
+ 5d8:	0e 94 1f 01 	call	0x23e	; 0x23e <put_Char_LCD_Display>
 			put_Char_LCD_Display(0b00000, 1);
- 5b2:	61 e0       	ldi	r22, 0x01	; 1
- 5b4:	70 e0       	ldi	r23, 0x00	; 0
- 5b6:	80 e0       	ldi	r24, 0x00	; 0
- 5b8:	90 e0       	ldi	r25, 0x00	; 0
- 5ba:	0e 94 0a 01 	call	0x214	; 0x214 <put_Char_LCD_Display>
+ 5dc:	61 e0       	ldi	r22, 0x01	; 1
+ 5de:	70 e0       	ldi	r23, 0x00	; 0
+ 5e0:	80 e0       	ldi	r24, 0x00	; 0
+ 5e2:	90 e0       	ldi	r25, 0x00	; 0
+ 5e4:	0e 94 1f 01 	call	0x23e	; 0x23e <put_Char_LCD_Display>
 			put_Char_LCD_Display(0b00000, 1);
- 5be:	61 e0       	ldi	r22, 0x01	; 1
- 5c0:	70 e0       	ldi	r23, 0x00	; 0
- 5c2:	80 e0       	ldi	r24, 0x00	; 0
- 5c4:	90 e0       	ldi	r25, 0x00	; 0
- 5c6:	0e 94 0a 01 	call	0x214	; 0x214 <put_Char_LCD_Display>
+ 5e8:	61 e0       	ldi	r22, 0x01	; 1
+ 5ea:	70 e0       	ldi	r23, 0x00	; 0
+ 5ec:	80 e0       	ldi	r24, 0x00	; 0
+ 5ee:	90 e0       	ldi	r25, 0x00	; 0
+ 5f0:	0e 94 1f 01 	call	0x23e	; 0x23e <put_Char_LCD_Display>
 			put_Char_LCD_Display(0b00000, 1);
- 5ca:	61 e0       	ldi	r22, 0x01	; 1
- 5cc:	70 e0       	ldi	r23, 0x00	; 0
- 5ce:	80 e0       	ldi	r24, 0x00	; 0
- 5d0:	90 e0       	ldi	r25, 0x00	; 0
- 5d2:	0e 94 0a 01 	call	0x214	; 0x214 <put_Char_LCD_Display>
+ 5f4:	61 e0       	ldi	r22, 0x01	; 1
+ 5f6:	70 e0       	ldi	r23, 0x00	; 0
+ 5f8:	80 e0       	ldi	r24, 0x00	; 0
+ 5fa:	90 e0       	ldi	r25, 0x00	; 0
+ 5fc:	0e 94 1f 01 	call	0x23e	; 0x23e <put_Char_LCD_Display>
 			put_Char_LCD_Display(0b00000, 1);
- 5d6:	61 e0       	ldi	r22, 0x01	; 1
- 5d8:	70 e0       	ldi	r23, 0x00	; 0
- 5da:	80 e0       	ldi	r24, 0x00	; 0
- 5dc:	90 e0       	ldi	r25, 0x00	; 0
- 5de:	0e 94 0a 01 	call	0x214	; 0x214 <put_Char_LCD_Display>
+ 600:	61 e0       	ldi	r22, 0x01	; 1
+ 602:	70 e0       	ldi	r23, 0x00	; 0
+ 604:	80 e0       	ldi	r24, 0x00	; 0
+ 606:	90 e0       	ldi	r25, 0x00	; 0
+ 608:	0e 94 1f 01 	call	0x23e	; 0x23e <put_Char_LCD_Display>
 			put_Char_LCD_Display(0b00000, 1);
- 5e2:	61 e0       	ldi	r22, 0x01	; 1
- 5e4:	70 e0       	ldi	r23, 0x00	; 0
- 5e6:	80 e0       	ldi	r24, 0x00	; 0
- 5e8:	90 e0       	ldi	r25, 0x00	; 0
- 5ea:	0e 94 0a 01 	call	0x214	; 0x214 <put_Char_LCD_Display>
+ 60c:	61 e0       	ldi	r22, 0x01	; 1
+ 60e:	70 e0       	ldi	r23, 0x00	; 0
+ 610:	80 e0       	ldi	r24, 0x00	; 0
+ 612:	90 e0       	ldi	r25, 0x00	; 0
+ 614:	0e 94 1f 01 	call	0x23e	; 0x23e <put_Char_LCD_Display>
 			put_Char_LCD_Display(0b11111, 1);
- 5ee:	61 e0       	ldi	r22, 0x01	; 1
- 5f0:	70 e0       	ldi	r23, 0x00	; 0
- 5f2:	8f e1       	ldi	r24, 0x1F	; 31
- 5f4:	90 e0       	ldi	r25, 0x00	; 0
- 5f6:	0e 94 0a 01 	call	0x214	; 0x214 <put_Char_LCD_Display>
- 5fa:	08 95       	ret
+ 618:	61 e0       	ldi	r22, 0x01	; 1
+ 61a:	70 e0       	ldi	r23, 0x00	; 0
+ 61c:	8f e1       	ldi	r24, 0x1F	; 31
+ 61e:	90 e0       	ldi	r25, 0x00	; 0
+ 620:	0e 94 1f 01 	call	0x23e	; 0x23e <put_Char_LCD_Display>
+ 624:	08 95       	ret
 
-000005fc <init_custom_characters>:
+00000626 <init_custom_characters>:
 }
 
 void init_custom_characters()
 {
 	// tank water level start character
 	put_Char_LCD_Display(64, 0);
- 5fc:	60 e0       	ldi	r22, 0x00	; 0
- 5fe:	70 e0       	ldi	r23, 0x00	; 0
- 600:	80 e4       	ldi	r24, 0x40	; 64
- 602:	90 e0       	ldi	r25, 0x00	; 0
- 604:	0e 94 0a 01 	call	0x214	; 0x214 <put_Char_LCD_Display>
+ 626:	60 e0       	ldi	r22, 0x00	; 0
+ 628:	70 e0       	ldi	r23, 0x00	; 0
+ 62a:	80 e4       	ldi	r24, 0x40	; 64
+ 62c:	90 e0       	ldi	r25, 0x00	; 0
+ 62e:	0e 94 1f 01 	call	0x23e	; 0x23e <put_Char_LCD_Display>
 	put_Char_LCD_Display(0b00001, 1);
- 608:	61 e0       	ldi	r22, 0x01	; 1
- 60a:	70 e0       	ldi	r23, 0x00	; 0
- 60c:	81 e0       	ldi	r24, 0x01	; 1
- 60e:	90 e0       	ldi	r25, 0x00	; 0
- 610:	0e 94 0a 01 	call	0x214	; 0x214 <put_Char_LCD_Display>
+ 632:	61 e0       	ldi	r22, 0x01	; 1
+ 634:	70 e0       	ldi	r23, 0x00	; 0
+ 636:	81 e0       	ldi	r24, 0x01	; 1
+ 638:	90 e0       	ldi	r25, 0x00	; 0
+ 63a:	0e 94 1f 01 	call	0x23e	; 0x23e <put_Char_LCD_Display>
 	put_Char_LCD_Display(0b00001, 1);
- 614:	61 e0       	ldi	r22, 0x01	; 1
- 616:	70 e0       	ldi	r23, 0x00	; 0
- 618:	81 e0       	ldi	r24, 0x01	; 1
- 61a:	90 e0       	ldi	r25, 0x00	; 0
- 61c:	0e 94 0a 01 	call	0x214	; 0x214 <put_Char_LCD_Display>
+ 63e:	61 e0       	ldi	r22, 0x01	; 1
+ 640:	70 e0       	ldi	r23, 0x00	; 0
+ 642:	81 e0       	ldi	r24, 0x01	; 1
+ 644:	90 e0       	ldi	r25, 0x00	; 0
+ 646:	0e 94 1f 01 	call	0x23e	; 0x23e <put_Char_LCD_Display>
 	put_Char_LCD_Display(0b00001, 1);
- 620:	61 e0       	ldi	r22, 0x01	; 1
- 622:	70 e0       	ldi	r23, 0x00	; 0
- 624:	81 e0       	ldi	r24, 0x01	; 1
- 626:	90 e0       	ldi	r25, 0x00	; 0
- 628:	0e 94 0a 01 	call	0x214	; 0x214 <put_Char_LCD_Display>
+ 64a:	61 e0       	ldi	r22, 0x01	; 1
+ 64c:	70 e0       	ldi	r23, 0x00	; 0
+ 64e:	81 e0       	ldi	r24, 0x01	; 1
+ 650:	90 e0       	ldi	r25, 0x00	; 0
+ 652:	0e 94 1f 01 	call	0x23e	; 0x23e <put_Char_LCD_Display>
 	put_Char_LCD_Display(0b00001, 1);
- 62c:	61 e0       	ldi	r22, 0x01	; 1
- 62e:	70 e0       	ldi	r23, 0x00	; 0
- 630:	81 e0       	ldi	r24, 0x01	; 1
- 632:	90 e0       	ldi	r25, 0x00	; 0
- 634:	0e 94 0a 01 	call	0x214	; 0x214 <put_Char_LCD_Display>
+ 656:	61 e0       	ldi	r22, 0x01	; 1
+ 658:	70 e0       	ldi	r23, 0x00	; 0
+ 65a:	81 e0       	ldi	r24, 0x01	; 1
+ 65c:	90 e0       	ldi	r25, 0x00	; 0
+ 65e:	0e 94 1f 01 	call	0x23e	; 0x23e <put_Char_LCD_Display>
 	put_Char_LCD_Display(0b00011, 1);
- 638:	61 e0       	ldi	r22, 0x01	; 1
- 63a:	70 e0       	ldi	r23, 0x00	; 0
- 63c:	83 e0       	ldi	r24, 0x03	; 3
- 63e:	90 e0       	ldi	r25, 0x00	; 0
- 640:	0e 94 0a 01 	call	0x214	; 0x214 <put_Char_LCD_Display>
+ 662:	61 e0       	ldi	r22, 0x01	; 1
+ 664:	70 e0       	ldi	r23, 0x00	; 0
+ 666:	83 e0       	ldi	r24, 0x03	; 3
+ 668:	90 e0       	ldi	r25, 0x00	; 0
+ 66a:	0e 94 1f 01 	call	0x23e	; 0x23e <put_Char_LCD_Display>
 	put_Char_LCD_Display(0b00111, 1);
- 644:	61 e0       	ldi	r22, 0x01	; 1
- 646:	70 e0       	ldi	r23, 0x00	; 0
- 648:	87 e0       	ldi	r24, 0x07	; 7
- 64a:	90 e0       	ldi	r25, 0x00	; 0
- 64c:	0e 94 0a 01 	call	0x214	; 0x214 <put_Char_LCD_Display>
+ 66e:	61 e0       	ldi	r22, 0x01	; 1
+ 670:	70 e0       	ldi	r23, 0x00	; 0
+ 672:	87 e0       	ldi	r24, 0x07	; 7
+ 674:	90 e0       	ldi	r25, 0x00	; 0
+ 676:	0e 94 1f 01 	call	0x23e	; 0x23e <put_Char_LCD_Display>
 	put_Char_LCD_Display(0b01101, 1);
- 650:	61 e0       	ldi	r22, 0x01	; 1
- 652:	70 e0       	ldi	r23, 0x00	; 0
- 654:	8d e0       	ldi	r24, 0x0D	; 13
- 656:	90 e0       	ldi	r25, 0x00	; 0
- 658:	0e 94 0a 01 	call	0x214	; 0x214 <put_Char_LCD_Display>
+ 67a:	61 e0       	ldi	r22, 0x01	; 1
+ 67c:	70 e0       	ldi	r23, 0x00	; 0
+ 67e:	8d e0       	ldi	r24, 0x0D	; 13
+ 680:	90 e0       	ldi	r25, 0x00	; 0
+ 682:	0e 94 1f 01 	call	0x23e	; 0x23e <put_Char_LCD_Display>
 	put_Char_LCD_Display(0b11001, 1);
- 65c:	61 e0       	ldi	r22, 0x01	; 1
- 65e:	70 e0       	ldi	r23, 0x00	; 0
- 660:	89 e1       	ldi	r24, 0x19	; 25
- 662:	90 e0       	ldi	r25, 0x00	; 0
- 664:	0e 94 0a 01 	call	0x214	; 0x214 <put_Char_LCD_Display>
+ 686:	61 e0       	ldi	r22, 0x01	; 1
+ 688:	70 e0       	ldi	r23, 0x00	; 0
+ 68a:	89 e1       	ldi	r24, 0x19	; 25
+ 68c:	90 e0       	ldi	r25, 0x00	; 0
+ 68e:	0e 94 1f 01 	call	0x23e	; 0x23e <put_Char_LCD_Display>
 	
 	// tank water level end character
 	put_Char_LCD_Display(72, 0);
- 668:	60 e0       	ldi	r22, 0x00	; 0
- 66a:	70 e0       	ldi	r23, 0x00	; 0
- 66c:	88 e4       	ldi	r24, 0x48	; 72
- 66e:	90 e0       	ldi	r25, 0x00	; 0
- 670:	0e 94 0a 01 	call	0x214	; 0x214 <put_Char_LCD_Display>
+ 692:	60 e0       	ldi	r22, 0x00	; 0
+ 694:	70 e0       	ldi	r23, 0x00	; 0
+ 696:	88 e4       	ldi	r24, 0x48	; 72
+ 698:	90 e0       	ldi	r25, 0x00	; 0
+ 69a:	0e 94 1f 01 	call	0x23e	; 0x23e <put_Char_LCD_Display>
 	put_Char_LCD_Display(0b10000, 1);
- 674:	61 e0       	ldi	r22, 0x01	; 1
- 676:	70 e0       	ldi	r23, 0x00	; 0
- 678:	80 e1       	ldi	r24, 0x10	; 16
- 67a:	90 e0       	ldi	r25, 0x00	; 0
- 67c:	0e 94 0a 01 	call	0x214	; 0x214 <put_Char_LCD_Display>
+ 69e:	61 e0       	ldi	r22, 0x01	; 1
+ 6a0:	70 e0       	ldi	r23, 0x00	; 0
+ 6a2:	80 e1       	ldi	r24, 0x10	; 16
+ 6a4:	90 e0       	ldi	r25, 0x00	; 0
+ 6a6:	0e 94 1f 01 	call	0x23e	; 0x23e <put_Char_LCD_Display>
 	put_Char_LCD_Display(0b10000, 1);
- 680:	61 e0       	ldi	r22, 0x01	; 1
- 682:	70 e0       	ldi	r23, 0x00	; 0
- 684:	80 e1       	ldi	r24, 0x10	; 16
- 686:	90 e0       	ldi	r25, 0x00	; 0
- 688:	0e 94 0a 01 	call	0x214	; 0x214 <put_Char_LCD_Display>
+ 6aa:	61 e0       	ldi	r22, 0x01	; 1
+ 6ac:	70 e0       	ldi	r23, 0x00	; 0
+ 6ae:	80 e1       	ldi	r24, 0x10	; 16
+ 6b0:	90 e0       	ldi	r25, 0x00	; 0
+ 6b2:	0e 94 1f 01 	call	0x23e	; 0x23e <put_Char_LCD_Display>
 	put_Char_LCD_Display(0b10000, 1);
- 68c:	61 e0       	ldi	r22, 0x01	; 1
- 68e:	70 e0       	ldi	r23, 0x00	; 0
- 690:	80 e1       	ldi	r24, 0x10	; 16
- 692:	90 e0       	ldi	r25, 0x00	; 0
- 694:	0e 94 0a 01 	call	0x214	; 0x214 <put_Char_LCD_Display>
+ 6b6:	61 e0       	ldi	r22, 0x01	; 1
+ 6b8:	70 e0       	ldi	r23, 0x00	; 0
+ 6ba:	80 e1       	ldi	r24, 0x10	; 16
+ 6bc:	90 e0       	ldi	r25, 0x00	; 0
+ 6be:	0e 94 1f 01 	call	0x23e	; 0x23e <put_Char_LCD_Display>
 	put_Char_LCD_Display(0b10000, 1);
- 698:	61 e0       	ldi	r22, 0x01	; 1
- 69a:	70 e0       	ldi	r23, 0x00	; 0
- 69c:	80 e1       	ldi	r24, 0x10	; 16
- 69e:	90 e0       	ldi	r25, 0x00	; 0
- 6a0:	0e 94 0a 01 	call	0x214	; 0x214 <put_Char_LCD_Display>
+ 6c2:	61 e0       	ldi	r22, 0x01	; 1
+ 6c4:	70 e0       	ldi	r23, 0x00	; 0
+ 6c6:	80 e1       	ldi	r24, 0x10	; 16
+ 6c8:	90 e0       	ldi	r25, 0x00	; 0
+ 6ca:	0e 94 1f 01 	call	0x23e	; 0x23e <put_Char_LCD_Display>
 	put_Char_LCD_Display(0b11000, 1);
- 6a4:	61 e0       	ldi	r22, 0x01	; 1
- 6a6:	70 e0       	ldi	r23, 0x00	; 0
- 6a8:	88 e1       	ldi	r24, 0x18	; 24
- 6aa:	90 e0       	ldi	r25, 0x00	; 0
- 6ac:	0e 94 0a 01 	call	0x214	; 0x214 <put_Char_LCD_Display>
+ 6ce:	61 e0       	ldi	r22, 0x01	; 1
+ 6d0:	70 e0       	ldi	r23, 0x00	; 0
+ 6d2:	88 e1       	ldi	r24, 0x18	; 24
+ 6d4:	90 e0       	ldi	r25, 0x00	; 0
+ 6d6:	0e 94 1f 01 	call	0x23e	; 0x23e <put_Char_LCD_Display>
 	put_Char_LCD_Display(0b11100, 1);
- 6b0:	61 e0       	ldi	r22, 0x01	; 1
- 6b2:	70 e0       	ldi	r23, 0x00	; 0
- 6b4:	8c e1       	ldi	r24, 0x1C	; 28
- 6b6:	90 e0       	ldi	r25, 0x00	; 0
- 6b8:	0e 94 0a 01 	call	0x214	; 0x214 <put_Char_LCD_Display>
+ 6da:	61 e0       	ldi	r22, 0x01	; 1
+ 6dc:	70 e0       	ldi	r23, 0x00	; 0
+ 6de:	8c e1       	ldi	r24, 0x1C	; 28
+ 6e0:	90 e0       	ldi	r25, 0x00	; 0
+ 6e2:	0e 94 1f 01 	call	0x23e	; 0x23e <put_Char_LCD_Display>
 	put_Char_LCD_Display(0b10110, 1);
- 6bc:	61 e0       	ldi	r22, 0x01	; 1
- 6be:	70 e0       	ldi	r23, 0x00	; 0
- 6c0:	86 e1       	ldi	r24, 0x16	; 22
- 6c2:	90 e0       	ldi	r25, 0x00	; 0
- 6c4:	0e 94 0a 01 	call	0x214	; 0x214 <put_Char_LCD_Display>
+ 6e6:	61 e0       	ldi	r22, 0x01	; 1
+ 6e8:	70 e0       	ldi	r23, 0x00	; 0
+ 6ea:	86 e1       	ldi	r24, 0x16	; 22
+ 6ec:	90 e0       	ldi	r25, 0x00	; 0
+ 6ee:	0e 94 1f 01 	call	0x23e	; 0x23e <put_Char_LCD_Display>
 	put_Char_LCD_Display(0b10011, 1);
- 6c8:	61 e0       	ldi	r22, 0x01	; 1
- 6ca:	70 e0       	ldi	r23, 0x00	; 0
- 6cc:	83 e1       	ldi	r24, 0x13	; 19
- 6ce:	90 e0       	ldi	r25, 0x00	; 0
- 6d0:	0e 94 0a 01 	call	0x214	; 0x214 <put_Char_LCD_Display>
- 6d4:	08 95       	ret
+ 6f2:	61 e0       	ldi	r22, 0x01	; 1
+ 6f4:	70 e0       	ldi	r23, 0x00	; 0
+ 6f6:	83 e1       	ldi	r24, 0x13	; 19
+ 6f8:	90 e0       	ldi	r25, 0x00	; 0
+ 6fa:	0e 94 1f 01 	call	0x23e	; 0x23e <put_Char_LCD_Display>
+ 6fe:	08 95       	ret
 
-000006d6 <init_LCD_Display>:
+00000700 <init_LCD_Display>:
 	PORTC &= 0xFC;
 }
 
 void init_LCD_Display(void)
 {
 	DDRC = 0xFF;
- 6d6:	8f ef       	ldi	r24, 0xFF	; 255
- 6d8:	84 bb       	out	0x14, r24	; 20
+ 700:	8f ef       	ldi	r24, 0xFF	; 255
+ 702:	84 bb       	out	0x14, r24	; 20
 	put_Char_LCD_Display(0x03,0);
- 6da:	60 e0       	ldi	r22, 0x00	; 0
- 6dc:	70 e0       	ldi	r23, 0x00	; 0
- 6de:	83 e0       	ldi	r24, 0x03	; 3
- 6e0:	90 e0       	ldi	r25, 0x00	; 0
- 6e2:	0e 94 0a 01 	call	0x214	; 0x214 <put_Char_LCD_Display>
- 6e6:	8f e1       	ldi	r24, 0x1F	; 31
- 6e8:	9e e4       	ldi	r25, 0x4E	; 78
- 6ea:	01 97       	sbiw	r24, 0x01	; 1
- 6ec:	f1 f7       	brne	.-4      	; 0x6ea <init_LCD_Display+0x14>
- 6ee:	00 c0       	rjmp	.+0      	; 0x6f0 <init_LCD_Display+0x1a>
- 6f0:	00 00       	nop
+ 704:	60 e0       	ldi	r22, 0x00	; 0
+ 706:	70 e0       	ldi	r23, 0x00	; 0
+ 708:	83 e0       	ldi	r24, 0x03	; 3
+ 70a:	90 e0       	ldi	r25, 0x00	; 0
+ 70c:	0e 94 1f 01 	call	0x23e	; 0x23e <put_Char_LCD_Display>
+ 710:	8f e1       	ldi	r24, 0x1F	; 31
+ 712:	9e e4       	ldi	r25, 0x4E	; 78
+ 714:	01 97       	sbiw	r24, 0x01	; 1
+ 716:	f1 f7       	brne	.-4      	; 0x714 <init_LCD_Display+0x14>
+ 718:	00 c0       	rjmp	.+0      	; 0x71a <init_LCD_Display+0x1a>
+ 71a:	00 00       	nop
 	_delay_ms(5);
 	put_Char_LCD_Display(0x03,0);
- 6f2:	60 e0       	ldi	r22, 0x00	; 0
- 6f4:	70 e0       	ldi	r23, 0x00	; 0
- 6f6:	83 e0       	ldi	r24, 0x03	; 3
- 6f8:	90 e0       	ldi	r25, 0x00	; 0
- 6fa:	0e 94 0a 01 	call	0x214	; 0x214 <put_Char_LCD_Display>
- 6fe:	8f e1       	ldi	r24, 0x1F	; 31
- 700:	9e e4       	ldi	r25, 0x4E	; 78
- 702:	01 97       	sbiw	r24, 0x01	; 1
- 704:	f1 f7       	brne	.-4      	; 0x702 <init_LCD_Display+0x2c>
- 706:	00 c0       	rjmp	.+0      	; 0x708 <init_LCD_Display+0x32>
- 708:	00 00       	nop
+ 71c:	60 e0       	ldi	r22, 0x00	; 0
+ 71e:	70 e0       	ldi	r23, 0x00	; 0
+ 720:	83 e0       	ldi	r24, 0x03	; 3
+ 722:	90 e0       	ldi	r25, 0x00	; 0
+ 724:	0e 94 1f 01 	call	0x23e	; 0x23e <put_Char_LCD_Display>
+ 728:	8f e1       	ldi	r24, 0x1F	; 31
+ 72a:	9e e4       	ldi	r25, 0x4E	; 78
+ 72c:	01 97       	sbiw	r24, 0x01	; 1
+ 72e:	f1 f7       	brne	.-4      	; 0x72c <init_LCD_Display+0x2c>
+ 730:	00 c0       	rjmp	.+0      	; 0x732 <init_LCD_Display+0x32>
+ 732:	00 00       	nop
 	_delay_ms(5);
 	put_Char_LCD_Display(0x03,0);
- 70a:	60 e0       	ldi	r22, 0x00	; 0
- 70c:	70 e0       	ldi	r23, 0x00	; 0
- 70e:	83 e0       	ldi	r24, 0x03	; 3
- 710:	90 e0       	ldi	r25, 0x00	; 0
- 712:	0e 94 0a 01 	call	0x214	; 0x214 <put_Char_LCD_Display>
- 716:	8f e1       	ldi	r24, 0x1F	; 31
- 718:	9e e4       	ldi	r25, 0x4E	; 78
- 71a:	01 97       	sbiw	r24, 0x01	; 1
- 71c:	f1 f7       	brne	.-4      	; 0x71a <init_LCD_Display+0x44>
- 71e:	00 c0       	rjmp	.+0      	; 0x720 <init_LCD_Display+0x4a>
- 720:	00 00       	nop
+ 734:	60 e0       	ldi	r22, 0x00	; 0
+ 736:	70 e0       	ldi	r23, 0x00	; 0
+ 738:	83 e0       	ldi	r24, 0x03	; 3
+ 73a:	90 e0       	ldi	r25, 0x00	; 0
+ 73c:	0e 94 1f 01 	call	0x23e	; 0x23e <put_Char_LCD_Display>
+ 740:	8f e1       	ldi	r24, 0x1F	; 31
+ 742:	9e e4       	ldi	r25, 0x4E	; 78
+ 744:	01 97       	sbiw	r24, 0x01	; 1
+ 746:	f1 f7       	brne	.-4      	; 0x744 <init_LCD_Display+0x44>
+ 748:	00 c0       	rjmp	.+0      	; 0x74a <init_LCD_Display+0x4a>
+ 74a:	00 00       	nop
 	_delay_ms(5);
 	put_Char_LCD_Display(0x02,0);
- 722:	60 e0       	ldi	r22, 0x00	; 0
- 724:	70 e0       	ldi	r23, 0x00	; 0
- 726:	82 e0       	ldi	r24, 0x02	; 2
- 728:	90 e0       	ldi	r25, 0x00	; 0
- 72a:	0e 94 0a 01 	call	0x214	; 0x214 <put_Char_LCD_Display>
- 72e:	8f e1       	ldi	r24, 0x1F	; 31
- 730:	9e e4       	ldi	r25, 0x4E	; 78
- 732:	01 97       	sbiw	r24, 0x01	; 1
- 734:	f1 f7       	brne	.-4      	; 0x732 <init_LCD_Display+0x5c>
- 736:	00 c0       	rjmp	.+0      	; 0x738 <init_LCD_Display+0x62>
- 738:	00 00       	nop
+ 74c:	60 e0       	ldi	r22, 0x00	; 0
+ 74e:	70 e0       	ldi	r23, 0x00	; 0
+ 750:	82 e0       	ldi	r24, 0x02	; 2
+ 752:	90 e0       	ldi	r25, 0x00	; 0
+ 754:	0e 94 1f 01 	call	0x23e	; 0x23e <put_Char_LCD_Display>
+ 758:	8f e1       	ldi	r24, 0x1F	; 31
+ 75a:	9e e4       	ldi	r25, 0x4E	; 78
+ 75c:	01 97       	sbiw	r24, 0x01	; 1
+ 75e:	f1 f7       	brne	.-4      	; 0x75c <init_LCD_Display+0x5c>
+ 760:	00 c0       	rjmp	.+0      	; 0x762 <init_LCD_Display+0x62>
+ 762:	00 00       	nop
 	_delay_ms(5);
 	put_Char_LCD_Display(0x0C,0);
- 73a:	60 e0       	ldi	r22, 0x00	; 0
- 73c:	70 e0       	ldi	r23, 0x00	; 0
- 73e:	8c e0       	ldi	r24, 0x0C	; 12
- 740:	90 e0       	ldi	r25, 0x00	; 0
- 742:	0e 94 0a 01 	call	0x214	; 0x214 <put_Char_LCD_Display>
- 746:	8f e1       	ldi	r24, 0x1F	; 31
- 748:	9e e4       	ldi	r25, 0x4E	; 78
- 74a:	01 97       	sbiw	r24, 0x01	; 1
- 74c:	f1 f7       	brne	.-4      	; 0x74a <init_LCD_Display+0x74>
- 74e:	00 c0       	rjmp	.+0      	; 0x750 <init_LCD_Display+0x7a>
- 750:	00 00       	nop
+ 764:	60 e0       	ldi	r22, 0x00	; 0
+ 766:	70 e0       	ldi	r23, 0x00	; 0
+ 768:	8c e0       	ldi	r24, 0x0C	; 12
+ 76a:	90 e0       	ldi	r25, 0x00	; 0
+ 76c:	0e 94 1f 01 	call	0x23e	; 0x23e <put_Char_LCD_Display>
+ 770:	8f e1       	ldi	r24, 0x1F	; 31
+ 772:	9e e4       	ldi	r25, 0x4E	; 78
+ 774:	01 97       	sbiw	r24, 0x01	; 1
+ 776:	f1 f7       	brne	.-4      	; 0x774 <init_LCD_Display+0x74>
+ 778:	00 c0       	rjmp	.+0      	; 0x77a <init_LCD_Display+0x7a>
+ 77a:	00 00       	nop
 	_delay_ms(5);
 	put_Char_LCD_Display(0x01,0);
- 752:	60 e0       	ldi	r22, 0x00	; 0
- 754:	70 e0       	ldi	r23, 0x00	; 0
- 756:	81 e0       	ldi	r24, 0x01	; 1
- 758:	90 e0       	ldi	r25, 0x00	; 0
- 75a:	0e 94 0a 01 	call	0x214	; 0x214 <put_Char_LCD_Display>
- 75e:	8f e1       	ldi	r24, 0x1F	; 31
- 760:	9e e4       	ldi	r25, 0x4E	; 78
- 762:	01 97       	sbiw	r24, 0x01	; 1
- 764:	f1 f7       	brne	.-4      	; 0x762 <init_LCD_Display+0x8c>
- 766:	00 c0       	rjmp	.+0      	; 0x768 <init_LCD_Display+0x92>
- 768:	00 00       	nop
+ 77c:	60 e0       	ldi	r22, 0x00	; 0
+ 77e:	70 e0       	ldi	r23, 0x00	; 0
+ 780:	81 e0       	ldi	r24, 0x01	; 1
+ 782:	90 e0       	ldi	r25, 0x00	; 0
+ 784:	0e 94 1f 01 	call	0x23e	; 0x23e <put_Char_LCD_Display>
+ 788:	8f e1       	ldi	r24, 0x1F	; 31
+ 78a:	9e e4       	ldi	r25, 0x4E	; 78
+ 78c:	01 97       	sbiw	r24, 0x01	; 1
+ 78e:	f1 f7       	brne	.-4      	; 0x78c <init_LCD_Display+0x8c>
+ 790:	00 c0       	rjmp	.+0      	; 0x792 <init_LCD_Display+0x92>
+ 792:	00 00       	nop
 	_delay_ms(5);
 	put_Char_LCD_Display(0x80,0);
- 76a:	60 e0       	ldi	r22, 0x00	; 0
- 76c:	70 e0       	ldi	r23, 0x00	; 0
- 76e:	80 e8       	ldi	r24, 0x80	; 128
- 770:	90 e0       	ldi	r25, 0x00	; 0
- 772:	0e 94 0a 01 	call	0x214	; 0x214 <put_Char_LCD_Display>
- 776:	8f e1       	ldi	r24, 0x1F	; 31
- 778:	9e e4       	ldi	r25, 0x4E	; 78
- 77a:	01 97       	sbiw	r24, 0x01	; 1
- 77c:	f1 f7       	brne	.-4      	; 0x77a <init_LCD_Display+0xa4>
- 77e:	00 c0       	rjmp	.+0      	; 0x780 <init_LCD_Display+0xaa>
- 780:	00 00       	nop
+ 794:	60 e0       	ldi	r22, 0x00	; 0
+ 796:	70 e0       	ldi	r23, 0x00	; 0
+ 798:	80 e8       	ldi	r24, 0x80	; 128
+ 79a:	90 e0       	ldi	r25, 0x00	; 0
+ 79c:	0e 94 1f 01 	call	0x23e	; 0x23e <put_Char_LCD_Display>
+ 7a0:	8f e1       	ldi	r24, 0x1F	; 31
+ 7a2:	9e e4       	ldi	r25, 0x4E	; 78
+ 7a4:	01 97       	sbiw	r24, 0x01	; 1
+ 7a6:	f1 f7       	brne	.-4      	; 0x7a4 <init_LCD_Display+0xa4>
+ 7a8:	00 c0       	rjmp	.+0      	; 0x7aa <init_LCD_Display+0xaa>
+ 7aa:	00 00       	nop
 	_delay_ms(5);
 	put_Char_LCD_Display(0x01,0);//clear display
- 782:	60 e0       	ldi	r22, 0x00	; 0
- 784:	70 e0       	ldi	r23, 0x00	; 0
- 786:	81 e0       	ldi	r24, 0x01	; 1
- 788:	90 e0       	ldi	r25, 0x00	; 0
- 78a:	0e 94 0a 01 	call	0x214	; 0x214 <put_Char_LCD_Display>
+ 7ac:	60 e0       	ldi	r22, 0x00	; 0
+ 7ae:	70 e0       	ldi	r23, 0x00	; 0
+ 7b0:	81 e0       	ldi	r24, 0x01	; 1
+ 7b2:	90 e0       	ldi	r25, 0x00	; 0
+ 7b4:	0e 94 1f 01 	call	0x23e	; 0x23e <put_Char_LCD_Display>
 	init_custom_characters();
- 78e:	0e 94 fe 02 	call	0x5fc	; 0x5fc <init_custom_characters>
- 792:	08 95       	ret
+ 7b8:	0e 94 13 03 	call	0x626	; 0x626 <init_custom_characters>
+ 7bc:	08 95       	ret
 
-00000794 <put_string>:
+000007be <put_string>:
 	put_Char_LCD_Display(0b10011, 1);
 }
 
 // display string
 void put_string(const char *_string)
 {
- 794:	ef 92       	push	r14
- 796:	ff 92       	push	r15
- 798:	0f 93       	push	r16
- 79a:	1f 93       	push	r17
- 79c:	cf 93       	push	r28
- 79e:	df 93       	push	r29
- 7a0:	8c 01       	movw	r16, r24
- 7a2:	7c 01       	movw	r14, r24
+ 7be:	ef 92       	push	r14
+ 7c0:	ff 92       	push	r15
+ 7c2:	0f 93       	push	r16
+ 7c4:	1f 93       	push	r17
+ 7c6:	cf 93       	push	r28
+ 7c8:	df 93       	push	r29
+ 7ca:	8c 01       	movw	r16, r24
+ 7cc:	7c 01       	movw	r14, r24
 	int ch_index;
 	for(ch_index=0;ch_index<strlen(_string);ch_index++)
- 7a4:	c0 e0       	ldi	r28, 0x00	; 0
- 7a6:	d0 e0       	ldi	r29, 0x00	; 0
- 7a8:	09 c0       	rjmp	.+18     	; 0x7bc <put_string+0x28>
+ 7ce:	c0 e0       	ldi	r28, 0x00	; 0
+ 7d0:	d0 e0       	ldi	r29, 0x00	; 0
+ 7d2:	09 c0       	rjmp	.+18     	; 0x7e6 <put_string+0x28>
 	{
 		put_Char_LCD_Display(_string[ch_index], 1);
- 7aa:	f7 01       	movw	r30, r14
- 7ac:	81 91       	ld	r24, Z+
- 7ae:	7f 01       	movw	r14, r30
- 7b0:	61 e0       	ldi	r22, 0x01	; 1
- 7b2:	70 e0       	ldi	r23, 0x00	; 0
- 7b4:	90 e0       	ldi	r25, 0x00	; 0
- 7b6:	0e 94 0a 01 	call	0x214	; 0x214 <put_Char_LCD_Display>
+ 7d4:	f7 01       	movw	r30, r14
+ 7d6:	81 91       	ld	r24, Z+
+ 7d8:	7f 01       	movw	r14, r30
+ 7da:	61 e0       	ldi	r22, 0x01	; 1
+ 7dc:	70 e0       	ldi	r23, 0x00	; 0
+ 7de:	90 e0       	ldi	r25, 0x00	; 0
+ 7e0:	0e 94 1f 01 	call	0x23e	; 0x23e <put_Char_LCD_Display>
 
 // display string
 void put_string(const char *_string)
 {
 	int ch_index;
 	for(ch_index=0;ch_index<strlen(_string);ch_index++)
- 7ba:	21 96       	adiw	r28, 0x01	; 1
- 7bc:	f8 01       	movw	r30, r16
- 7be:	01 90       	ld	r0, Z+
- 7c0:	00 20       	and	r0, r0
- 7c2:	e9 f7       	brne	.-6      	; 0x7be <put_string+0x2a>
- 7c4:	31 97       	sbiw	r30, 0x01	; 1
- 7c6:	e0 1b       	sub	r30, r16
- 7c8:	f1 0b       	sbc	r31, r17
- 7ca:	ce 17       	cp	r28, r30
- 7cc:	df 07       	cpc	r29, r31
- 7ce:	68 f3       	brcs	.-38     	; 0x7aa <put_string+0x16>
+ 7e4:	21 96       	adiw	r28, 0x01	; 1
+ 7e6:	f8 01       	movw	r30, r16
+ 7e8:	01 90       	ld	r0, Z+
+ 7ea:	00 20       	and	r0, r0
+ 7ec:	e9 f7       	brne	.-6      	; 0x7e8 <put_string+0x2a>
+ 7ee:	31 97       	sbiw	r30, 0x01	; 1
+ 7f0:	e0 1b       	sub	r30, r16
+ 7f2:	f1 0b       	sbc	r31, r17
+ 7f4:	ce 17       	cp	r28, r30
+ 7f6:	df 07       	cpc	r29, r31
+ 7f8:	68 f3       	brcs	.-38     	; 0x7d4 <put_string+0x16>
 	{
 		put_Char_LCD_Display(_string[ch_index], 1);
 	}
 }
- 7d0:	df 91       	pop	r29
- 7d2:	cf 91       	pop	r28
- 7d4:	1f 91       	pop	r17
- 7d6:	0f 91       	pop	r16
- 7d8:	ff 90       	pop	r15
- 7da:	ef 90       	pop	r14
- 7dc:	08 95       	ret
+ 7fa:	df 91       	pop	r29
+ 7fc:	cf 91       	pop	r28
+ 7fe:	1f 91       	pop	r17
+ 800:	0f 91       	pop	r16
+ 802:	ff 90       	pop	r15
+ 804:	ef 90       	pop	r14
+ 806:	08 95       	ret
 
-000007de <display_umidity_level_title>:
+00000808 <display_umidity_level_title>:
 
 // displays humidity percentage title
 void display_umidity_level_title()
 {
- 7de:	cf 93       	push	r28
- 7e0:	df 93       	push	r29
+ 808:	cf 93       	push	r28
+ 80a:	df 93       	push	r29
 	int index;
 	
 	put_Char_LCD_Display(0x01,0); // clear LCD
- 7e2:	60 e0       	ldi	r22, 0x00	; 0
- 7e4:	70 e0       	ldi	r23, 0x00	; 0
- 7e6:	81 e0       	ldi	r24, 0x01	; 1
- 7e8:	90 e0       	ldi	r25, 0x00	; 0
- 7ea:	0e 94 0a 01 	call	0x214	; 0x214 <put_Char_LCD_Display>
+ 80c:	60 e0       	ldi	r22, 0x00	; 0
+ 80e:	70 e0       	ldi	r23, 0x00	; 0
+ 810:	81 e0       	ldi	r24, 0x01	; 1
+ 812:	90 e0       	ldi	r25, 0x00	; 0
+ 814:	0e 94 1f 01 	call	0x23e	; 0x23e <put_Char_LCD_Display>
 	
 	put_Char_LCD_Display(0x80, 0);
- 7ee:	60 e0       	ldi	r22, 0x00	; 0
- 7f0:	70 e0       	ldi	r23, 0x00	; 0
- 7f2:	80 e8       	ldi	r24, 0x80	; 128
- 7f4:	90 e0       	ldi	r25, 0x00	; 0
- 7f6:	0e 94 0a 01 	call	0x214	; 0x214 <put_Char_LCD_Display>
+ 818:	60 e0       	ldi	r22, 0x00	; 0
+ 81a:	70 e0       	ldi	r23, 0x00	; 0
+ 81c:	80 e8       	ldi	r24, 0x80	; 128
+ 81e:	90 e0       	ldi	r25, 0x00	; 0
+ 820:	0e 94 1f 01 	call	0x23e	; 0x23e <put_Char_LCD_Display>
 	put_string(SENSOR_1_TITLE);
- 7fa:	82 e6       	ldi	r24, 0x62	; 98
- 7fc:	90 e0       	ldi	r25, 0x00	; 0
- 7fe:	0e 94 ca 03 	call	0x794	; 0x794 <put_string>
- 802:	c5 e0       	ldi	r28, 0x05	; 5
- 804:	d0 e0       	ldi	r29, 0x00	; 0
+ 824:	82 e6       	ldi	r24, 0x62	; 98
+ 826:	90 e0       	ldi	r25, 0x00	; 0
+ 828:	0e 94 df 03 	call	0x7be	; 0x7be <put_string>
+ 82c:	c5 e0       	ldi	r28, 0x05	; 5
+ 82e:	d0 e0       	ldi	r29, 0x00	; 0
 	for(index = 0; index<MAX_CHARS_PER_ROW-(strlen(SENSOR_1_TITLE)) - 1; index++)
 	{
 		put_Char_LCD_Display(' ', 1);
- 806:	61 e0       	ldi	r22, 0x01	; 1
- 808:	70 e0       	ldi	r23, 0x00	; 0
- 80a:	80 e2       	ldi	r24, 0x20	; 32
- 80c:	90 e0       	ldi	r25, 0x00	; 0
- 80e:	0e 94 0a 01 	call	0x214	; 0x214 <put_Char_LCD_Display>
- 812:	21 97       	sbiw	r28, 0x01	; 1
+ 830:	61 e0       	ldi	r22, 0x01	; 1
+ 832:	70 e0       	ldi	r23, 0x00	; 0
+ 834:	80 e2       	ldi	r24, 0x20	; 32
+ 836:	90 e0       	ldi	r25, 0x00	; 0
+ 838:	0e 94 1f 01 	call	0x23e	; 0x23e <put_Char_LCD_Display>
+ 83c:	21 97       	sbiw	r28, 0x01	; 1
 	
 	put_Char_LCD_Display(0x01,0); // clear LCD
 	
 	put_Char_LCD_Display(0x80, 0);
 	put_string(SENSOR_1_TITLE);
 	for(index = 0; index<MAX_CHARS_PER_ROW-(strlen(SENSOR_1_TITLE)) - 1; index++)
- 814:	c1 f7       	brne	.-16     	; 0x806 <display_umidity_level_title+0x28>
- 816:	09 c0       	rjmp	.+18     	; 0x82a <display_umidity_level_title+0x4c>
+ 83e:	c1 f7       	brne	.-16     	; 0x830 <display_umidity_level_title+0x28>
+ 840:	09 c0       	rjmp	.+18     	; 0x854 <display_umidity_level_title+0x4c>
 	
 	put_Char_LCD_Display(0xC0, 0);
 	put_string(SENSOR_2_TITLE);
 	for(index = 0; index<MAX_CHARS_PER_ROW-(strlen(SENSOR_2_TITLE)) - 1; index++)
 	{
 		put_Char_LCD_Display(' ', 1);
- 818:	61 e0       	ldi	r22, 0x01	; 1
- 81a:	70 e0       	ldi	r23, 0x00	; 0
- 81c:	80 e2       	ldi	r24, 0x20	; 32
- 81e:	90 e0       	ldi	r25, 0x00	; 0
- 820:	0e 94 0a 01 	call	0x214	; 0x214 <put_Char_LCD_Display>
- 824:	21 97       	sbiw	r28, 0x01	; 1
+ 842:	61 e0       	ldi	r22, 0x01	; 1
+ 844:	70 e0       	ldi	r23, 0x00	; 0
+ 846:	80 e2       	ldi	r24, 0x20	; 32
+ 848:	90 e0       	ldi	r25, 0x00	; 0
+ 84a:	0e 94 1f 01 	call	0x23e	; 0x23e <put_Char_LCD_Display>
+ 84e:	21 97       	sbiw	r28, 0x01	; 1
 		put_Char_LCD_Display(' ', 1);
 	}
 	
 	put_Char_LCD_Display(0xC0, 0);
 	put_string(SENSOR_2_TITLE);
 	for(index = 0; index<MAX_CHARS_PER_ROW-(strlen(SENSOR_2_TITLE)) - 1; index++)
- 826:	c1 f7       	brne	.-16     	; 0x818 <display_umidity_level_title+0x3a>
- 828:	0d c0       	rjmp	.+26     	; 0x844 <display_umidity_level_title+0x66>
+ 850:	c1 f7       	brne	.-16     	; 0x842 <display_umidity_level_title+0x3a>
+ 852:	0d c0       	rjmp	.+26     	; 0x86e <__stack+0xf>
 	for(index = 0; index<MAX_CHARS_PER_ROW-(strlen(SENSOR_1_TITLE)) - 1; index++)
 	{
 		put_Char_LCD_Display(' ', 1);
 	}
 	
 	put_Char_LCD_Display(0xC0, 0);
- 82a:	60 e0       	ldi	r22, 0x00	; 0
- 82c:	70 e0       	ldi	r23, 0x00	; 0
- 82e:	80 ec       	ldi	r24, 0xC0	; 192
- 830:	90 e0       	ldi	r25, 0x00	; 0
- 832:	0e 94 0a 01 	call	0x214	; 0x214 <put_Char_LCD_Display>
+ 854:	60 e0       	ldi	r22, 0x00	; 0
+ 856:	70 e0       	ldi	r23, 0x00	; 0
+ 858:	80 ec       	ldi	r24, 0xC0	; 192
+ 85a:	90 e0       	ldi	r25, 0x00	; 0
+ 85c:	0e 94 1f 01 	call	0x23e	; 0x23e <put_Char_LCD_Display>
 	put_string(SENSOR_2_TITLE);
- 836:	8d e6       	ldi	r24, 0x6D	; 109
- 838:	90 e0       	ldi	r25, 0x00	; 0
- 83a:	0e 94 ca 03 	call	0x794	; 0x794 <put_string>
- 83e:	c5 e0       	ldi	r28, 0x05	; 5
- 840:	d0 e0       	ldi	r29, 0x00	; 0
- 842:	ea cf       	rjmp	.-44     	; 0x818 <display_umidity_level_title+0x3a>
+ 860:	8d e6       	ldi	r24, 0x6D	; 109
+ 862:	90 e0       	ldi	r25, 0x00	; 0
+ 864:	0e 94 df 03 	call	0x7be	; 0x7be <put_string>
+ 868:	c5 e0       	ldi	r28, 0x05	; 5
+ 86a:	d0 e0       	ldi	r29, 0x00	; 0
+ 86c:	ea cf       	rjmp	.-44     	; 0x842 <display_umidity_level_title+0x3a>
 	for(index = 0; index<MAX_CHARS_PER_ROW-(strlen(SENSOR_2_TITLE)) - 1; index++)
 	{
 		put_Char_LCD_Display(' ', 1);
 	}
 }
- 844:	df 91       	pop	r29
- 846:	cf 91       	pop	r28
- 848:	08 95       	ret
+ 86e:	df 91       	pop	r29
+ 870:	cf 91       	pop	r28
+ 872:	08 95       	ret
 
-0000084a <display_error_title>:
+00000874 <display_error_title>:
 
 // displays error title
 void display_error_title()
 {	
 	put_Char_LCD_Display(0x01,0); // clear LCD
- 84a:	60 e0       	ldi	r22, 0x00	; 0
- 84c:	70 e0       	ldi	r23, 0x00	; 0
- 84e:	81 e0       	ldi	r24, 0x01	; 1
- 850:	90 e0       	ldi	r25, 0x00	; 0
- 852:	0e 94 0a 01 	call	0x214	; 0x214 <put_Char_LCD_Display>
+ 874:	60 e0       	ldi	r22, 0x00	; 0
+ 876:	70 e0       	ldi	r23, 0x00	; 0
+ 878:	81 e0       	ldi	r24, 0x01	; 1
+ 87a:	90 e0       	ldi	r25, 0x00	; 0
+ 87c:	0e 94 1f 01 	call	0x23e	; 0x23e <put_Char_LCD_Display>
 	
 	put_Char_LCD_Display(0x80, 0);
- 856:	60 e0       	ldi	r22, 0x00	; 0
- 858:	70 e0       	ldi	r23, 0x00	; 0
- 85a:	80 e8       	ldi	r24, 0x80	; 128
- 85c:	90 e0       	ldi	r25, 0x00	; 0
- 85e:	0e 94 0a 01 	call	0x214	; 0x214 <put_Char_LCD_Display>
+ 880:	60 e0       	ldi	r22, 0x00	; 0
+ 882:	70 e0       	ldi	r23, 0x00	; 0
+ 884:	80 e8       	ldi	r24, 0x80	; 128
+ 886:	90 e0       	ldi	r25, 0x00	; 0
+ 888:	0e 94 1f 01 	call	0x23e	; 0x23e <put_Char_LCD_Display>
 	put_string(ERROR_TITLE);
- 862:	88 e7       	ldi	r24, 0x78	; 120
- 864:	90 e0       	ldi	r25, 0x00	; 0
- 866:	0e 94 ca 03 	call	0x794	; 0x794 <put_string>
- 86a:	08 95       	ret
+ 88c:	88 e7       	ldi	r24, 0x78	; 120
+ 88e:	90 e0       	ldi	r25, 0x00	; 0
+ 890:	0e 94 df 03 	call	0x7be	; 0x7be <put_string>
+ 894:	08 95       	ret
 
-0000086c <display_error>:
+00000896 <display_error>:
 }
 
 void display_error()
 {
 	put_Char_LCD_Display(0xC0, 0);
- 86c:	60 e0       	ldi	r22, 0x00	; 0
- 86e:	70 e0       	ldi	r23, 0x00	; 0
- 870:	80 ec       	ldi	r24, 0xC0	; 192
- 872:	90 e0       	ldi	r25, 0x00	; 0
- 874:	0e 94 0a 01 	call	0x214	; 0x214 <put_Char_LCD_Display>
+ 896:	60 e0       	ldi	r22, 0x00	; 0
+ 898:	70 e0       	ldi	r23, 0x00	; 0
+ 89a:	80 ec       	ldi	r24, 0xC0	; 192
+ 89c:	90 e0       	ldi	r25, 0x00	; 0
+ 89e:	0e 94 1f 01 	call	0x23e	; 0x23e <put_Char_LCD_Display>
 	put_string(ERROR);
- 878:	8a e0       	ldi	r24, 0x0A	; 10
- 87a:	91 e0       	ldi	r25, 0x01	; 1
- 87c:	0e 94 ca 03 	call	0x794	; 0x794 <put_string>
- 880:	08 95       	ret
+ 8a2:	8a e0       	ldi	r24, 0x0A	; 10
+ 8a4:	91 e0       	ldi	r25, 0x01	; 1
+ 8a6:	0e 94 df 03 	call	0x7be	; 0x7be <put_string>
+ 8aa:	08 95       	ret
 
-00000882 <display_tank_water_level_title>:
+000008ac <display_tank_water_level_title>:
 }
 
 // display tank water level title
 void display_tank_water_level_title()
 {
 	put_Char_LCD_Display(0x01,0); // clear LCD
- 882:	60 e0       	ldi	r22, 0x00	; 0
- 884:	70 e0       	ldi	r23, 0x00	; 0
- 886:	81 e0       	ldi	r24, 0x01	; 1
- 888:	90 e0       	ldi	r25, 0x00	; 0
- 88a:	0e 94 0a 01 	call	0x214	; 0x214 <put_Char_LCD_Display>
+ 8ac:	60 e0       	ldi	r22, 0x00	; 0
+ 8ae:	70 e0       	ldi	r23, 0x00	; 0
+ 8b0:	81 e0       	ldi	r24, 0x01	; 1
+ 8b2:	90 e0       	ldi	r25, 0x00	; 0
+ 8b4:	0e 94 1f 01 	call	0x23e	; 0x23e <put_Char_LCD_Display>
 	
 	put_Char_LCD_Display(0x80, 0); // go to row 0, column 0
- 88e:	60 e0       	ldi	r22, 0x00	; 0
- 890:	70 e0       	ldi	r23, 0x00	; 0
- 892:	80 e8       	ldi	r24, 0x80	; 128
- 894:	90 e0       	ldi	r25, 0x00	; 0
- 896:	0e 94 0a 01 	call	0x214	; 0x214 <put_Char_LCD_Display>
+ 8b8:	60 e0       	ldi	r22, 0x00	; 0
+ 8ba:	70 e0       	ldi	r23, 0x00	; 0
+ 8bc:	80 e8       	ldi	r24, 0x80	; 128
+ 8be:	90 e0       	ldi	r25, 0x00	; 0
+ 8c0:	0e 94 1f 01 	call	0x23e	; 0x23e <put_Char_LCD_Display>
 	put_string(TANK_WATER_LEVEL_TITLE);
- 89a:	89 e8       	ldi	r24, 0x89	; 137
- 89c:	90 e0       	ldi	r25, 0x00	; 0
- 89e:	0e 94 ca 03 	call	0x794	; 0x794 <put_string>
- 8a2:	08 95       	ret
+ 8c4:	89 e8       	ldi	r24, 0x89	; 137
+ 8c6:	90 e0       	ldi	r25, 0x00	; 0
+ 8c8:	0e 94 df 03 	call	0x7be	; 0x7be <put_string>
+ 8cc:	08 95       	ret
 
-000008a4 <display_tank_water_level>:
+000008ce <display_tank_water_level>:
 }
 
 void display_tank_water_level()
 {
- 8a4:	cf 93       	push	r28
- 8a6:	df 93       	push	r29
+ 8ce:	cf 93       	push	r28
+ 8d0:	df 93       	push	r29
 	init_custom_character_level(WATER_LEVEL);
- 8a8:	80 91 04 01 	lds	r24, 0x0104	; 0x800104 <WATER_LEVEL>
- 8ac:	90 e0       	ldi	r25, 0x00	; 0
- 8ae:	0e 94 39 01 	call	0x272	; 0x272 <init_custom_character_level>
+ 8d2:	80 91 04 01 	lds	r24, 0x0104	; 0x800104 <WATER_LEVEL>
+ 8d6:	90 e0       	ldi	r25, 0x00	; 0
+ 8d8:	0e 94 4e 01 	call	0x29c	; 0x29c <init_custom_character_level>
 	put_Char_LCD_Display(0xC0, 0);
- 8b2:	60 e0       	ldi	r22, 0x00	; 0
- 8b4:	70 e0       	ldi	r23, 0x00	; 0
- 8b6:	80 ec       	ldi	r24, 0xC0	; 192
- 8b8:	90 e0       	ldi	r25, 0x00	; 0
- 8ba:	0e 94 0a 01 	call	0x214	; 0x214 <put_Char_LCD_Display>
+ 8dc:	60 e0       	ldi	r22, 0x00	; 0
+ 8de:	70 e0       	ldi	r23, 0x00	; 0
+ 8e0:	80 ec       	ldi	r24, 0xC0	; 192
+ 8e2:	90 e0       	ldi	r25, 0x00	; 0
+ 8e4:	0e 94 1f 01 	call	0x23e	; 0x23e <put_Char_LCD_Display>
 	put_Char_LCD_Display(SPECIAL_CHARACTER_TANK_LEVEL_START, 1);
- 8be:	61 e0       	ldi	r22, 0x01	; 1
- 8c0:	70 e0       	ldi	r23, 0x00	; 0
- 8c2:	80 e0       	ldi	r24, 0x00	; 0
- 8c4:	90 e0       	ldi	r25, 0x00	; 0
- 8c6:	0e 94 0a 01 	call	0x214	; 0x214 <put_Char_LCD_Display>
- 8ca:	c8 e0       	ldi	r28, 0x08	; 8
- 8cc:	d0 e0       	ldi	r29, 0x00	; 0
+ 8e8:	61 e0       	ldi	r22, 0x01	; 1
+ 8ea:	70 e0       	ldi	r23, 0x00	; 0
+ 8ec:	80 e0       	ldi	r24, 0x00	; 0
+ 8ee:	90 e0       	ldi	r25, 0x00	; 0
+ 8f0:	0e 94 1f 01 	call	0x23e	; 0x23e <put_Char_LCD_Display>
+ 8f4:	c8 e0       	ldi	r28, 0x08	; 8
+ 8f6:	d0 e0       	ldi	r29, 0x00	; 0
 	for(short i = 0; i < 8; i++)
 	{
 		put_Char_LCD_Display(SPECIAL_CHARACTER_TANK_WATER_LEVEL, 1);
- 8ce:	61 e0       	ldi	r22, 0x01	; 1
- 8d0:	70 e0       	ldi	r23, 0x00	; 0
- 8d2:	82 e0       	ldi	r24, 0x02	; 2
- 8d4:	90 e0       	ldi	r25, 0x00	; 0
- 8d6:	0e 94 0a 01 	call	0x214	; 0x214 <put_Char_LCD_Display>
- 8da:	21 97       	sbiw	r28, 0x01	; 1
+ 8f8:	61 e0       	ldi	r22, 0x01	; 1
+ 8fa:	70 e0       	ldi	r23, 0x00	; 0
+ 8fc:	82 e0       	ldi	r24, 0x02	; 2
+ 8fe:	90 e0       	ldi	r25, 0x00	; 0
+ 900:	0e 94 1f 01 	call	0x23e	; 0x23e <put_Char_LCD_Display>
+ 904:	21 97       	sbiw	r28, 0x01	; 1
 void display_tank_water_level()
 {
 	init_custom_character_level(WATER_LEVEL);
 	put_Char_LCD_Display(0xC0, 0);
 	put_Char_LCD_Display(SPECIAL_CHARACTER_TANK_LEVEL_START, 1);
 	for(short i = 0; i < 8; i++)
- 8dc:	c1 f7       	brne	.-16     	; 0x8ce <display_tank_water_level+0x2a>
+ 906:	c1 f7       	brne	.-16     	; 0x8f8 <display_tank_water_level+0x2a>
 	{
 		put_Char_LCD_Display(SPECIAL_CHARACTER_TANK_WATER_LEVEL, 1);
 	}
 	put_Char_LCD_Display(SPECIAL_CHARACTER_TANK_LEVEL_END, 1);
- 8de:	61 e0       	ldi	r22, 0x01	; 1
- 8e0:	70 e0       	ldi	r23, 0x00	; 0
- 8e2:	81 e0       	ldi	r24, 0x01	; 1
- 8e4:	90 e0       	ldi	r25, 0x00	; 0
- 8e6:	0e 94 0a 01 	call	0x214	; 0x214 <put_Char_LCD_Display>
+ 908:	61 e0       	ldi	r22, 0x01	; 1
+ 90a:	70 e0       	ldi	r23, 0x00	; 0
+ 90c:	81 e0       	ldi	r24, 0x01	; 1
+ 90e:	90 e0       	ldi	r25, 0x00	; 0
+ 910:	0e 94 1f 01 	call	0x23e	; 0x23e <put_Char_LCD_Display>
 }
- 8ea:	df 91       	pop	r29
- 8ec:	cf 91       	pop	r28
- 8ee:	08 95       	ret
+ 914:	df 91       	pop	r29
+ 916:	cf 91       	pop	r28
+ 918:	08 95       	ret
 
-000008f0 <humidity_level_int_value_to_string>:
+0000091a <humidity_level_int_value_to_string>:
 
 // self made itoa
 const char * humidity_level_int_value_to_string(int value)
 {
- 8f0:	cf 93       	push	r28
- 8f2:	df 93       	push	r29
- 8f4:	9c 01       	movw	r18, r24
+ 91a:	cf 93       	push	r28
+ 91c:	df 93       	push	r29
+ 91e:	9c 01       	movw	r18, r24
 	char digit_3 = '\0';
 	char digit_4 = '\0';
 	
 	static char humidity_level[4];
 	
 	first_digit = (value/100)%10;
- 8f6:	64 e6       	ldi	r22, 0x64	; 100
- 8f8:	70 e0       	ldi	r23, 0x00	; 0
- 8fa:	0e 94 00 06 	call	0xc00	; 0xc00 <__divmodhi4>
- 8fe:	cb 01       	movw	r24, r22
- 900:	ca e0       	ldi	r28, 0x0A	; 10
- 902:	d0 e0       	ldi	r29, 0x00	; 0
- 904:	be 01       	movw	r22, r28
- 906:	0e 94 00 06 	call	0xc00	; 0xc00 <__divmodhi4>
- 90a:	fc 01       	movw	r30, r24
+ 920:	64 e6       	ldi	r22, 0x64	; 100
+ 922:	70 e0       	ldi	r23, 0x00	; 0
+ 924:	0e 94 4c 06 	call	0xc98	; 0xc98 <__divmodhi4>
+ 928:	cb 01       	movw	r24, r22
+ 92a:	ca e0       	ldi	r28, 0x0A	; 10
+ 92c:	d0 e0       	ldi	r29, 0x00	; 0
+ 92e:	be 01       	movw	r22, r28
+ 930:	0e 94 4c 06 	call	0xc98	; 0xc98 <__divmodhi4>
+ 934:	fc 01       	movw	r30, r24
 	second_digit = (value/10)%10;
- 90c:	c9 01       	movw	r24, r18
- 90e:	be 01       	movw	r22, r28
- 910:	0e 94 00 06 	call	0xc00	; 0xc00 <__divmodhi4>
- 914:	38 2f       	mov	r19, r24
- 916:	cb 01       	movw	r24, r22
- 918:	be 01       	movw	r22, r28
- 91a:	0e 94 00 06 	call	0xc00	; 0xc00 <__divmodhi4>
- 91e:	28 2f       	mov	r18, r24
+ 936:	c9 01       	movw	r24, r18
+ 938:	be 01       	movw	r22, r28
+ 93a:	0e 94 4c 06 	call	0xc98	; 0xc98 <__divmodhi4>
+ 93e:	38 2f       	mov	r19, r24
+ 940:	cb 01       	movw	r24, r22
+ 942:	be 01       	movw	r22, r28
+ 944:	0e 94 4c 06 	call	0xc98	; 0xc98 <__divmodhi4>
+ 948:	28 2f       	mov	r18, r24
 	third_digit = value%10;
 	
 	if(first_digit == 0)
- 920:	30 97       	sbiw	r30, 0x00	; 0
- 922:	69 f4       	brne	.+26     	; 0x93e <humidity_level_int_value_to_string+0x4e>
+ 94a:	30 97       	sbiw	r30, 0x00	; 0
+ 94c:	69 f4       	brne	.+26     	; 0x968 <humidity_level_int_value_to_string+0x4e>
 	{
 		if(second_digit == 0)
- 924:	89 2b       	or	r24, r25
- 926:	29 f4       	brne	.+10     	; 0x932 <humidity_level_int_value_to_string+0x42>
+ 94e:	89 2b       	or	r24, r25
+ 950:	29 f4       	brne	.+10     	; 0x95c <humidity_level_int_value_to_string+0x42>
 		{
 			digit_1 = third_digit + '0';
- 928:	90 e3       	ldi	r25, 0x30	; 48
- 92a:	93 0f       	add	r25, r19
+ 952:	90 e3       	ldi	r25, 0x30	; 48
+ 954:	93 0f       	add	r25, r19
 	int second_digit;
 	int third_digit;
 	
 	char digit_1 = '\0';
 	char digit_2 = '\0';
 	char digit_3 = '\0';
- 92c:	30 e0       	ldi	r19, 0x00	; 0
+ 956:	30 e0       	ldi	r19, 0x00	; 0
 	if(first_digit == 0)
 	{
 		if(second_digit == 0)
 		{
 			digit_1 = third_digit + '0';
 			digit_2 = '\0';
- 92e:	20 e0       	ldi	r18, 0x00	; 0
- 930:	0a c0       	rjmp	.+20     	; 0x946 <humidity_level_int_value_to_string+0x56>
+ 958:	20 e0       	ldi	r18, 0x00	; 0
+ 95a:	0a c0       	rjmp	.+20     	; 0x970 <humidity_level_int_value_to_string+0x56>
 		}
 		else
 		{
 			digit_1 = second_digit + '0';
- 932:	90 e3       	ldi	r25, 0x30	; 48
- 934:	92 0f       	add	r25, r18
+ 95c:	90 e3       	ldi	r25, 0x30	; 48
+ 95e:	92 0f       	add	r25, r18
 			digit_2 = third_digit + '0';
- 936:	20 e3       	ldi	r18, 0x30	; 48
- 938:	23 0f       	add	r18, r19
+ 960:	20 e3       	ldi	r18, 0x30	; 48
+ 962:	23 0f       	add	r18, r19
 			digit_3 = '\0';
- 93a:	30 e0       	ldi	r19, 0x00	; 0
- 93c:	04 c0       	rjmp	.+8      	; 0x946 <humidity_level_int_value_to_string+0x56>
+ 964:	30 e0       	ldi	r19, 0x00	; 0
+ 966:	04 c0       	rjmp	.+8      	; 0x970 <humidity_level_int_value_to_string+0x56>
 		}
 	}
 	else
 	{
 		digit_1 = first_digit + '0';
- 93e:	90 e3       	ldi	r25, 0x30	; 48
- 940:	9e 0f       	add	r25, r30
+ 968:	90 e3       	ldi	r25, 0x30	; 48
+ 96a:	9e 0f       	add	r25, r30
 		digit_2 = second_digit + '0';
- 942:	20 5d       	subi	r18, 0xD0	; 208
+ 96c:	20 5d       	subi	r18, 0xD0	; 208
 		digit_3 = third_digit + '0';
- 944:	30 5d       	subi	r19, 0xD0	; 208
+ 96e:	30 5d       	subi	r19, 0xD0	; 208
 		digit_4 = '\0';
 	}
 	
 	humidity_level[0] = digit_1;
- 946:	e6 ef       	ldi	r30, 0xF6	; 246
- 948:	f0 e0       	ldi	r31, 0x00	; 0
- 94a:	90 83       	st	Z, r25
+ 970:	e6 ef       	ldi	r30, 0xF6	; 246
+ 972:	f0 e0       	ldi	r31, 0x00	; 0
+ 974:	90 83       	st	Z, r25
 	humidity_level[1] = digit_2;
- 94c:	21 83       	std	Z+1, r18	; 0x01
+ 976:	21 83       	std	Z+1, r18	; 0x01
 	humidity_level[2] = digit_3;
- 94e:	32 83       	std	Z+2, r19	; 0x02
+ 978:	32 83       	std	Z+2, r19	; 0x02
 	humidity_level[3] = digit_4;
- 950:	13 82       	std	Z+3, r1	; 0x03
+ 97a:	13 82       	std	Z+3, r1	; 0x03
 	
 	return humidity_level;
 }
- 952:	cf 01       	movw	r24, r30
- 954:	df 91       	pop	r29
- 956:	cf 91       	pop	r28
- 958:	08 95       	ret
+ 97c:	cf 01       	movw	r24, r30
+ 97e:	df 91       	pop	r29
+ 980:	cf 91       	pop	r28
+ 982:	08 95       	ret
 
-0000095a <display_umidity_level_values>:
+00000984 <display_umidity_level_values>:
 void display_umidity_level_values()
 {
 	int sensor_1_display_offset = strlen(SENSOR_1_TITLE);
 	int sensor_2_display_offset = strlen(SENSOR_2_TITLE);
 	
 	put_Char_LCD_Display(0x80 + sensor_1_display_offset, 0);
- 95a:	60 e0       	ldi	r22, 0x00	; 0
- 95c:	70 e0       	ldi	r23, 0x00	; 0
- 95e:	8a e8       	ldi	r24, 0x8A	; 138
- 960:	90 e0       	ldi	r25, 0x00	; 0
- 962:	0e 94 0a 01 	call	0x214	; 0x214 <put_Char_LCD_Display>
+ 984:	60 e0       	ldi	r22, 0x00	; 0
+ 986:	70 e0       	ldi	r23, 0x00	; 0
+ 988:	8a e8       	ldi	r24, 0x8A	; 138
+ 98a:	90 e0       	ldi	r25, 0x00	; 0
+ 98c:	0e 94 1f 01 	call	0x23e	; 0x23e <put_Char_LCD_Display>
 	put_string(humidity_level_int_value_to_string(humidity_level_sensor_1));
- 966:	80 91 05 01 	lds	r24, 0x0105	; 0x800105 <humidity_level_sensor_1>
- 96a:	90 91 06 01 	lds	r25, 0x0106	; 0x800106 <humidity_level_sensor_1+0x1>
- 96e:	0e 94 78 04 	call	0x8f0	; 0x8f0 <humidity_level_int_value_to_string>
- 972:	0e 94 ca 03 	call	0x794	; 0x794 <put_string>
+ 990:	80 91 05 01 	lds	r24, 0x0105	; 0x800105 <humidity_level_sensor_1>
+ 994:	90 91 06 01 	lds	r25, 0x0106	; 0x800106 <humidity_level_sensor_1+0x1>
+ 998:	0e 94 8d 04 	call	0x91a	; 0x91a <humidity_level_int_value_to_string>
+ 99c:	0e 94 df 03 	call	0x7be	; 0x7be <put_string>
 	put_string(HUMIDITY_LEVEL_UNIT);
- 976:	8a e9       	ldi	r24, 0x9A	; 154
- 978:	90 e0       	ldi	r25, 0x00	; 0
- 97a:	0e 94 ca 03 	call	0x794	; 0x794 <put_string>
+ 9a0:	8a e9       	ldi	r24, 0x9A	; 154
+ 9a2:	90 e0       	ldi	r25, 0x00	; 0
+ 9a4:	0e 94 df 03 	call	0x7be	; 0x7be <put_string>
 	put_string("  ");
- 97e:	8c e9       	ldi	r24, 0x9C	; 156
- 980:	90 e0       	ldi	r25, 0x00	; 0
- 982:	0e 94 ca 03 	call	0x794	; 0x794 <put_string>
+ 9a8:	8c e9       	ldi	r24, 0x9C	; 156
+ 9aa:	90 e0       	ldi	r25, 0x00	; 0
+ 9ac:	0e 94 df 03 	call	0x7be	; 0x7be <put_string>
 	
 	put_Char_LCD_Display(0xC0 + sensor_2_display_offset, 0);
- 986:	60 e0       	ldi	r22, 0x00	; 0
- 988:	70 e0       	ldi	r23, 0x00	; 0
- 98a:	8a ec       	ldi	r24, 0xCA	; 202
- 98c:	90 e0       	ldi	r25, 0x00	; 0
- 98e:	0e 94 0a 01 	call	0x214	; 0x214 <put_Char_LCD_Display>
+ 9b0:	60 e0       	ldi	r22, 0x00	; 0
+ 9b2:	70 e0       	ldi	r23, 0x00	; 0
+ 9b4:	8a ec       	ldi	r24, 0xCA	; 202
+ 9b6:	90 e0       	ldi	r25, 0x00	; 0
+ 9b8:	0e 94 1f 01 	call	0x23e	; 0x23e <put_Char_LCD_Display>
 	put_string(humidity_level_int_value_to_string(humidity_level_sensor_2));
- 992:	80 91 07 01 	lds	r24, 0x0107	; 0x800107 <humidity_level_sensor_2>
- 996:	90 91 08 01 	lds	r25, 0x0108	; 0x800108 <humidity_level_sensor_2+0x1>
- 99a:	0e 94 78 04 	call	0x8f0	; 0x8f0 <humidity_level_int_value_to_string>
- 99e:	0e 94 ca 03 	call	0x794	; 0x794 <put_string>
+ 9bc:	80 91 07 01 	lds	r24, 0x0107	; 0x800107 <humidity_level_sensor_2>
+ 9c0:	90 91 08 01 	lds	r25, 0x0108	; 0x800108 <humidity_level_sensor_2+0x1>
+ 9c4:	0e 94 8d 04 	call	0x91a	; 0x91a <humidity_level_int_value_to_string>
+ 9c8:	0e 94 df 03 	call	0x7be	; 0x7be <put_string>
 	put_string(HUMIDITY_LEVEL_UNIT);
- 9a2:	8a e9       	ldi	r24, 0x9A	; 154
- 9a4:	90 e0       	ldi	r25, 0x00	; 0
- 9a6:	0e 94 ca 03 	call	0x794	; 0x794 <put_string>
+ 9cc:	8a e9       	ldi	r24, 0x9A	; 154
+ 9ce:	90 e0       	ldi	r25, 0x00	; 0
+ 9d0:	0e 94 df 03 	call	0x7be	; 0x7be <put_string>
 	put_string("  ");
- 9aa:	8c e9       	ldi	r24, 0x9C	; 156
- 9ac:	90 e0       	ldi	r25, 0x00	; 0
- 9ae:	0e 94 ca 03 	call	0x794	; 0x794 <put_string>
- 9b2:	08 95       	ret
+ 9d4:	8c e9       	ldi	r24, 0x9C	; 156
+ 9d6:	90 e0       	ldi	r25, 0x00	; 0
+ 9d8:	0e 94 df 03 	call	0x7be	; 0x7be <put_string>
+ 9dc:	08 95       	ret
 
-000009b4 <display_clock_title>:
+000009de <display_clock_title>:
 }
 
 
 void display_clock_title()
 {	
 	put_Char_LCD_Display(0x01,0);
- 9b4:	60 e0       	ldi	r22, 0x00	; 0
- 9b6:	70 e0       	ldi	r23, 0x00	; 0
- 9b8:	81 e0       	ldi	r24, 0x01	; 1
- 9ba:	90 e0       	ldi	r25, 0x00	; 0
- 9bc:	0e 94 0a 01 	call	0x214	; 0x214 <put_Char_LCD_Display>
+ 9de:	60 e0       	ldi	r22, 0x00	; 0
+ 9e0:	70 e0       	ldi	r23, 0x00	; 0
+ 9e2:	81 e0       	ldi	r24, 0x01	; 1
+ 9e4:	90 e0       	ldi	r25, 0x00	; 0
+ 9e6:	0e 94 1f 01 	call	0x23e	; 0x23e <put_Char_LCD_Display>
 	
 	put_Char_LCD_Display(0x80, 0);
- 9c0:	60 e0       	ldi	r22, 0x00	; 0
- 9c2:	70 e0       	ldi	r23, 0x00	; 0
- 9c4:	80 e8       	ldi	r24, 0x80	; 128
- 9c6:	90 e0       	ldi	r25, 0x00	; 0
- 9c8:	0e 94 0a 01 	call	0x214	; 0x214 <put_Char_LCD_Display>
+ 9ea:	60 e0       	ldi	r22, 0x00	; 0
+ 9ec:	70 e0       	ldi	r23, 0x00	; 0
+ 9ee:	80 e8       	ldi	r24, 0x80	; 128
+ 9f0:	90 e0       	ldi	r25, 0x00	; 0
+ 9f2:	0e 94 1f 01 	call	0x23e	; 0x23e <put_Char_LCD_Display>
 	put_string(CLOCK_DATE_TITLE);
- 9cc:	8f e9       	ldi	r24, 0x9F	; 159
- 9ce:	90 e0       	ldi	r25, 0x00	; 0
- 9d0:	0e 94 ca 03 	call	0x794	; 0x794 <put_string>
+ 9f6:	8f e9       	ldi	r24, 0x9F	; 159
+ 9f8:	90 e0       	ldi	r25, 0x00	; 0
+ 9fa:	0e 94 df 03 	call	0x7be	; 0x7be <put_string>
 	
 	put_Char_LCD_Display(0xC0, 0);
- 9d4:	60 e0       	ldi	r22, 0x00	; 0
- 9d6:	70 e0       	ldi	r23, 0x00	; 0
- 9d8:	80 ec       	ldi	r24, 0xC0	; 192
- 9da:	90 e0       	ldi	r25, 0x00	; 0
- 9dc:	0e 94 0a 01 	call	0x214	; 0x214 <put_Char_LCD_Display>
+ 9fe:	60 e0       	ldi	r22, 0x00	; 0
+ a00:	70 e0       	ldi	r23, 0x00	; 0
+ a02:	80 ec       	ldi	r24, 0xC0	; 192
+ a04:	90 e0       	ldi	r25, 0x00	; 0
+ a06:	0e 94 1f 01 	call	0x23e	; 0x23e <put_Char_LCD_Display>
 	put_string(CLOCK_TIME_TITLE);
- 9e0:	84 ea       	ldi	r24, 0xA4	; 164
- 9e2:	90 e0       	ldi	r25, 0x00	; 0
- 9e4:	0e 94 ca 03 	call	0x794	; 0x794 <put_string>
- 9e8:	08 95       	ret
+ a0a:	84 ea       	ldi	r24, 0xA4	; 164
+ a0c:	90 e0       	ldi	r25, 0x00	; 0
+ a0e:	0e 94 df 03 	call	0x7be	; 0x7be <put_string>
+ a12:	08 95       	ret
 
-000009ea <display_initializing_message>:
+00000a14 <display_initializing_message>:
 }
 
 void display_initializing_message()
 {
 	put_Char_LCD_Display(0x01,0);
- 9ea:	60 e0       	ldi	r22, 0x00	; 0
- 9ec:	70 e0       	ldi	r23, 0x00	; 0
- 9ee:	81 e0       	ldi	r24, 0x01	; 1
- 9f0:	90 e0       	ldi	r25, 0x00	; 0
- 9f2:	0e 94 0a 01 	call	0x214	; 0x214 <put_Char_LCD_Display>
+ a14:	60 e0       	ldi	r22, 0x00	; 0
+ a16:	70 e0       	ldi	r23, 0x00	; 0
+ a18:	81 e0       	ldi	r24, 0x01	; 1
+ a1a:	90 e0       	ldi	r25, 0x00	; 0
+ a1c:	0e 94 1f 01 	call	0x23e	; 0x23e <put_Char_LCD_Display>
 	
 	put_Char_LCD_Display(0x80, 0);
- 9f6:	60 e0       	ldi	r22, 0x00	; 0
- 9f8:	70 e0       	ldi	r23, 0x00	; 0
- 9fa:	80 e8       	ldi	r24, 0x80	; 128
- 9fc:	90 e0       	ldi	r25, 0x00	; 0
- 9fe:	0e 94 0a 01 	call	0x214	; 0x214 <put_Char_LCD_Display>
+ a20:	60 e0       	ldi	r22, 0x00	; 0
+ a22:	70 e0       	ldi	r23, 0x00	; 0
+ a24:	80 e8       	ldi	r24, 0x80	; 128
+ a26:	90 e0       	ldi	r25, 0x00	; 0
+ a28:	0e 94 1f 01 	call	0x23e	; 0x23e <put_Char_LCD_Display>
 	put_string("Initializing...");
- a02:	89 ea       	ldi	r24, 0xA9	; 169
- a04:	90 e0       	ldi	r25, 0x00	; 0
- a06:	0e 94 ca 03 	call	0x794	; 0x794 <put_string>
- a0a:	08 95       	ret
+ a2c:	89 ea       	ldi	r24, 0xA9	; 169
+ a2e:	90 e0       	ldi	r25, 0x00	; 0
+ a30:	0e 94 df 03 	call	0x7be	; 0x7be <put_string>
+ a34:	08 95       	ret
 
-00000a0c <display_clock_values>:
+00000a36 <display_clock_values>:
 void display_clock_values()
 {
 	int clock_date_display_offset = strlen(CLOCK_DATE_TITLE);
 	int clock_time_display_offset = strlen(CLOCK_TIME_TITLE);
 	
 	put_Char_LCD_Display(0x80 + clock_date_display_offset, 0);
- a0c:	60 e0       	ldi	r22, 0x00	; 0
- a0e:	70 e0       	ldi	r23, 0x00	; 0
- a10:	84 e8       	ldi	r24, 0x84	; 132
- a12:	90 e0       	ldi	r25, 0x00	; 0
- a14:	0e 94 0a 01 	call	0x214	; 0x214 <put_Char_LCD_Display>
+ a36:	60 e0       	ldi	r22, 0x00	; 0
+ a38:	70 e0       	ldi	r23, 0x00	; 0
+ a3a:	84 e8       	ldi	r24, 0x84	; 132
+ a3c:	90 e0       	ldi	r25, 0x00	; 0
+ a3e:	0e 94 1f 01 	call	0x23e	; 0x23e <put_Char_LCD_Display>
 	put_string(" 01 APR 2017");
- a18:	89 eb       	ldi	r24, 0xB9	; 185
- a1a:	90 e0       	ldi	r25, 0x00	; 0
- a1c:	0e 94 ca 03 	call	0x794	; 0x794 <put_string>
+ a42:	89 eb       	ldi	r24, 0xB9	; 185
+ a44:	90 e0       	ldi	r25, 0x00	; 0
+ a46:	0e 94 df 03 	call	0x7be	; 0x7be <put_string>
 	
 	put_Char_LCD_Display(0xC0 + clock_time_display_offset, 0);
- a20:	60 e0       	ldi	r22, 0x00	; 0
- a22:	70 e0       	ldi	r23, 0x00	; 0
- a24:	84 ec       	ldi	r24, 0xC4	; 196
- a26:	90 e0       	ldi	r25, 0x00	; 0
- a28:	0e 94 0a 01 	call	0x214	; 0x214 <put_Char_LCD_Display>
+ a4a:	60 e0       	ldi	r22, 0x00	; 0
+ a4c:	70 e0       	ldi	r23, 0x00	; 0
+ a4e:	84 ec       	ldi	r24, 0xC4	; 196
+ a50:	90 e0       	ldi	r25, 0x00	; 0
+ a52:	0e 94 1f 01 	call	0x23e	; 0x23e <put_Char_LCD_Display>
 	put_string(" 23:42:51");
- a2c:	86 ec       	ldi	r24, 0xC6	; 198
- a2e:	90 e0       	ldi	r25, 0x00	; 0
- a30:	0e 94 ca 03 	call	0x794	; 0x794 <put_string>
- a34:	08 95       	ret
+ a56:	86 ec       	ldi	r24, 0xC6	; 198
+ a58:	90 e0       	ldi	r25, 0x00	; 0
+ a5a:	0e 94 df 03 	call	0x7be	; 0x7be <put_string>
+ a5e:	08 95       	ret
 
-00000a36 <display_values>:
+00000a60 <display_values>:
 }
 
 void display_values()
 {
 	switch(MENU)
- a36:	80 91 09 01 	lds	r24, 0x0109	; 0x800109 <MENU>
- a3a:	81 30       	cpi	r24, 0x01	; 1
- a3c:	49 f0       	breq	.+18     	; 0xa50 <display_values+0x1a>
- a3e:	58 f0       	brcs	.+22     	; 0xa56 <display_values+0x20>
- a40:	82 30       	cpi	r24, 0x02	; 2
- a42:	19 f0       	breq	.+6      	; 0xa4a <display_values+0x14>
- a44:	83 30       	cpi	r24, 0x03	; 3
- a46:	51 f0       	breq	.+20     	; 0xa5c <display_values+0x26>
- a48:	0c c0       	rjmp	.+24     	; 0xa62 <display_values+0x2c>
+ a60:	80 91 09 01 	lds	r24, 0x0109	; 0x800109 <MENU>
+ a64:	81 30       	cpi	r24, 0x01	; 1
+ a66:	49 f0       	breq	.+18     	; 0xa7a <display_values+0x1a>
+ a68:	58 f0       	brcs	.+22     	; 0xa80 <display_values+0x20>
+ a6a:	82 30       	cpi	r24, 0x02	; 2
+ a6c:	19 f0       	breq	.+6      	; 0xa74 <display_values+0x14>
+ a6e:	83 30       	cpi	r24, 0x03	; 3
+ a70:	51 f0       	breq	.+20     	; 0xa86 <display_values+0x26>
+ a72:	0c c0       	rjmp	.+24     	; 0xa8c <display_values+0x2c>
 	{
 		case CLOCK_MENU:
 		{
 			display_clock_values();
- a4a:	0e 94 06 05 	call	0xa0c	; 0xa0c <display_clock_values>
+ a74:	0e 94 1b 05 	call	0xa36	; 0xa36 <display_clock_values>
 			break;
- a4e:	08 95       	ret
+ a78:	08 95       	ret
 		}
 		case SENSOR_VALUES_MENU:
 		{
 			display_umidity_level_values();
- a50:	0e 94 ad 04 	call	0x95a	; 0x95a <display_umidity_level_values>
+ a7a:	0e 94 c2 04 	call	0x984	; 0x984 <display_umidity_level_values>
 			break;
- a54:	08 95       	ret
+ a7e:	08 95       	ret
 		}
 		case ERROR_MENU:
 		{
 			display_error();
- a56:	0e 94 36 04 	call	0x86c	; 0x86c <display_error>
+ a80:	0e 94 4b 04 	call	0x896	; 0x896 <display_error>
 			break;
- a5a:	08 95       	ret
+ a84:	08 95       	ret
 		}
 		case TANK_WATER_LEVEL_MENU:
 		{
 			display_tank_water_level();
- a5c:	0e 94 52 04 	call	0x8a4	; 0x8a4 <display_tank_water_level>
+ a86:	0e 94 67 04 	call	0x8ce	; 0x8ce <display_tank_water_level>
 			break;
- a60:	08 95       	ret
+ a8a:	08 95       	ret
 		}
 		default:
 		{
 			put_Char_LCD_Display(0x80, 0);
- a62:	60 e0       	ldi	r22, 0x00	; 0
- a64:	70 e0       	ldi	r23, 0x00	; 0
- a66:	80 e8       	ldi	r24, 0x80	; 128
- a68:	90 e0       	ldi	r25, 0x00	; 0
- a6a:	0e 94 0a 01 	call	0x214	; 0x214 <put_Char_LCD_Display>
+ a8c:	60 e0       	ldi	r22, 0x00	; 0
+ a8e:	70 e0       	ldi	r23, 0x00	; 0
+ a90:	80 e8       	ldi	r24, 0x80	; 128
+ a92:	90 e0       	ldi	r25, 0x00	; 0
+ a94:	0e 94 1f 01 	call	0x23e	; 0x23e <put_Char_LCD_Display>
 			put_string("error");
- a6e:	80 ed       	ldi	r24, 0xD0	; 208
- a70:	90 e0       	ldi	r25, 0x00	; 0
- a72:	0e 94 ca 03 	call	0x794	; 0x794 <put_string>
- a76:	08 95       	ret
+ a98:	80 ed       	ldi	r24, 0xD0	; 208
+ a9a:	90 e0       	ldi	r25, 0x00	; 0
+ a9c:	0e 94 df 03 	call	0x7be	; 0x7be <put_string>
+ aa0:	08 95       	ret
 
-00000a78 <init_uC>:
+00000aa2 <init_UART>:
+
+unsigned char received_command;
+
+void init_UART(void)
+{
+	UCSRB = (1 << RXEN) | (1 << TXEN);   // Turn on the transmission and reception circuitry
+ aa2:	88 e1       	ldi	r24, 0x18	; 24
+ aa4:	8a b9       	out	0x0a, r24	; 10
+	UCSRC = (1 << URSEL) | (1 << UCSZ0) | (1 << UCSZ1); // Use 8-bit character sizes
+ aa6:	86 e8       	ldi	r24, 0x86	; 134
+ aa8:	80 bd       	out	0x20, r24	; 32
+
+	UBRRH = (BAUD_PRESCALE >> 8); // Load upper 8-bits of the baud rate value into the high byte of the UBRR register
+ aaa:	10 bc       	out	0x20, r1	; 32
+	UBRRL = BAUD_PRESCALE; // Load lower 8-bits of the baud rate value into the low byte of the UBRR register
+ aac:	87 e6       	ldi	r24, 0x67	; 103
+ aae:	89 b9       	out	0x09, r24	; 9
+
+	UCSRB |= (1 << RXCIE); // Enable the USART Recieve Complete interrupt (USART_RXC)
+ ab0:	57 9a       	sbi	0x0a, 7	; 10
+ ab2:	08 95       	ret
+
+00000ab4 <__vector_13>:
+}
+
+ISR(USART_RXC_vect)
+{
+ ab4:	1f 92       	push	r1
+ ab6:	0f 92       	push	r0
+ ab8:	0f b6       	in	r0, 0x3f	; 63
+ aba:	0f 92       	push	r0
+ abc:	11 24       	eor	r1, r1
+ abe:	8f 93       	push	r24
+	received_command = UDR; // Fetch the received byte value into the variable "ByteReceived"
+ ac0:	8c b1       	in	r24, 0x0c	; 12
+ ac2:	80 93 1a 01 	sts	0x011A, r24	; 0x80011a <received_command>
+	//UDR = received_command; // Echo back the received byte back to the computer
+}
+ ac6:	8f 91       	pop	r24
+ ac8:	0f 90       	pop	r0
+ aca:	0f be       	out	0x3f, r0	; 63
+ acc:	0f 90       	pop	r0
+ ace:	1f 90       	pop	r1
+ ad0:	18 95       	reti
+
+00000ad2 <send_uart_8bits_data>:
+
+void send_uart_8bits_data(unsigned char ID, unsigned char data)
+{
+	// mark start of transmission
+	UDR = 0;
+ ad2:	1c b8       	out	0x0c, r1	; 12
+ ad4:	ef ed       	ldi	r30, 0xDF	; 223
+ ad6:	fe e2       	ldi	r31, 0x2E	; 46
+ ad8:	31 97       	sbiw	r30, 0x01	; 1
+ ada:	f1 f7       	brne	.-4      	; 0xad8 <send_uart_8bits_data+0x6>
+ adc:	00 c0       	rjmp	.+0      	; 0xade <send_uart_8bits_data+0xc>
+ ade:	00 00       	nop
+	_delay_ms(UART_DELAY);
+	UDR = 0;
+ ae0:	1c b8       	out	0x0c, r1	; 12
+ ae2:	ef ed       	ldi	r30, 0xDF	; 223
+ ae4:	fe e2       	ldi	r31, 0x2E	; 46
+ ae6:	31 97       	sbiw	r30, 0x01	; 1
+ ae8:	f1 f7       	brne	.-4      	; 0xae6 <send_uart_8bits_data+0x14>
+ aea:	00 c0       	rjmp	.+0      	; 0xaec <send_uart_8bits_data+0x1a>
+ aec:	00 00       	nop
+	_delay_ms(UART_DELAY);
+	
+	UDR = ID;
+ aee:	8c b9       	out	0x0c, r24	; 12
+ af0:	8f ed       	ldi	r24, 0xDF	; 223
+ af2:	9e e2       	ldi	r25, 0x2E	; 46
+ af4:	01 97       	sbiw	r24, 0x01	; 1
+ af6:	f1 f7       	brne	.-4      	; 0xaf4 <send_uart_8bits_data+0x22>
+ af8:	00 c0       	rjmp	.+0      	; 0xafa <send_uart_8bits_data+0x28>
+ afa:	00 00       	nop
+	_delay_ms(UART_DELAY);
+	UDR = data;
+ afc:	6c b9       	out	0x0c, r22	; 12
+ afe:	ef ed       	ldi	r30, 0xDF	; 223
+ b00:	fe e2       	ldi	r31, 0x2E	; 46
+ b02:	31 97       	sbiw	r30, 0x01	; 1
+ b04:	f1 f7       	brne	.-4      	; 0xb02 <send_uart_8bits_data+0x30>
+ b06:	00 c0       	rjmp	.+0      	; 0xb08 <send_uart_8bits_data+0x36>
+ b08:	00 00       	nop
+ b0a:	08 95       	ret
+
+00000b0c <init_uC>:
 	init_globals();
 }
 
 void init_uC(void)
 {
 	DDRB |= (1 << 0);
- a78:	b8 9a       	sbi	0x17, 0	; 23
- a7a:	08 95       	ret
+ b0c:	b8 9a       	sbi	0x17, 0	; 23
+ b0e:	08 95       	ret
 
-00000a7c <init_globals>:
+00000b10 <init_globals>:
 }
 
 void init_globals()
 {
 	MENUs[0] = ERROR_MENU;
- a7c:	ea ef       	ldi	r30, 0xFA	; 250
- a7e:	f0 e0       	ldi	r31, 0x00	; 0
- a80:	10 82       	st	Z, r1
+ b10:	ea ef       	ldi	r30, 0xFA	; 250
+ b12:	f0 e0       	ldi	r31, 0x00	; 0
+ b14:	10 82       	st	Z, r1
 	MENUs[1] = SENSOR_VALUES_MENU;
- a82:	81 e0       	ldi	r24, 0x01	; 1
- a84:	81 83       	std	Z+1, r24	; 0x01
+ b16:	81 e0       	ldi	r24, 0x01	; 1
+ b18:	81 83       	std	Z+1, r24	; 0x01
 	MENUs[2] = CLOCK_MENU;
- a86:	82 e0       	ldi	r24, 0x02	; 2
- a88:	82 83       	std	Z+2, r24	; 0x02
+ b1a:	82 e0       	ldi	r24, 0x02	; 2
+ b1c:	82 83       	std	Z+2, r24	; 0x02
 	MENUs[3] = TANK_WATER_LEVEL_MENU;
- a8a:	83 e0       	ldi	r24, 0x03	; 3
- a8c:	83 83       	std	Z+3, r24	; 0x03
+ b1e:	83 e0       	ldi	r24, 0x03	; 3
+ b20:	83 83       	std	Z+3, r24	; 0x03
 	MENUs[4] = UNDEFINED_MENU;
- a8e:	8f ef       	ldi	r24, 0xFF	; 255
- a90:	84 83       	std	Z+4, r24	; 0x04
+ b22:	8f ef       	ldi	r24, 0xFF	; 255
+ b24:	84 83       	std	Z+4, r24	; 0x04
 	MENUs[5] = UNDEFINED_MENU;
- a92:	85 83       	std	Z+5, r24	; 0x05
+ b26:	85 83       	std	Z+5, r24	; 0x05
 	MENUs[6] = UNDEFINED_MENU;
- a94:	86 83       	std	Z+6, r24	; 0x06
+ b28:	86 83       	std	Z+6, r24	; 0x06
 	MENUs[7] = UNDEFINED_MENU;
- a96:	87 83       	std	Z+7, r24	; 0x07
+ b2a:	87 83       	std	Z+7, r24	; 0x07
 	MENUs[8] = UNDEFINED_MENU;
- a98:	80 87       	std	Z+8, r24	; 0x08
+ b2c:	80 87       	std	Z+8, r24	; 0x08
 	MENUs[9] = UNDEFINED_MENU;
- a9a:	81 87       	std	Z+9, r24	; 0x09
+ b2e:	81 87       	std	Z+9, r24	; 0x09
 	
 	strcpy(ERROR, ERROR_NO_ERROR);
- a9c:	8a e0       	ldi	r24, 0x0A	; 10
- a9e:	e6 ed       	ldi	r30, 0xD6	; 214
- aa0:	f0 e0       	ldi	r31, 0x00	; 0
- aa2:	aa e0       	ldi	r26, 0x0A	; 10
- aa4:	b1 e0       	ldi	r27, 0x01	; 1
- aa6:	01 90       	ld	r0, Z+
- aa8:	0d 92       	st	X+, r0
- aaa:	8a 95       	dec	r24
- aac:	e1 f7       	brne	.-8      	; 0xaa6 <init_globals+0x2a>
+ b30:	8a e0       	ldi	r24, 0x0A	; 10
+ b32:	e6 ed       	ldi	r30, 0xD6	; 214
+ b34:	f0 e0       	ldi	r31, 0x00	; 0
+ b36:	aa e0       	ldi	r26, 0x0A	; 10
+ b38:	b1 e0       	ldi	r27, 0x01	; 1
+ b3a:	01 90       	ld	r0, Z+
+ b3c:	0d 92       	st	X+, r0
+ b3e:	8a 95       	dec	r24
+ b40:	e1 f7       	brne	.-8      	; 0xb3a <init_globals+0x2a>
 	
 	humidity_level_sensor_1 = 0;
- aae:	10 92 06 01 	sts	0x0106, r1	; 0x800106 <humidity_level_sensor_1+0x1>
- ab2:	10 92 05 01 	sts	0x0105, r1	; 0x800105 <humidity_level_sensor_1>
+ b42:	10 92 06 01 	sts	0x0106, r1	; 0x800106 <humidity_level_sensor_1+0x1>
+ b46:	10 92 05 01 	sts	0x0105, r1	; 0x800105 <humidity_level_sensor_1>
 	humidity_level_sensor_2 = 0;
- ab6:	10 92 08 01 	sts	0x0108, r1	; 0x800108 <humidity_level_sensor_2+0x1>
- aba:	10 92 07 01 	sts	0x0107, r1	; 0x800107 <humidity_level_sensor_2>
+ b4a:	10 92 08 01 	sts	0x0108, r1	; 0x800108 <humidity_level_sensor_2+0x1>
+ b4e:	10 92 07 01 	sts	0x0107, r1	; 0x800107 <humidity_level_sensor_2>
 	WATER_LEVEL = 0;
- abe:	10 92 04 01 	sts	0x0104, r1	; 0x800104 <WATER_LEVEL>
- ac2:	08 95       	ret
+ b52:	10 92 04 01 	sts	0x0104, r1	; 0x800104 <WATER_LEVEL>
+ b56:	08 95       	ret
 
-00000ac4 <general_init>:
+00000b58 <general_init>:
 	}
 }
 
 void general_init()
 {
 	init_uC();
- ac4:	0e 94 3c 05 	call	0xa78	; 0xa78 <init_uC>
+ b58:	0e 94 86 05 	call	0xb0c	; 0xb0c <init_uC>
 	init_globals();
- ac8:	0e 94 3e 05 	call	0xa7c	; 0xa7c <init_globals>
- acc:	08 95       	ret
+ b5c:	0e 94 88 05 	call	0xb10	; 0xb10 <init_globals>
+ b60:	08 95       	ret
 
-00000ace <main>:
+00000b62 <main>:
 void init_globals();
 void init_uC(void);
 
 int main(void)
 {
 	general_init();
- ace:	0e 94 62 05 	call	0xac4	; 0xac4 <general_init>
+ b62:	0e 94 ac 05 	call	0xb58	; 0xb58 <general_init>
 	
+	init_UART();
+ b66:	0e 94 51 05 	call	0xaa2	; 0xaa2 <init_UART>
 	init_interrupt_10ms();
- ad2:	0e 94 8d 00 	call	0x11a	; 0x11a <init_interrupt_10ms>
+ b6a:	0e 94 8d 00 	call	0x11a	; 0x11a <init_interrupt_10ms>
 	init_interrupt_200ms();
- ad6:	0e 94 af 00 	call	0x15e	; 0x15e <init_interrupt_200ms>
+ b6e:	0e 94 af 00 	call	0x15e	; 0x15e <init_interrupt_200ms>
 	ADC_Init();
- ada:	0e 94 50 00 	call	0xa0	; 0xa0 <ADC_Init>
+ b72:	0e 94 50 00 	call	0xa0	; 0xa0 <ADC_Init>
 	init_LCD_Display();
- ade:	0e 94 6b 03 	call	0x6d6	; 0x6d6 <init_LCD_Display>
+ b76:	0e 94 80 03 	call	0x700	; 0x700 <init_LCD_Display>
 	init_ipx_water_level_sensor();
- ae2:	0e 94 d2 05 	call	0xba4	; 0xba4 <init_ipx_water_level_sensor>
+ b7a:	0e 94 1e 06 	call	0xc3c	; 0xc3c <init_ipx_water_level_sensor>
 	
 	
 	display_initializing_message();
- ae6:	0e 94 f5 04 	call	0x9ea	; 0x9ea <display_initializing_message>
- aea:	2f ef       	ldi	r18, 0xFF	; 255
- aec:	83 ed       	ldi	r24, 0xD3	; 211
- aee:	90 e3       	ldi	r25, 0x30	; 48
- af0:	21 50       	subi	r18, 0x01	; 1
- af2:	80 40       	sbci	r24, 0x00	; 0
- af4:	90 40       	sbci	r25, 0x00	; 0
- af6:	e1 f7       	brne	.-8      	; 0xaf0 <main+0x22>
- af8:	00 c0       	rjmp	.+0      	; 0xafa <main+0x2c>
- afa:	00 00       	nop
+ b7e:	0e 94 0a 05 	call	0xa14	; 0xa14 <display_initializing_message>
+ b82:	2f ef       	ldi	r18, 0xFF	; 255
+ b84:	83 ed       	ldi	r24, 0xD3	; 211
+ b86:	90 e3       	ldi	r25, 0x30	; 48
+ b88:	21 50       	subi	r18, 0x01	; 1
+ b8a:	80 40       	sbci	r24, 0x00	; 0
+ b8c:	90 40       	sbci	r25, 0x00	; 0
+ b8e:	e1 f7       	brne	.-8      	; 0xb88 <main+0x26>
+ b90:	00 c0       	rjmp	.+0      	; 0xb92 <main+0x30>
+ b92:	00 00       	nop
 	_delay_ms(1000);
 	change_menu(TANK_WATER_LEVEL_MENU);
- afc:	83 e0       	ldi	r24, 0x03	; 3
- afe:	0e 94 a3 05 	call	0xb46	; 0xb46 <change_menu>
+ b94:	83 e0       	ldi	r24, 0x03	; 3
+ b96:	0e 94 ef 05 	call	0xbde	; 0xbde <change_menu>
 	sei();
- b02:	78 94       	sei
+ b9a:	78 94       	sei
 	
     while (1) 
     {
 	}
- b04:	ff cf       	rjmp	.-2      	; 0xb04 <main+0x36>
+ b9c:	ff cf       	rjmp	.-2      	; 0xb9c <main+0x3a>
 
-00000b06 <set_menu_title>:
+00000b9e <set_menu_title>:
 	_delay_ms(15);
 }
 
 void set_menu_title(char menu)
 {
 	switch(menu)
- b06:	81 30       	cpi	r24, 0x01	; 1
- b08:	49 f0       	breq	.+18     	; 0xb1c <set_menu_title+0x16>
- b0a:	28 f0       	brcs	.+10     	; 0xb16 <set_menu_title+0x10>
- b0c:	82 30       	cpi	r24, 0x02	; 2
- b0e:	49 f0       	breq	.+18     	; 0xb22 <set_menu_title+0x1c>
- b10:	83 30       	cpi	r24, 0x03	; 3
- b12:	51 f0       	breq	.+20     	; 0xb28 <set_menu_title+0x22>
- b14:	0c c0       	rjmp	.+24     	; 0xb2e <set_menu_title+0x28>
+ b9e:	81 30       	cpi	r24, 0x01	; 1
+ ba0:	49 f0       	breq	.+18     	; 0xbb4 <set_menu_title+0x16>
+ ba2:	28 f0       	brcs	.+10     	; 0xbae <set_menu_title+0x10>
+ ba4:	82 30       	cpi	r24, 0x02	; 2
+ ba6:	49 f0       	breq	.+18     	; 0xbba <set_menu_title+0x1c>
+ ba8:	83 30       	cpi	r24, 0x03	; 3
+ baa:	51 f0       	breq	.+20     	; 0xbc0 <set_menu_title+0x22>
+ bac:	0c c0       	rjmp	.+24     	; 0xbc6 <set_menu_title+0x28>
 	{
 		case ERROR_MENU:
 		{
 			display_error_title();
- b16:	0e 94 25 04 	call	0x84a	; 0x84a <display_error_title>
+ bae:	0e 94 3a 04 	call	0x874	; 0x874 <display_error_title>
 			break;
- b1a:	08 95       	ret
+ bb2:	08 95       	ret
 		}
 		case SENSOR_VALUES_MENU:
 		{
 			display_umidity_level_title();
- b1c:	0e 94 ef 03 	call	0x7de	; 0x7de <display_umidity_level_title>
+ bb4:	0e 94 04 04 	call	0x808	; 0x808 <display_umidity_level_title>
 			break;
- b20:	08 95       	ret
+ bb8:	08 95       	ret
 		}
 		case CLOCK_MENU:
 		{
 			display_clock_title();
- b22:	0e 94 da 04 	call	0x9b4	; 0x9b4 <display_clock_title>
+ bba:	0e 94 ef 04 	call	0x9de	; 0x9de <display_clock_title>
 			break;
- b26:	08 95       	ret
+ bbe:	08 95       	ret
 		}
 		case TANK_WATER_LEVEL_MENU:
 		{
 			display_tank_water_level_title();
- b28:	0e 94 41 04 	call	0x882	; 0x882 <display_tank_water_level_title>
+ bc0:	0e 94 56 04 	call	0x8ac	; 0x8ac <display_tank_water_level_title>
 			break;
- b2c:	08 95       	ret
+ bc4:	08 95       	ret
 		}
 		default:
 		{
 			strcpy(ERROR, ERROR_WRONG_MENU_TITLE);
- b2e:	81 e1       	ldi	r24, 0x11	; 17
- b30:	e0 ee       	ldi	r30, 0xE0	; 224
- b32:	f0 e0       	ldi	r31, 0x00	; 0
- b34:	aa e0       	ldi	r26, 0x0A	; 10
- b36:	b1 e0       	ldi	r27, 0x01	; 1
- b38:	01 90       	ld	r0, Z+
- b3a:	0d 92       	st	X+, r0
- b3c:	8a 95       	dec	r24
- b3e:	e1 f7       	brne	.-8      	; 0xb38 <set_menu_title+0x32>
+ bc6:	81 e1       	ldi	r24, 0x11	; 17
+ bc8:	e0 ee       	ldi	r30, 0xE0	; 224
+ bca:	f0 e0       	ldi	r31, 0x00	; 0
+ bcc:	aa e0       	ldi	r26, 0x0A	; 10
+ bce:	b1 e0       	ldi	r27, 0x01	; 1
+ bd0:	01 90       	ld	r0, Z+
+ bd2:	0d 92       	st	X+, r0
+ bd4:	8a 95       	dec	r24
+ bd6:	e1 f7       	brne	.-8      	; 0xbd0 <set_menu_title+0x32>
 			display_error_title();
- b40:	0e 94 25 04 	call	0x84a	; 0x84a <display_error_title>
- b44:	08 95       	ret
+ bd8:	0e 94 3a 04 	call	0x874	; 0x874 <display_error_title>
+ bdc:	08 95       	ret
 
-00000b46 <change_menu>:
+00000bde <change_menu>:
 
 void set_menu_title(char menu);
 
 void change_menu(char menu)
 {
 	if(menu == MENU)
- b46:	90 91 09 01 	lds	r25, 0x0109	; 0x800109 <MENU>
- b4a:	89 17       	cp	r24, r25
- b4c:	51 f1       	breq	.+84     	; 0xba2 <change_menu+0x5c>
+ bde:	90 91 09 01 	lds	r25, 0x0109	; 0x800109 <MENU>
+ be2:	89 17       	cp	r24, r25
+ be4:	51 f1       	breq	.+84     	; 0xc3a <change_menu+0x5c>
 	
 	short int i;
 	char menu_ok = FALSE;
 	for(i = 0;i < 10; i++)
 	{
 		if (menu == MENUs[i])
- b4e:	90 91 fa 00 	lds	r25, 0x00FA	; 0x8000fa <MENUs>
- b52:	98 17       	cp	r25, r24
- b54:	39 f0       	breq	.+14     	; 0xb64 <change_menu+0x1e>
- b56:	eb ef       	ldi	r30, 0xFB	; 251
- b58:	f0 e0       	ldi	r31, 0x00	; 0
- b5a:	24 e0       	ldi	r18, 0x04	; 4
- b5c:	31 e0       	ldi	r19, 0x01	; 1
- b5e:	91 91       	ld	r25, Z+
- b60:	98 13       	cpse	r25, r24
- b62:	05 c0       	rjmp	.+10     	; 0xb6e <change_menu+0x28>
+ be6:	90 91 fa 00 	lds	r25, 0x00FA	; 0x8000fa <MENUs>
+ bea:	98 17       	cp	r25, r24
+ bec:	39 f0       	breq	.+14     	; 0xbfc <change_menu+0x1e>
+ bee:	eb ef       	ldi	r30, 0xFB	; 251
+ bf0:	f0 e0       	ldi	r31, 0x00	; 0
+ bf2:	24 e0       	ldi	r18, 0x04	; 4
+ bf4:	31 e0       	ldi	r19, 0x01	; 1
+ bf6:	91 91       	ld	r25, Z+
+ bf8:	98 13       	cpse	r25, r24
+ bfa:	05 c0       	rjmp	.+10     	; 0xc06 <change_menu+0x28>
 		{
 			menu_ok = TRUE;
 			MENU = menu;
- b64:	80 93 09 01 	sts	0x0109, r24	; 0x800109 <MENU>
+ bfc:	80 93 09 01 	sts	0x0109, r24	; 0x800109 <MENU>
 			break;
 		}
 	}
 	if(menu_ok)
 	{
 		set_menu_title(menu);
- b68:	0e 94 83 05 	call	0xb06	; 0xb06 <set_menu_title>
- b6c:	04 c0       	rjmp	.+8      	; 0xb76 <change_menu+0x30>
+ c00:	0e 94 cf 05 	call	0xb9e	; 0xb9e <set_menu_title>
+ c04:	04 c0       	rjmp	.+8      	; 0xc0e <change_menu+0x30>
 		return;
 	}
 	
 	short int i;
 	char menu_ok = FALSE;
 	for(i = 0;i < 10; i++)
- b6e:	e2 17       	cp	r30, r18
- b70:	f3 07       	cpc	r31, r19
- b72:	a9 f7       	brne	.-22     	; 0xb5e <change_menu+0x18>
- b74:	07 c0       	rjmp	.+14     	; 0xb84 <change_menu+0x3e>
- b76:	8f e5       	ldi	r24, 0x5F	; 95
- b78:	9a ee       	ldi	r25, 0xEA	; 234
- b7a:	01 97       	sbiw	r24, 0x01	; 1
- b7c:	f1 f7       	brne	.-4      	; 0xb7a <change_menu+0x34>
- b7e:	00 c0       	rjmp	.+0      	; 0xb80 <change_menu+0x3a>
- b80:	00 00       	nop
- b82:	08 95       	ret
+ c06:	e2 17       	cp	r30, r18
+ c08:	f3 07       	cpc	r31, r19
+ c0a:	a9 f7       	brne	.-22     	; 0xbf6 <change_menu+0x18>
+ c0c:	07 c0       	rjmp	.+14     	; 0xc1c <change_menu+0x3e>
+ c0e:	8f e5       	ldi	r24, 0x5F	; 95
+ c10:	9a ee       	ldi	r25, 0xEA	; 234
+ c12:	01 97       	sbiw	r24, 0x01	; 1
+ c14:	f1 f7       	brne	.-4      	; 0xc12 <change_menu+0x34>
+ c16:	00 c0       	rjmp	.+0      	; 0xc18 <change_menu+0x3a>
+ c18:	00 00       	nop
+ c1a:	08 95       	ret
 	{
 		set_menu_title(menu);
 	}
 	else
 	{
 		strcpy(ERROR, ERROR_NO_ERROR);
- b84:	8a e0       	ldi	r24, 0x0A	; 10
- b86:	e6 ed       	ldi	r30, 0xD6	; 214
- b88:	f0 e0       	ldi	r31, 0x00	; 0
- b8a:	aa e0       	ldi	r26, 0x0A	; 10
- b8c:	b1 e0       	ldi	r27, 0x01	; 1
- b8e:	01 90       	ld	r0, Z+
- b90:	0d 92       	st	X+, r0
- b92:	8a 95       	dec	r24
- b94:	e1 f7       	brne	.-8      	; 0xb8e <change_menu+0x48>
+ c1c:	8a e0       	ldi	r24, 0x0A	; 10
+ c1e:	e6 ed       	ldi	r30, 0xD6	; 214
+ c20:	f0 e0       	ldi	r31, 0x00	; 0
+ c22:	aa e0       	ldi	r26, 0x0A	; 10
+ c24:	b1 e0       	ldi	r27, 0x01	; 1
+ c26:	01 90       	ld	r0, Z+
+ c28:	0d 92       	st	X+, r0
+ c2a:	8a 95       	dec	r24
+ c2c:	e1 f7       	brne	.-8      	; 0xc26 <change_menu+0x48>
 		MENU = ERROR_MENU;
- b96:	10 92 09 01 	sts	0x0109, r1	; 0x800109 <MENU>
+ c2e:	10 92 09 01 	sts	0x0109, r1	; 0x800109 <MENU>
 		set_menu_title(MENU);
- b9a:	80 e0       	ldi	r24, 0x00	; 0
- b9c:	0e 94 83 05 	call	0xb06	; 0xb06 <set_menu_title>
- ba0:	ea cf       	rjmp	.-44     	; 0xb76 <change_menu+0x30>
- ba2:	08 95       	ret
+ c32:	80 e0       	ldi	r24, 0x00	; 0
+ c34:	0e 94 cf 05 	call	0xb9e	; 0xb9e <set_menu_title>
+ c38:	ea cf       	rjmp	.-44     	; 0xc0e <change_menu+0x30>
+ c3a:	08 95       	ret
 
-00000ba4 <init_ipx_water_level_sensor>:
+00000c3c <init_ipx_water_level_sensor>:
 
 
 void init_ipx_water_level_sensor()
 {
 	// set pins PB2-PB7 as input pins
 	WATER_LEVEL_SENSOR_DDR &= ~((1 << WATER_SENSOR_LEVEL_1) | (1 << WATER_SENSOR_LEVEL_2) | (1 << WATER_SENSOR_LEVEL_3) | (1 << WATER_SENSOR_LEVEL_4) | (1 << WATER_SENSOR_LEVEL_5) | (1 << WATER_SENSOR_LEVEL_6));
- ba4:	87 b3       	in	r24, 0x17	; 23
- ba6:	83 70       	andi	r24, 0x03	; 3
- ba8:	87 bb       	out	0x17, r24	; 23
+ c3c:	87 b3       	in	r24, 0x17	; 23
+ c3e:	83 70       	andi	r24, 0x03	; 3
+ c40:	87 bb       	out	0x17, r24	; 23
 	// activate pull up resistor
 	WATER_LEVEL_SENSOR_PORT |= (1 << WATER_SENSOR_LEVEL_1) | (1 << WATER_SENSOR_LEVEL_2) | (1 << WATER_SENSOR_LEVEL_3) | (1 << WATER_SENSOR_LEVEL_4) | (1 << WATER_SENSOR_LEVEL_5) | (1 << WATER_SENSOR_LEVEL_6);
- baa:	88 b3       	in	r24, 0x18	; 24
- bac:	8c 6f       	ori	r24, 0xFC	; 252
- bae:	88 bb       	out	0x18, r24	; 24
- bb0:	08 95       	ret
+ c42:	88 b3       	in	r24, 0x18	; 24
+ c44:	8c 6f       	ori	r24, 0xFC	; 252
+ c46:	88 bb       	out	0x18, r24	; 24
+ c48:	08 95       	ret
 
-00000bb2 <read_tank_water_level>:
+00000c4a <read_tank_water_level>:
 
 void read_tank_water_level()
 {
 	unsigned char level = 1;
 	level = (WATER_LEVEL_SENSOR_PIN >> WATER_SENSOR_LEVEL_6) & 1;
 	if(level == 0)
- bb2:	b2 99       	sbic	0x16, 2	; 22
- bb4:	04 c0       	rjmp	.+8      	; 0xbbe <read_tank_water_level+0xc>
+ c4a:	b2 99       	sbic	0x16, 2	; 22
+ c4c:	04 c0       	rjmp	.+8      	; 0xc56 <read_tank_water_level+0xc>
 	{
 		WATER_LEVEL = 6;
- bb6:	86 e0       	ldi	r24, 0x06	; 6
- bb8:	80 93 04 01 	sts	0x0104, r24	; 0x800104 <WATER_LEVEL>
+ c4e:	86 e0       	ldi	r24, 0x06	; 6
+ c50:	80 93 04 01 	sts	0x0104, r24	; 0x800104 <WATER_LEVEL>
 		return;
- bbc:	08 95       	ret
+ c54:	08 95       	ret
 	}
 	level = (WATER_LEVEL_SENSOR_PIN >> WATER_SENSOR_LEVEL_5) & 1;
 	if(level == 0)
- bbe:	b3 99       	sbic	0x16, 3	; 22
- bc0:	04 c0       	rjmp	.+8      	; 0xbca <read_tank_water_level+0x18>
+ c56:	b3 99       	sbic	0x16, 3	; 22
+ c58:	04 c0       	rjmp	.+8      	; 0xc62 <read_tank_water_level+0x18>
 	{
 		WATER_LEVEL = 5;
- bc2:	85 e0       	ldi	r24, 0x05	; 5
- bc4:	80 93 04 01 	sts	0x0104, r24	; 0x800104 <WATER_LEVEL>
+ c5a:	85 e0       	ldi	r24, 0x05	; 5
+ c5c:	80 93 04 01 	sts	0x0104, r24	; 0x800104 <WATER_LEVEL>
 		return;
- bc8:	08 95       	ret
+ c60:	08 95       	ret
 	}
 	level = (WATER_LEVEL_SENSOR_PIN >> WATER_SENSOR_LEVEL_4) & 1;
 	if(level == 0)
- bca:	b4 99       	sbic	0x16, 4	; 22
- bcc:	04 c0       	rjmp	.+8      	; 0xbd6 <read_tank_water_level+0x24>
+ c62:	b4 99       	sbic	0x16, 4	; 22
+ c64:	04 c0       	rjmp	.+8      	; 0xc6e <read_tank_water_level+0x24>
 	{
 		WATER_LEVEL = 4;
- bce:	84 e0       	ldi	r24, 0x04	; 4
- bd0:	80 93 04 01 	sts	0x0104, r24	; 0x800104 <WATER_LEVEL>
+ c66:	84 e0       	ldi	r24, 0x04	; 4
+ c68:	80 93 04 01 	sts	0x0104, r24	; 0x800104 <WATER_LEVEL>
 		return;
- bd4:	08 95       	ret
+ c6c:	08 95       	ret
 	}
 	level = (WATER_LEVEL_SENSOR_PIN >> WATER_SENSOR_LEVEL_3) & 1;
 	if(level == 0)
- bd6:	b5 99       	sbic	0x16, 5	; 22
- bd8:	04 c0       	rjmp	.+8      	; 0xbe2 <read_tank_water_level+0x30>
+ c6e:	b5 99       	sbic	0x16, 5	; 22
+ c70:	04 c0       	rjmp	.+8      	; 0xc7a <read_tank_water_level+0x30>
 	{
 		WATER_LEVEL = 3;
- bda:	83 e0       	ldi	r24, 0x03	; 3
- bdc:	80 93 04 01 	sts	0x0104, r24	; 0x800104 <WATER_LEVEL>
+ c72:	83 e0       	ldi	r24, 0x03	; 3
+ c74:	80 93 04 01 	sts	0x0104, r24	; 0x800104 <WATER_LEVEL>
 		return;
- be0:	08 95       	ret
+ c78:	08 95       	ret
 	}
 	level = (WATER_LEVEL_SENSOR_PIN >> WATER_SENSOR_LEVEL_2) & 1;
 	if(level == 0)
- be2:	b6 99       	sbic	0x16, 6	; 22
- be4:	04 c0       	rjmp	.+8      	; 0xbee <read_tank_water_level+0x3c>
+ c7a:	b6 99       	sbic	0x16, 6	; 22
+ c7c:	04 c0       	rjmp	.+8      	; 0xc86 <read_tank_water_level+0x3c>
 	{
 		WATER_LEVEL = 2;
- be6:	82 e0       	ldi	r24, 0x02	; 2
- be8:	80 93 04 01 	sts	0x0104, r24	; 0x800104 <WATER_LEVEL>
+ c7e:	82 e0       	ldi	r24, 0x02	; 2
+ c80:	80 93 04 01 	sts	0x0104, r24	; 0x800104 <WATER_LEVEL>
 		return;
- bec:	08 95       	ret
+ c84:	08 95       	ret
 	}
 	level = (WATER_LEVEL_SENSOR_PIN >> WATER_SENSOR_LEVEL_1) & 1;
 	if(level == 0)
- bee:	b7 99       	sbic	0x16, 7	; 22
- bf0:	04 c0       	rjmp	.+8      	; 0xbfa <read_tank_water_level+0x48>
+ c86:	b7 99       	sbic	0x16, 7	; 22
+ c88:	04 c0       	rjmp	.+8      	; 0xc92 <read_tank_water_level+0x48>
 	{
 		WATER_LEVEL = 1;
- bf2:	81 e0       	ldi	r24, 0x01	; 1
- bf4:	80 93 04 01 	sts	0x0104, r24	; 0x800104 <WATER_LEVEL>
+ c8a:	81 e0       	ldi	r24, 0x01	; 1
+ c8c:	80 93 04 01 	sts	0x0104, r24	; 0x800104 <WATER_LEVEL>
 		return;
- bf8:	08 95       	ret
+ c90:	08 95       	ret
 	}
 	WATER_LEVEL = 0;
- bfa:	10 92 04 01 	sts	0x0104, r1	; 0x800104 <WATER_LEVEL>
- bfe:	08 95       	ret
+ c92:	10 92 04 01 	sts	0x0104, r1	; 0x800104 <WATER_LEVEL>
+ c96:	08 95       	ret
 
-00000c00 <__divmodhi4>:
- c00:	97 fb       	bst	r25, 7
- c02:	07 2e       	mov	r0, r23
- c04:	16 f4       	brtc	.+4      	; 0xc0a <__divmodhi4+0xa>
- c06:	00 94       	com	r0
- c08:	07 d0       	rcall	.+14     	; 0xc18 <__divmodhi4_neg1>
- c0a:	77 fd       	sbrc	r23, 7
- c0c:	09 d0       	rcall	.+18     	; 0xc20 <__divmodhi4_neg2>
- c0e:	0e 94 4b 06 	call	0xc96	; 0xc96 <__udivmodhi4>
- c12:	07 fc       	sbrc	r0, 7
- c14:	05 d0       	rcall	.+10     	; 0xc20 <__divmodhi4_neg2>
- c16:	3e f4       	brtc	.+14     	; 0xc26 <__divmodhi4_exit>
+00000c98 <__divmodhi4>:
+ c98:	97 fb       	bst	r25, 7
+ c9a:	07 2e       	mov	r0, r23
+ c9c:	16 f4       	brtc	.+4      	; 0xca2 <__divmodhi4+0xa>
+ c9e:	00 94       	com	r0
+ ca0:	07 d0       	rcall	.+14     	; 0xcb0 <__divmodhi4_neg1>
+ ca2:	77 fd       	sbrc	r23, 7
+ ca4:	09 d0       	rcall	.+18     	; 0xcb8 <__divmodhi4_neg2>
+ ca6:	0e 94 97 06 	call	0xd2e	; 0xd2e <__udivmodhi4>
+ caa:	07 fc       	sbrc	r0, 7
+ cac:	05 d0       	rcall	.+10     	; 0xcb8 <__divmodhi4_neg2>
+ cae:	3e f4       	brtc	.+14     	; 0xcbe <__divmodhi4_exit>
 
-00000c18 <__divmodhi4_neg1>:
- c18:	90 95       	com	r25
- c1a:	81 95       	neg	r24
- c1c:	9f 4f       	sbci	r25, 0xFF	; 255
- c1e:	08 95       	ret
+00000cb0 <__divmodhi4_neg1>:
+ cb0:	90 95       	com	r25
+ cb2:	81 95       	neg	r24
+ cb4:	9f 4f       	sbci	r25, 0xFF	; 255
+ cb6:	08 95       	ret
 
-00000c20 <__divmodhi4_neg2>:
- c20:	70 95       	com	r23
- c22:	61 95       	neg	r22
- c24:	7f 4f       	sbci	r23, 0xFF	; 255
+00000cb8 <__divmodhi4_neg2>:
+ cb8:	70 95       	com	r23
+ cba:	61 95       	neg	r22
+ cbc:	7f 4f       	sbci	r23, 0xFF	; 255
 
-00000c26 <__divmodhi4_exit>:
- c26:	08 95       	ret
+00000cbe <__divmodhi4_exit>:
+ cbe:	08 95       	ret
 
-00000c28 <__udivmodsi4>:
- c28:	a1 e2       	ldi	r26, 0x21	; 33
- c2a:	1a 2e       	mov	r1, r26
- c2c:	aa 1b       	sub	r26, r26
- c2e:	bb 1b       	sub	r27, r27
- c30:	fd 01       	movw	r30, r26
- c32:	0d c0       	rjmp	.+26     	; 0xc4e <__udivmodsi4_ep>
+00000cc0 <__udivmodsi4>:
+ cc0:	a1 e2       	ldi	r26, 0x21	; 33
+ cc2:	1a 2e       	mov	r1, r26
+ cc4:	aa 1b       	sub	r26, r26
+ cc6:	bb 1b       	sub	r27, r27
+ cc8:	fd 01       	movw	r30, r26
+ cca:	0d c0       	rjmp	.+26     	; 0xce6 <__udivmodsi4_ep>
 
-00000c34 <__udivmodsi4_loop>:
- c34:	aa 1f       	adc	r26, r26
- c36:	bb 1f       	adc	r27, r27
- c38:	ee 1f       	adc	r30, r30
- c3a:	ff 1f       	adc	r31, r31
- c3c:	a2 17       	cp	r26, r18
- c3e:	b3 07       	cpc	r27, r19
- c40:	e4 07       	cpc	r30, r20
- c42:	f5 07       	cpc	r31, r21
- c44:	20 f0       	brcs	.+8      	; 0xc4e <__udivmodsi4_ep>
- c46:	a2 1b       	sub	r26, r18
- c48:	b3 0b       	sbc	r27, r19
- c4a:	e4 0b       	sbc	r30, r20
- c4c:	f5 0b       	sbc	r31, r21
+00000ccc <__udivmodsi4_loop>:
+ ccc:	aa 1f       	adc	r26, r26
+ cce:	bb 1f       	adc	r27, r27
+ cd0:	ee 1f       	adc	r30, r30
+ cd2:	ff 1f       	adc	r31, r31
+ cd4:	a2 17       	cp	r26, r18
+ cd6:	b3 07       	cpc	r27, r19
+ cd8:	e4 07       	cpc	r30, r20
+ cda:	f5 07       	cpc	r31, r21
+ cdc:	20 f0       	brcs	.+8      	; 0xce6 <__udivmodsi4_ep>
+ cde:	a2 1b       	sub	r26, r18
+ ce0:	b3 0b       	sbc	r27, r19
+ ce2:	e4 0b       	sbc	r30, r20
+ ce4:	f5 0b       	sbc	r31, r21
 
-00000c4e <__udivmodsi4_ep>:
- c4e:	66 1f       	adc	r22, r22
- c50:	77 1f       	adc	r23, r23
- c52:	88 1f       	adc	r24, r24
- c54:	99 1f       	adc	r25, r25
- c56:	1a 94       	dec	r1
- c58:	69 f7       	brne	.-38     	; 0xc34 <__udivmodsi4_loop>
- c5a:	60 95       	com	r22
- c5c:	70 95       	com	r23
- c5e:	80 95       	com	r24
- c60:	90 95       	com	r25
- c62:	9b 01       	movw	r18, r22
- c64:	ac 01       	movw	r20, r24
- c66:	bd 01       	movw	r22, r26
- c68:	cf 01       	movw	r24, r30
- c6a:	08 95       	ret
+00000ce6 <__udivmodsi4_ep>:
+ ce6:	66 1f       	adc	r22, r22
+ ce8:	77 1f       	adc	r23, r23
+ cea:	88 1f       	adc	r24, r24
+ cec:	99 1f       	adc	r25, r25
+ cee:	1a 94       	dec	r1
+ cf0:	69 f7       	brne	.-38     	; 0xccc <__udivmodsi4_loop>
+ cf2:	60 95       	com	r22
+ cf4:	70 95       	com	r23
+ cf6:	80 95       	com	r24
+ cf8:	90 95       	com	r25
+ cfa:	9b 01       	movw	r18, r22
+ cfc:	ac 01       	movw	r20, r24
+ cfe:	bd 01       	movw	r22, r26
+ d00:	cf 01       	movw	r24, r30
+ d02:	08 95       	ret
 
-00000c6c <__tablejump2__>:
- c6c:	ee 0f       	add	r30, r30
- c6e:	ff 1f       	adc	r31, r31
- c70:	05 90       	lpm	r0, Z+
- c72:	f4 91       	lpm	r31, Z
- c74:	e0 2d       	mov	r30, r0
- c76:	09 94       	ijmp
+00000d04 <__tablejump2__>:
+ d04:	ee 0f       	add	r30, r30
+ d06:	ff 1f       	adc	r31, r31
+ d08:	05 90       	lpm	r0, Z+
+ d0a:	f4 91       	lpm	r31, Z
+ d0c:	e0 2d       	mov	r30, r0
+ d0e:	09 94       	ijmp
 
-00000c78 <__umulhisi3>:
- c78:	a2 9f       	mul	r26, r18
- c7a:	b0 01       	movw	r22, r0
- c7c:	b3 9f       	mul	r27, r19
- c7e:	c0 01       	movw	r24, r0
- c80:	a3 9f       	mul	r26, r19
- c82:	70 0d       	add	r23, r0
- c84:	81 1d       	adc	r24, r1
- c86:	11 24       	eor	r1, r1
- c88:	91 1d       	adc	r25, r1
- c8a:	b2 9f       	mul	r27, r18
- c8c:	70 0d       	add	r23, r0
- c8e:	81 1d       	adc	r24, r1
- c90:	11 24       	eor	r1, r1
- c92:	91 1d       	adc	r25, r1
- c94:	08 95       	ret
+00000d10 <__umulhisi3>:
+ d10:	a2 9f       	mul	r26, r18
+ d12:	b0 01       	movw	r22, r0
+ d14:	b3 9f       	mul	r27, r19
+ d16:	c0 01       	movw	r24, r0
+ d18:	a3 9f       	mul	r26, r19
+ d1a:	70 0d       	add	r23, r0
+ d1c:	81 1d       	adc	r24, r1
+ d1e:	11 24       	eor	r1, r1
+ d20:	91 1d       	adc	r25, r1
+ d22:	b2 9f       	mul	r27, r18
+ d24:	70 0d       	add	r23, r0
+ d26:	81 1d       	adc	r24, r1
+ d28:	11 24       	eor	r1, r1
+ d2a:	91 1d       	adc	r25, r1
+ d2c:	08 95       	ret
 
-00000c96 <__udivmodhi4>:
- c96:	aa 1b       	sub	r26, r26
- c98:	bb 1b       	sub	r27, r27
- c9a:	51 e1       	ldi	r21, 0x11	; 17
- c9c:	07 c0       	rjmp	.+14     	; 0xcac <__udivmodhi4_ep>
+00000d2e <__udivmodhi4>:
+ d2e:	aa 1b       	sub	r26, r26
+ d30:	bb 1b       	sub	r27, r27
+ d32:	51 e1       	ldi	r21, 0x11	; 17
+ d34:	07 c0       	rjmp	.+14     	; 0xd44 <__udivmodhi4_ep>
 
-00000c9e <__udivmodhi4_loop>:
- c9e:	aa 1f       	adc	r26, r26
- ca0:	bb 1f       	adc	r27, r27
- ca2:	a6 17       	cp	r26, r22
- ca4:	b7 07       	cpc	r27, r23
- ca6:	10 f0       	brcs	.+4      	; 0xcac <__udivmodhi4_ep>
- ca8:	a6 1b       	sub	r26, r22
- caa:	b7 0b       	sbc	r27, r23
+00000d36 <__udivmodhi4_loop>:
+ d36:	aa 1f       	adc	r26, r26
+ d38:	bb 1f       	adc	r27, r27
+ d3a:	a6 17       	cp	r26, r22
+ d3c:	b7 07       	cpc	r27, r23
+ d3e:	10 f0       	brcs	.+4      	; 0xd44 <__udivmodhi4_ep>
+ d40:	a6 1b       	sub	r26, r22
+ d42:	b7 0b       	sbc	r27, r23
 
-00000cac <__udivmodhi4_ep>:
- cac:	88 1f       	adc	r24, r24
- cae:	99 1f       	adc	r25, r25
- cb0:	5a 95       	dec	r21
- cb2:	a9 f7       	brne	.-22     	; 0xc9e <__udivmodhi4_loop>
- cb4:	80 95       	com	r24
- cb6:	90 95       	com	r25
- cb8:	bc 01       	movw	r22, r24
- cba:	cd 01       	movw	r24, r26
- cbc:	08 95       	ret
+00000d44 <__udivmodhi4_ep>:
+ d44:	88 1f       	adc	r24, r24
+ d46:	99 1f       	adc	r25, r25
+ d48:	5a 95       	dec	r21
+ d4a:	a9 f7       	brne	.-22     	; 0xd36 <__udivmodhi4_loop>
+ d4c:	80 95       	com	r24
+ d4e:	90 95       	com	r25
+ d50:	bc 01       	movw	r22, r24
+ d52:	cd 01       	movw	r24, r26
+ d54:	08 95       	ret
 
-00000cbe <_exit>:
- cbe:	f8 94       	cli
+00000d56 <_exit>:
+ d56:	f8 94       	cli
 
-00000cc0 <__stop_program>:
- cc0:	ff cf       	rjmp	.-2      	; 0xcc0 <__stop_program>
+00000d58 <__stop_program>:
+ d58:	ff cf       	rjmp	.-2      	; 0xd58 <__stop_program>

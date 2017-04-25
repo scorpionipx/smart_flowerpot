@@ -14,6 +14,7 @@
 #include "driverAdc.h"
 #include "Menu.h"
 #include "WaterLevelSensor.h"
+#include "IPX_UART.h"
 
 #define INTERRUPT_200MS 200
 #define INTERRUPT_10MS 10
@@ -81,6 +82,11 @@ ISR (TIMER1_COMPA_vect)
 	read_tank_water_level_counter ++;
 	if (read_tank_water_level_counter >= READ_TANK_WATER_LEVEL_PERIOD)
 	{
+		read_tank_water_level_counter = 0;
+		
 		read_tank_water_level();
+		send_uart_data_tank_water_level();
+		send_uart_data_humidity_sensor_1();
+		send_uart_data_humidity_sensor_2();
 	}
 }

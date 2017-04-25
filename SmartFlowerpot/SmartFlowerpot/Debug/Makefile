@@ -40,6 +40,7 @@ C_SRCS +=  \
 ../driverAdc.c \
 ../IPX_Interrupt.c \
 ../IPX_LCD_Display.c \
+../IPX_UART.c \
 ../main.c \
 ../Menu.c \
 ../WaterLevelSensor.c
@@ -55,6 +56,7 @@ OBJS +=  \
 driverAdc.o \
 IPX_Interrupt.o \
 IPX_LCD_Display.o \
+IPX_UART.o \
 main.o \
 Menu.o \
 WaterLevelSensor.o
@@ -63,6 +65,7 @@ OBJS_AS_ARGS +=  \
 driverAdc.o \
 IPX_Interrupt.o \
 IPX_LCD_Display.o \
+IPX_UART.o \
 main.o \
 Menu.o \
 WaterLevelSensor.o
@@ -71,6 +74,7 @@ C_DEPS +=  \
 driverAdc.d \
 IPX_Interrupt.d \
 IPX_LCD_Display.d \
+IPX_UART.d \
 main.d \
 Menu.d \
 WaterLevelSensor.d
@@ -79,6 +83,7 @@ C_DEPS_AS_ARGS +=  \
 driverAdc.d \
 IPX_Interrupt.d \
 IPX_LCD_Display.d \
+IPX_UART.d \
 main.d \
 Menu.d \
 WaterLevelSensor.d
@@ -97,6 +102,8 @@ LINKER_SCRIPT_DEP+=
 
 
 # AVR32/GNU C Compiler
+
+
 
 
 

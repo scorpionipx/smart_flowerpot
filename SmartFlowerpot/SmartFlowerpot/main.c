@@ -15,6 +15,7 @@
 #include "IPX_Interrupt.h"
 #include "Menu.h"
 #include "WaterLevelSensor.h"
+#include "IPX_UART.h"
 
 void general_init();
 void init_globals();
@@ -24,6 +25,7 @@ int main(void)
 {
 	general_init();
 	
+	init_UART();
 	init_interrupt_10ms();
 	init_interrupt_200ms();
 	ADC_Init();
