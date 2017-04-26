@@ -12,19 +12,23 @@
 #include <avr/interrupt.h>
 #include "IPX_LCD_Display.h"
 #include "driverAdc.h"
+#include "Menu.h"
+#include "WaterLevelSensor.h"
+#include "IPX_UART.h"
 
 #define INTERRUPT_200MS 200
 #define INTERRUPT_10MS 10
 
 #define READ_SENSORS_VALUES_PERIOD SENSORS_READ_INTERVAL / INTERRUPT_200MS
+#define READ_TANK_WATER_LEVEL_PERIOD TANK_WATER_LEVEL_READ_INTERVAL / INTERRUPT_200MS
 
-unsigned int display_refresh_counter = 500;
 unsigned int read_humidity_counter = 0;
+unsigned int read_tank_water_level_counter = 201;
 
 volatile int interruptCnt = 0;
 
 //10 ms timer
-void init_interrupt_10ms(void)
+void init_interrupt_10ms()
 {
 	/* clear timer on compare mode , output normal port , 256 prescaler */
 	TCCR0 = (1u << WGM01) | (1u << CS02) | (1u << CS00);
@@ -74,5 +78,15 @@ ISR (TIMER1_COMPA_vect)
 		read_humidity_counter = 0;
 		read_humidity_level(SENSOR_1);
 		read_humidity_level(SENSOR_2);
+	}
+	read_tank_water_level_counter ++;
+	if (read_tank_water_level_counter >= READ_TANK_WATER_LEVEL_PERIOD)
+	{
+		read_tank_water_level_counter = 0;
+		
+		read_tank_water_level();
+		send_uart_data_tank_water_level();
+		send_uart_data_humidity_sensor_1();
+		send_uart_data_humidity_sensor_2();
 	}
 }

@@ -38,10 +38,12 @@ SUBDIRS :=
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS +=  \
 ../driverAdc.c \
-../driverSwitch.c \
 ../IPX_Interrupt.c \
 ../IPX_LCD_Display.c \
-../main.c
+../IPX_UART.c \
+../main.c \
+../Menu.c \
+../WaterLevelSensor.c
 
 
 PREPROCESSING_SRCS += 
@@ -52,31 +54,39 @@ ASM_SRCS +=
 
 OBJS +=  \
 driverAdc.o \
-driverSwitch.o \
 IPX_Interrupt.o \
 IPX_LCD_Display.o \
-main.o
+IPX_UART.o \
+main.o \
+Menu.o \
+WaterLevelSensor.o
 
 OBJS_AS_ARGS +=  \
 driverAdc.o \
-driverSwitch.o \
 IPX_Interrupt.o \
 IPX_LCD_Display.o \
-main.o
+IPX_UART.o \
+main.o \
+Menu.o \
+WaterLevelSensor.o
 
 C_DEPS +=  \
 driverAdc.d \
-driverSwitch.d \
 IPX_Interrupt.d \
 IPX_LCD_Display.d \
-main.d
+IPX_UART.d \
+main.d \
+Menu.d \
+WaterLevelSensor.d
 
 C_DEPS_AS_ARGS +=  \
 driverAdc.d \
-driverSwitch.d \
 IPX_Interrupt.d \
 IPX_LCD_Display.d \
-main.d
+IPX_UART.d \
+main.d \
+Menu.d \
+WaterLevelSensor.d
 
 OUTPUT_FILE_PATH +=SmartFlowerpot.elf
 
@@ -92,6 +102,10 @@ LINKER_SCRIPT_DEP+=
 
 
 # AVR32/GNU C Compiler
+
+
+
+
 
 
 
