@@ -9,7 +9,6 @@
 #ifndef IPX_INTERRUPT_H_
 #define IPX_INTERRUPT_H_
 
-void init_interrupt_10ms();
 void init_interrupt_200ms();
 
 #endif /* IPX_INTERRUPT_H_ */

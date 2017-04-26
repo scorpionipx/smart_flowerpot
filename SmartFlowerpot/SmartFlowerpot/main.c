@@ -26,7 +26,6 @@ int main(void)
 	general_init();
 	
 	init_UART();
-	init_interrupt_10ms();
 	init_interrupt_200ms();
 	ADC_Init();
 	init_LCD_Display();

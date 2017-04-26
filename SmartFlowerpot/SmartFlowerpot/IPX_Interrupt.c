@@ -25,31 +25,6 @@
 unsigned int read_humidity_counter = 0;
 unsigned int read_tank_water_level_counter = 201;
 
-volatile int interruptCnt = 0;
-
-//10 ms timer
-void init_interrupt_10ms()
-{
-	/* clear timer on compare mode , output normal port , 256 prescaler */
-	TCCR0 = (1u << WGM01) | (1u << CS02) | (1u << CS00);
-	/* reset counter */
-	TCNT0=0x00;
-	
-	/* 10 ms interrupt */
-	OCR0 = 156;
-	
-	/* enable compare A interrupt */
-	TIMSK = (1u << OCIE0);
-	
-}
-
-// 10ms ISR
-ISR(TIMER0_COMP_vect)
-{
-	TIFR |= (1u << OCF0); /* clear output compare interrupt flag */
-	interruptCnt++;
-}
-
 // 200 ms timer
 void init_interrupt_200ms()
 {
