@@ -11,6 +11,7 @@
 
 void change_menu(char menu);
 void set_menu_title(char menu);
+void next_menu();
 
 
 

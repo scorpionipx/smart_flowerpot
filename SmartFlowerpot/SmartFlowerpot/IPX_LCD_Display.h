@@ -31,5 +31,6 @@ void display_tank_water_level_title();
 void display_tank_water_level();
 void init_custom_character_level();
 void display_error_title();
+void display_battery_title();
 
 #endif /* IPX_LCD_DISPLAY_H_ */

@@ -16,6 +16,7 @@
 #include "Menu.h"
 #include "WaterLevelSensor.h"
 #include "IPX_UART.h"
+#include "IPX_Buttons.h"
 
 void general_init();
 void init_globals();
@@ -30,6 +31,8 @@ int main(void)
 	ADC_Init();
 	init_LCD_Display();
 	init_ipx_water_level_sensor();
+	init_buttons();
+	
 	
 	
 	display_initializing_message();
@@ -59,7 +62,7 @@ void init_globals()
 	MENUs[1] = SENSOR_VALUES_MENU;
 	MENUs[2] = CLOCK_MENU;
 	MENUs[3] = TANK_WATER_LEVEL_MENU;
-	MENUs[4] = UNDEFINED_MENU;
+	MENUs[4] = BATTERY_LEVEL_MENU;
 	MENUs[5] = UNDEFINED_MENU;
 	MENUs[6] = UNDEFINED_MENU;
 	MENUs[7] = UNDEFINED_MENU;

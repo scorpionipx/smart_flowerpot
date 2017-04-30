@@ -41,6 +41,9 @@
 // String to display for errors
 #define ERROR_TITLE "ERRORS OCCURRED:"
 
+// String to display for battery
+#define BATTERY_TITLE "BATTERY LEVEL"
+
 // String to display for tan water level
 #define TANK_WATER_LEVEL_TITLE "TANK WATER LEVEL"
 
@@ -48,6 +51,30 @@
 #define ERROR_NO_ERROR "No errors"
 #define ERROR_WRONG_MENU "Wrong menu"
 #define ERROR_WRONG_MENU_TITLE "Wrong menu title"
+
+// STRUCT FOR TIME TRACKING
+struct clock_struct
+{
+	short int H;     // HOURS
+	short int M;     // MINUTES
+	short int S;	 // SECONDS
+}CLOCK;
+
+// GLOBAL STRUCT FOR BOOLEAN VARIABLES; USE BIT FIELDS TO IMPROVE MEMORY USAGE
+struct boolean_struct
+{
+	unsigned int BOOL_0 : 1;
+	unsigned int BOOL_1 : 1;
+	unsigned int BOOL_2 : 1;
+	unsigned int BOOL_3 : 1;
+	unsigned int BOOL_4 : 1;
+	unsigned int BOOL_5 : 1;
+	unsigned int BOOL_6 : 1;
+	unsigned int BOOL_7 : 1;
+}GLOBAL_BOOL;
+
+#define BUTTON_1_PRESSED GLOBAL_BOOL.BOOL_0   // BUTTON ONE PRESSED
+#define BUTTON_2_PRESSED GLOBAL_BOOL.BOOL_1   // BUTTON TWO PRESSED
 
 // Menus 
 #define UNDEFINED_MENU -1

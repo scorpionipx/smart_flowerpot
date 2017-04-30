@@ -4,6 +4,10 @@
 
 driverAdc.c
 
+IPX_Buttons.c
+
+IPX_Clock.c
+
 IPX_Interrupt.c
 
 IPX_LCD_Display.c

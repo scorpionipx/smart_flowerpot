@@ -15,15 +15,19 @@
 #include "Menu.h"
 #include "WaterLevelSensor.h"
 #include "IPX_UART.h"
+#include "IPX_Buttons.h"
+#include "IPX_Clock.h"
 
 #define INTERRUPT_200MS 200
 #define INTERRUPT_10MS 10
+#define SECOND 5
 
 #define READ_SENSORS_VALUES_PERIOD SENSORS_READ_INTERVAL / INTERRUPT_200MS
 #define READ_TANK_WATER_LEVEL_PERIOD TANK_WATER_LEVEL_READ_INTERVAL / INTERRUPT_200MS
 
 unsigned int read_humidity_counter = 0;
 unsigned int read_tank_water_level_counter = 201;
+unsigned int seconds_counter = 0;
 
 // 200 ms timer
 void init_interrupt_200ms()
@@ -46,6 +50,12 @@ ISR (TIMER1_COMPA_vect)
 {
 	// toggle led here
 	display_values();
+	seconds_counter ++;
+	if(seconds_counter >= SECOND)
+	{
+		seconds_counter = 0;
+		increment_clock();
+	}
 	PORTB ^= (1 << 0);  // toggles the led
 	read_humidity_counter ++;
 	if (read_humidity_counter >= READ_SENSORS_VALUES_PERIOD)
@@ -58,6 +68,7 @@ ISR (TIMER1_COMPA_vect)
 	if (read_tank_water_level_counter >= READ_TANK_WATER_LEVEL_PERIOD)
 	{
 		read_tank_water_level_counter = 0;
+		read_buttons();
 		
 		read_tank_water_level();
 		send_uart_data_tank_water_level();

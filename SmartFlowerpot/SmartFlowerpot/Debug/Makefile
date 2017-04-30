@@ -38,6 +38,8 @@ SUBDIRS :=
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS +=  \
 ../driverAdc.c \
+../IPX_Buttons.c \
+../IPX_Clock.c \
 ../IPX_Interrupt.c \
 ../IPX_LCD_Display.c \
 ../IPX_UART.c \
@@ -54,6 +56,8 @@ ASM_SRCS +=
 
 OBJS +=  \
 driverAdc.o \
+IPX_Buttons.o \
+IPX_Clock.o \
 IPX_Interrupt.o \
 IPX_LCD_Display.o \
 IPX_UART.o \
@@ -63,6 +67,8 @@ WaterLevelSensor.o
 
 OBJS_AS_ARGS +=  \
 driverAdc.o \
+IPX_Buttons.o \
+IPX_Clock.o \
 IPX_Interrupt.o \
 IPX_LCD_Display.o \
 IPX_UART.o \
@@ -72,6 +78,8 @@ WaterLevelSensor.o
 
 C_DEPS +=  \
 driverAdc.d \
+IPX_Buttons.d \
+IPX_Clock.d \
 IPX_Interrupt.d \
 IPX_LCD_Display.d \
 IPX_UART.d \
@@ -81,6 +89,8 @@ WaterLevelSensor.d
 
 C_DEPS_AS_ARGS +=  \
 driverAdc.d \
+IPX_Buttons.d \
+IPX_Clock.d \
 IPX_Interrupt.d \
 IPX_LCD_Display.d \
 IPX_UART.d \
@@ -102,6 +112,10 @@ LINKER_SCRIPT_DEP+=
 
 
 # AVR32/GNU C Compiler
+
+
+
+
 
 
 

@@ -235,6 +235,15 @@ void display_error_title()
 	put_string(ERROR_TITLE);
 }
 
+// displays battery level title
+void display_battery_title()
+{
+	put_Char_LCD_Display(0x01,0); // clear LCD
+	
+	put_Char_LCD_Display(0x80, 0);
+	put_string(BATTERY_TITLE);
+}
+
 void display_error()
 {
 	put_Char_LCD_Display(0xC0, 0);
@@ -350,13 +359,20 @@ void display_initializing_message()
 void display_clock_values()
 {
 	int clock_date_display_offset = strlen(CLOCK_DATE_TITLE);
-	int clock_time_display_offset = strlen(CLOCK_TIME_TITLE);
+	int clock_time_display_offset = strlen(CLOCK_TIME_TITLE) + 1;
 	
 	put_Char_LCD_Display(0x80 + clock_date_display_offset, 0);
-	put_string(" 01 APR 2017");
+	put_string(" 30 APR 2017");
 	
 	put_Char_LCD_Display(0xC0 + clock_time_display_offset, 0);
-	put_string(" 23:42:51");
+	put_Char_LCD_Display('0' + CLOCK.H/10, 1);
+	put_Char_LCD_Display('0' + CLOCK.H%10, 1);
+	put_Char_LCD_Display(':', 1);
+	put_Char_LCD_Display('0' + CLOCK.M/10, 1);
+	put_Char_LCD_Display('0' + CLOCK.M%10, 1);
+	put_Char_LCD_Display(':', 1);
+	put_Char_LCD_Display('0' + CLOCK.S/10, 1);
+	put_Char_LCD_Display('0' + CLOCK.S%10, 1);
 }
 
 void display_values()
@@ -366,6 +382,12 @@ void display_values()
 		case CLOCK_MENU:
 		{
 			display_clock_values();
+			break;
+		}
+		case BATTERY_LEVEL_MENU:
+		{
+			put_Char_LCD_Display(0xC0, 0);
+			put_string("battery");
 			break;
 		}
 		case SENSOR_VALUES_MENU:
@@ -385,8 +407,8 @@ void display_values()
 		}
 		default:
 		{
-			put_Char_LCD_Display(0x80, 0);
-			put_string("error");
+			put_Char_LCD_Display(0xC0, 0);
+			put_string("fatal error");
 			break;
 		}
 	}
