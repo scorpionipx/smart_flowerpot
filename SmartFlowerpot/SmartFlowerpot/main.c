@@ -37,7 +37,7 @@ int main(void)
 	
 	display_initializing_message();
 	_delay_ms(1000);
-	change_menu(TANK_WATER_LEVEL_MENU);
+	change_menu(TEMPERATURE_MENU);
 	sei();
 	
     while (1) 
@@ -63,7 +63,7 @@ void init_globals()
 	MENUs[2] = CLOCK_MENU;
 	MENUs[3] = TANK_WATER_LEVEL_MENU;
 	MENUs[4] = BATTERY_LEVEL_MENU;
-	MENUs[5] = UNDEFINED_MENU;
+	MENUs[5] = TEMPERATURE_MENU;
 	MENUs[6] = UNDEFINED_MENU;
 	MENUs[7] = UNDEFINED_MENU;
 	MENUs[8] = UNDEFINED_MENU;
@@ -74,4 +74,5 @@ void init_globals()
 	humidity_level_sensor_1 = 0;
 	humidity_level_sensor_2 = 0;
 	WATER_LEVEL = 0;
+	TEMPERATURE = 27;
 }

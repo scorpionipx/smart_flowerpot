@@ -18,6 +18,8 @@
 #include "IPX_Buttons.h"
 #include "IPX_Clock.h"
 
+#define TOGGLE_PWR_LED PORTB ^= (1 << 0)
+
 #define INTERRUPT_200MS 200
 #define INTERRUPT_10MS 10
 #define SECOND 5
@@ -51,12 +53,14 @@ ISR (TIMER1_COMPA_vect)
 	// toggle led here
 	display_values();
 	seconds_counter ++;
+	
 	if(seconds_counter >= SECOND)
 	{
 		seconds_counter = 0;
 		increment_clock();
+		TOGGLE_PWR_LED;
 	}
-	PORTB ^= (1 << 0);  // toggles the led
+	
 	read_humidity_counter ++;
 	if (read_humidity_counter >= READ_SENSORS_VALUES_PERIOD)
 	{
@@ -71,6 +75,7 @@ ISR (TIMER1_COMPA_vect)
 		read_buttons();
 		
 		read_tank_water_level();
+		read_temperature();
 		send_uart_data_tank_water_level();
 		send_uart_data_humidity_sensor_1();
 		send_uart_data_humidity_sensor_2();

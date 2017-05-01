@@ -34,6 +34,9 @@
 #define SENSOR_1 1
 #define SENSOR_2 2
 
+// Strings to display for temperature
+#define TEMPERATURE_TITLE "TEMPERATURE"
+
 // Strings to display for clock
 #define CLOCK_DATE_TITLE "Date"
 #define CLOCK_TIME_TITLE "Time"
@@ -83,6 +86,7 @@ struct boolean_struct
 #define CLOCK_MENU 2
 #define TANK_WATER_LEVEL_MENU 3
 #define BATTERY_LEVEL_MENU 4
+#define TEMPERATURE_MENU 5
 
 #define SPECIAL_CHARACTER_TANK_LEVEL_START 0
 #define SPECIAL_CHARACTER_TANK_LEVEL_END 1
@@ -100,6 +104,9 @@ typedef unsigned long uint32;
 /*============================================================================*/
 unsigned int humidity_level_sensor_1;
 unsigned int humidity_level_sensor_2;
+
+long int TEMPERATURE;
+
 char MENU;
 char MENUs[10];
 char ERROR[16];

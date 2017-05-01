@@ -18,10 +18,13 @@
 #ifndef IPX_LCD_DISPLAY_H_
 #define IPX_LCD_DISPLAY_H_
 
+#define LCD_DELAY_MS 2         // DELAY BETWEEN DATA SENT TO LCD
+#define LCD_INIT_DELAY_MS 7    // DELAY BETWEEN DATA SENT TO LCD WHEN INITIALIZING
+
 void put_Char_LCD_Display(int ch, int type);
 void init_LCD_Display(void);
 void display_umidity_level_title();
-void display_umidity_level_values(int umidity_level_sensor_1, int umidity_level_sensor_2);
+void display_umidity_level_values();
 void display_clock_title();
 void put_string(const char *_string);
 void display_clock_values();
@@ -29,8 +32,11 @@ void display_initializing_message();
 void display_values();
 void display_tank_water_level_title();
 void display_tank_water_level();
+void init_custom_characters();
 void init_custom_character_level();
 void display_error_title();
 void display_battery_title();
+void display_temperature_title();
+void display_temperature_values();
 
 #endif /* IPX_LCD_DISPLAY_H_ */

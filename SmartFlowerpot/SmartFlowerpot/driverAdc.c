@@ -1,4 +1,14 @@
+#include "Global.h"
+#include <avr/io.h>
 #include "driverAdc.h"
+#include <math.h>
+
+#define SERIES_RESISTOR 10000 // SERIES RESISTOR VALUE(OHMS)
+#define RT_25 10000 // NTC RESISTANCE AT 25 °C
+#define B_25_100 4100 // NTC parameter
+#define RECIPROCAL_T25_10000 3354 // (1 / 25 °C (measured as kelvin) <=> 1 / 298.15) * 10000
+#define K_TO_C_100 27315// conversion factor
+#define TEMP_OFFSET_100 -120 // temperature offset * 10000
 
 void ADC_Init(void)
 {
@@ -30,6 +40,26 @@ uint16_t ADC_GetValue(uint8_t ch)
 	while(ADCSRA & (1<<ADSC));
 	
 	return (ADC);
+}
+
+// temperature is read as a 5 digit positive number, 2 decimals precission
+void read_temperature()
+{
+	unsigned int VOLTAGE;
+	unsigned int NTC_RESISTANCE;
+	long int LN_NTC_RT25_10000; // (ln(NTC_res / RT_25)) * 10000
+	long int LN_B25_100_10000; // ((ln(NTC_res / RT_25)) * 10000) / B_25_100
+	long int RECIPROCAL_TEMPERATURE; // 1 / TEMPERATURE
+	
+	VOLTAGE = (((uint32_t)ADC_GetValue(2) * 5000) / 1023);
+	NTC_RESISTANCE = (uint32_t) SERIES_RESISTOR * VOLTAGE / (5000 - VOLTAGE);
+	
+	LN_NTC_RT25_10000 = (sint32) (log((double) NTC_RESISTANCE / RT_25) * 10000);
+	LN_B25_100_10000 = (sint32) LN_NTC_RT25_10000 * 100 / B_25_100;
+	RECIPROCAL_TEMPERATURE = (sint32) LN_B25_100_10000 + RECIPROCAL_T25_10000;
+	TEMPERATURE = (sint32) 100000000 / RECIPROCAL_TEMPERATURE;
+	TEMPERATURE -= K_TO_C_100;
+	TEMPERATURE += TEMP_OFFSET_100;
 }
 
 void read_humidity_level(int sensor)

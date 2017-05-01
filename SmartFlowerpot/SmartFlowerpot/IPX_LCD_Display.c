@@ -9,23 +9,22 @@
 #include <avr/io.h>
 #include <util/delay.h>
 #include <string.h>
+#include "IPX_LCD_Display.h"
 
 #define MAX_CHARS_PER_ROW 16
 
-void init_custom_characters();
-void init_custom_character_level();
 
 void put_Char_LCD_Display(int ch, int type)
 {
 	PORTC = (PORTC&0x0F)|(ch&0xF0);
 	PORTC = (PORTC&0xFE)|(type&0x01);
 	PORTC = PORTC|0x02;
-	_delay_ms(5);
+	_delay_ms(LCD_DELAY_MS);
 	PORTC &= 0xFC;
 	PORTC = (PORTC&0x0F)|((ch<<4)&0xF0);
 	PORTC = (PORTC&0xFE)|(type&0x01);
 	PORTC = PORTC|0x02;
-	_delay_ms(5);
+	_delay_ms(LCD_DELAY_MS);
 	PORTC &= 0xFC;
 }
 
@@ -33,19 +32,19 @@ void init_LCD_Display(void)
 {
 	DDRC = 0xFF;
 	put_Char_LCD_Display(0x03,0);
-	_delay_ms(5);
+	_delay_ms(LCD_INIT_DELAY_MS);
 	put_Char_LCD_Display(0x03,0);
-	_delay_ms(5);
+	_delay_ms(LCD_INIT_DELAY_MS);
 	put_Char_LCD_Display(0x03,0);
-	_delay_ms(5);
+	_delay_ms(LCD_INIT_DELAY_MS);
 	put_Char_LCD_Display(0x02,0);
-	_delay_ms(5);
+	_delay_ms(LCD_INIT_DELAY_MS);
 	put_Char_LCD_Display(0x0C,0);
-	_delay_ms(5);
+	_delay_ms(LCD_INIT_DELAY_MS);
 	put_Char_LCD_Display(0x01,0);
-	_delay_ms(5);
+	_delay_ms(LCD_INIT_DELAY_MS);
 	put_Char_LCD_Display(0x80,0);
-	_delay_ms(5);
+	_delay_ms(LCD_INIT_DELAY_MS);
 	put_Char_LCD_Display(0x01,0);//clear display
 	init_custom_characters();
 }
@@ -235,6 +234,18 @@ void display_error_title()
 	put_string(ERROR_TITLE);
 }
 
+// displays temperature title
+void display_temperature_title()
+{
+	put_Char_LCD_Display(0x01,0); // clear LCD
+	
+	put_Char_LCD_Display(0x80, 0);
+	put_string(TEMPERATURE_TITLE);
+	put_Char_LCD_Display(0xC0 + 4, 0);
+	put_Char_LCD_Display(0xDF, 1);
+	put_Char_LCD_Display('C', 1);
+}
+
 // displays battery level title
 void display_battery_title()
 {
@@ -336,6 +347,16 @@ void display_umidity_level_values()
 	put_string("  ");
 }
 
+void display_temperature_values()
+{
+	put_Char_LCD_Display(0xC0, 0);
+	//put_Char_LCD_Display((TEMPERATURE / 10000)%10 + '0', 1);
+	put_Char_LCD_Display((TEMPERATURE / 1000)%10 + '0', 1);
+	put_Char_LCD_Display((TEMPERATURE / 100)%10 + '0', 1);
+	put_Char_LCD_Display('.', 1);
+	put_Char_LCD_Display((TEMPERATURE / 10)%10 + '0', 1);
+	//put_Char_LCD_Display(TEMPERATURE % 10 + '0', 1);
+}
 
 void display_clock_title()
 {	
@@ -362,7 +383,7 @@ void display_clock_values()
 	int clock_time_display_offset = strlen(CLOCK_TIME_TITLE) + 1;
 	
 	put_Char_LCD_Display(0x80 + clock_date_display_offset, 0);
-	put_string(" 30 APR 2017");
+	put_string(" 01 MAY 2017");
 	
 	put_Char_LCD_Display(0xC0 + clock_time_display_offset, 0);
 	put_Char_LCD_Display('0' + CLOCK.H/10, 1);
@@ -382,6 +403,11 @@ void display_values()
 		case CLOCK_MENU:
 		{
 			display_clock_values();
+			break;
+		}
+		case TEMPERATURE_MENU:
+		{
+			display_temperature_values();
 			break;
 		}
 		case BATTERY_LEVEL_MENU:

@@ -82,6 +82,11 @@ void set_menu_title(char menu)
 			display_error_title();
 			break;
 		}
+		case TEMPERATURE_MENU:
+		{
+			display_temperature_title();
+			break;
+		}
 		case BATTERY_LEVEL_MENU:
 		{
 			display_battery_title();

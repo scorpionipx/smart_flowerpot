@@ -22,5 +22,6 @@
 void ADC_Init(void);
 uint16_t ADC_GetValue(uint8_t ch);
 void read_humidity_level(int sensor);
+void read_temperature();
 
 #endif /*_driver_adc_h_*/
