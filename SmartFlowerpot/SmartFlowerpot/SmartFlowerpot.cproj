@@ -157,6 +157,12 @@
     <Compile Include="IPX_UART.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="IPX_WaterPump.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="IPX_WaterPump.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="main.c">
       <SubType>compile</SubType>
     </Compile>

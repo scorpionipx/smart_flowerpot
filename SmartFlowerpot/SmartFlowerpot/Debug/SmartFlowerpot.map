@@ -99,6 +99,9 @@ Discarded input sections
  .text          0x00000000        0x0 IPX_UART.o
  .data          0x00000000        0x0 IPX_UART.o
  .bss           0x00000000        0x0 IPX_UART.o
+ .text          0x00000000        0x0 IPX_WaterPump.o
+ .data          0x00000000        0x0 IPX_WaterPump.o
+ .bss           0x00000000        0x0 IPX_WaterPump.o
  .text          0x00000000        0x0 main.o
  .data          0x00000000        0x0 main.o
  .bss           0x00000000        0x0 main.o
@@ -348,6 +351,7 @@ LOAD IPX_Clock.o
 LOAD IPX_Interrupt.o
 LOAD IPX_LCD_Display.o
 LOAD IPX_UART.o
+LOAD IPX_WaterPump.o
 LOAD main.o
 LOAD Menu.o
 LOAD WaterLevelSensor.o
@@ -458,7 +462,7 @@ END GROUP
 .rela.plt
  *(.rela.plt)
 
-.text           0x00000000     0x1700
+.text           0x00000000     0x17d8
  *(.vectors)
  .vectors       0x00000000       0x54 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.1.130/gcc/dev/atmega32a/avr5/crtatmega32a.o
                 0x00000000                __vector_default
@@ -567,192 +571,195 @@ END GROUP
                 0x000002e4       0x1a IPX_Interrupt.o
                 0x000002e4                init_interrupt_200ms
  .text.__vector_7
-                0x000002fe       0xf4 IPX_Interrupt.o
+                0x000002fe      0x1b6 IPX_Interrupt.o
                 0x000002fe                __vector_7
  .text.put_Char_LCD_Display
-                0x000003f2       0x5e IPX_LCD_Display.o
-                0x000003f2                put_Char_LCD_Display
+                0x000004b4       0x5e IPX_LCD_Display.o
+                0x000004b4                put_Char_LCD_Display
  .text.init_custom_character_level
-                0x00000450      0x38a IPX_LCD_Display.o
-                0x00000450                init_custom_character_level
+                0x00000512      0x38a IPX_LCD_Display.o
+                0x00000512                init_custom_character_level
  .text.init_custom_characters
-                0x000007da       0xda IPX_LCD_Display.o
-                0x000007da                init_custom_characters
+                0x0000089c       0xda IPX_LCD_Display.o
+                0x0000089c                init_custom_characters
  .text.init_LCD_Display
-                0x000008b4       0xbe IPX_LCD_Display.o
-                0x000008b4                init_LCD_Display
+                0x00000976       0xbe IPX_LCD_Display.o
+                0x00000976                init_LCD_Display
  .text.put_string
-                0x00000972       0x4a IPX_LCD_Display.o
-                0x00000972                put_string
+                0x00000a34       0x4a IPX_LCD_Display.o
+                0x00000a34                put_string
  .text.display_umidity_level_title
-                0x000009bc       0x6c IPX_LCD_Display.o
-                0x000009bc                display_umidity_level_title
+                0x00000a7e       0x6c IPX_LCD_Display.o
+                0x00000a7e                display_umidity_level_title
  .text.display_error_title
-                0x00000a28       0x22 IPX_LCD_Display.o
-                0x00000a28                display_error_title
+                0x00000aea       0x22 IPX_LCD_Display.o
+                0x00000aea                display_error_title
  .text.display_temperature_title
-                0x00000a4a       0x46 IPX_LCD_Display.o
-                0x00000a4a                display_temperature_title
+                0x00000b0c       0x46 IPX_LCD_Display.o
+                0x00000b0c                display_temperature_title
  .text.display_battery_title
-                0x00000a90       0x22 IPX_LCD_Display.o
-                0x00000a90                display_battery_title
+                0x00000b52       0x22 IPX_LCD_Display.o
+                0x00000b52                display_battery_title
  .text.display_error
-                0x00000ab2       0x16 IPX_LCD_Display.o
-                0x00000ab2                display_error
+                0x00000b74       0x16 IPX_LCD_Display.o
+                0x00000b74                display_error
  .text.display_tank_water_level_title
-                0x00000ac8       0x22 IPX_LCD_Display.o
-                0x00000ac8                display_tank_water_level_title
+                0x00000b8a       0x22 IPX_LCD_Display.o
+                0x00000b8a                display_tank_water_level_title
  .text.display_tank_water_level
-                0x00000aea       0x4c IPX_LCD_Display.o
-                0x00000aea                display_tank_water_level
+                0x00000bac       0x4c IPX_LCD_Display.o
+                0x00000bac                display_tank_water_level
  .text.humidity_level_int_value_to_string
-                0x00000b36       0x6a IPX_LCD_Display.o
-                0x00000b36                humidity_level_int_value_to_string
+                0x00000bf8       0x6a IPX_LCD_Display.o
+                0x00000bf8                humidity_level_int_value_to_string
  .text.display_umidity_level_values
-                0x00000ba0       0x5a IPX_LCD_Display.o
-                0x00000ba0                display_umidity_level_values
+                0x00000c62       0x5a IPX_LCD_Display.o
+                0x00000c62                display_umidity_level_values
  .text.display_temperature_values
-                0x00000bfa       0xd0 IPX_LCD_Display.o
-                0x00000bfa                display_temperature_values
+                0x00000cbc       0xd0 IPX_LCD_Display.o
+                0x00000cbc                display_temperature_values
  .text.display_clock_title
-                0x00000cca       0x36 IPX_LCD_Display.o
-                0x00000cca                display_clock_title
+                0x00000d8c       0x36 IPX_LCD_Display.o
+                0x00000d8c                display_clock_title
  .text.display_initializing_message
-                0x00000d00       0x22 IPX_LCD_Display.o
-                0x00000d00                display_initializing_message
+                0x00000dc2       0x22 IPX_LCD_Display.o
+                0x00000dc2                display_initializing_message
  .text.display_clock_values
-                0x00000d22       0xd0 IPX_LCD_Display.o
-                0x00000d22                display_clock_values
+                0x00000de4       0xd0 IPX_LCD_Display.o
+                0x00000de4                display_clock_values
  .text.display_values
-                0x00000df2       0x6a IPX_LCD_Display.o
-                0x00000df2                display_values
+                0x00000eb4       0x6a IPX_LCD_Display.o
+                0x00000eb4                display_values
  .text.init_UART
-                0x00000e5c       0x12 IPX_UART.o
-                0x00000e5c                init_UART
+                0x00000f1e       0x12 IPX_UART.o
+                0x00000f1e                init_UART
  .text.__vector_13
-                0x00000e6e       0x1e IPX_UART.o
-                0x00000e6e                __vector_13
+                0x00000f30       0x1e IPX_UART.o
+                0x00000f30                __vector_13
  .text.send_uart_8bits_data
-                0x00000e8c       0x3a IPX_UART.o
-                0x00000e8c                send_uart_8bits_data
- .text.init_uC  0x00000ec6        0x4 main.o
-                0x00000ec6                init_uC
+                0x00000f4e       0x3a IPX_UART.o
+                0x00000f4e                send_uart_8bits_data
+ .text.init_water_pump_control
+                0x00000f88        0x6 IPX_WaterPump.o
+                0x00000f88                init_water_pump_control
+ .text.init_uC  0x00000f8e        0x4 main.o
+                0x00000f8e                init_uC
  .text.init_globals
-                0x00000eca       0x64 main.o
-                0x00000eca                init_globals
+                0x00000f92       0x70 main.o
+                0x00000f92                init_globals
  .text.general_init
-                0x00000f2e        0xa main.o
-                0x00000f2e                general_init
- .text.main     0x00000f38       0x3c main.o
-                0x00000f38                main
+                0x00001002        0xa main.o
+                0x00001002                general_init
+ .text.main     0x0000100c       0x40 main.o
+                0x0000100c                main
  .text.set_menu_title
-                0x00000f74       0x58 Menu.o
-                0x00000f74                set_menu_title
+                0x0000104c       0x58 Menu.o
+                0x0000104c                set_menu_title
  .text.change_menu
-                0x00000fcc       0x5e Menu.o
-                0x00000fcc                change_menu
+                0x000010a4       0x5e Menu.o
+                0x000010a4                change_menu
  .text.next_menu
-                0x0000102a       0x3a Menu.o
-                0x0000102a                next_menu
+                0x00001102       0x3a Menu.o
+                0x00001102                next_menu
  .text.init_ipx_water_level_sensor
-                0x00001064        0xe WaterLevelSensor.o
-                0x00001064                init_ipx_water_level_sensor
+                0x0000113c        0xe WaterLevelSensor.o
+                0x0000113c                init_ipx_water_level_sensor
  .text.read_tank_water_level
-                0x00001072       0x4e WaterLevelSensor.o
-                0x00001072                read_tank_water_level
+                0x0000114a       0x4e WaterLevelSensor.o
+                0x0000114a                read_tank_water_level
  .text.avr-libc.fplib
-                0x000010c0        0x8 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libm.a(divsf3.o)
-                0x000010c0                __divsf3
+                0x00001198        0x8 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libm.a(divsf3.o)
+                0x00001198                __divsf3
  .text.avr-libc.fplib
-                0x000010c8       0xdc c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libm.a(divsf3x.o)
-                0x000010e8                __divsf3x
-                0x000010ee                __divsf3_pse
+                0x000011a0       0xdc c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libm.a(divsf3x.o)
+                0x000011c0                __divsf3x
+                0x000011c6                __divsf3_pse
  .text.avr-libc.fplib
-                0x000011a4        0xe c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libm.a(fixsfsi.o)
-                0x000011a4                __fixsfsi
+                0x0000127c        0xe c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libm.a(fixsfsi.o)
+                0x0000127c                __fixsfsi
  .text.avr-libc.fplib
-                0x000011b2       0x5e c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libm.a(fixunssfsi.o)
-                0x000011b2                __fixunssfsi
+                0x0000128a       0x5e c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libm.a(fixunssfsi.o)
+                0x0000128a                __fixunssfsi
  .text.avr-libc.fplib
-                0x00001210       0x7a c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libm.a(floatsisf.o)
-                0x00001210                __floatunsisf
-                0x00001214                __floatsisf
+                0x000012e8       0x7a c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libm.a(floatsisf.o)
+                0x000012e8                __floatunsisf
+                0x000012ec                __floatsisf
  .text.avr-libc.fplib
-                0x0000128a        0xc c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libm.a(fp_inf.o)
-                0x0000128a                __fp_inf
+                0x00001362        0xc c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libm.a(fp_inf.o)
+                0x00001362                __fp_inf
  .text.avr-libc.fplib
-                0x00001296        0x6 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libm.a(fp_nan.o)
-                0x00001296                __fp_nan
+                0x0000136e        0x6 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libm.a(fp_nan.o)
+                0x0000136e                __fp_nan
  .text.avr-libc.fplib
-                0x0000129c        0xe c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libm.a(fp_pscA.o)
-                0x0000129c                __fp_pscA
+                0x00001374        0xe c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libm.a(fp_pscA.o)
+                0x00001374                __fp_pscA
  .text.avr-libc.fplib
-                0x000012aa        0xe c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libm.a(fp_pscB.o)
-                0x000012aa                __fp_pscB
+                0x00001382        0xe c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libm.a(fp_pscB.o)
+                0x00001382                __fp_pscB
  .text.avr-libc.fplib
-                0x000012b8       0x22 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libm.a(fp_round.o)
-                0x000012b8                __fp_round
+                0x00001390       0x22 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libm.a(fp_round.o)
+                0x00001390                __fp_round
  .text.avr-libc.fplib
-                0x000012da       0x44 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libm.a(fp_split3.o)
-                0x000012da                __fp_split3
-                0x000012ea                __fp_splitA
+                0x000013b2       0x44 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libm.a(fp_split3.o)
+                0x000013b2                __fp_split3
+                0x000013c2                __fp_splitA
  .text.avr-libc.fplib
-                0x0000131e        0xe c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libm.a(fp_zero.o)
-                0x0000131e                __fp_zero
-                0x00001320                __fp_szero
+                0x000013f6        0xe c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libm.a(fp_zero.o)
+                0x000013f6                __fp_zero
+                0x000013f8                __fp_szero
  .text.avr-libc.fplib
-                0x0000132c       0xa0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libm.a(log.o)
-                0x0000133c                log
+                0x00001404       0xa0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libm.a(log.o)
+                0x00001414                log
  .text.avr-libc.fplib
-                0x000013cc        0x8 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libm.a(mulsf3.o)
-                0x000013cc                __mulsf3
+                0x000014a4        0x8 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libm.a(mulsf3.o)
+                0x000014a4                __mulsf3
  .text.avr-libc.fplib
-                0x000013d4       0xd2 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libm.a(mulsf3x.o)
-                0x000013f2                __mulsf3x
-                0x000013f8                __mulsf3_pse
+                0x000014ac       0xd2 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libm.a(mulsf3x.o)
+                0x000014ca                __mulsf3x
+                0x000014d0                __mulsf3_pse
  .text.avr-libc.fplib
-                0x000014a6        0xe c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libm.a(addsf3.o)
-                0x000014a6                __subsf3
-                0x000014a8                __addsf3
+                0x0000157e        0xe c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libm.a(addsf3.o)
+                0x0000157e                __subsf3
+                0x00001580                __addsf3
  .text.avr-libc.fplib
-                0x000014b4       0xcc c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libm.a(addsf3x.o)
-                0x000014d6                __addsf3x
+                0x0000158c       0xcc c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libm.a(addsf3x.o)
+                0x000015ae                __addsf3x
  .text.avr-libc.fplib
-                0x00001580       0x1c c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libm.a(fp_mpack.o)
-                0x00001580                __fp_mpack
-                0x00001584                __fp_mpack_finite
+                0x00001658       0x1c c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libm.a(fp_mpack.o)
+                0x00001658                __fp_mpack
+                0x0000165c                __fp_mpack_finite
  .text.avr-libc.fplib
-                0x0000159c       0x4e c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libm.a(fp_powser.o)
-                0x0000159c                __fp_powser
+                0x00001674       0x4e c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/../../../../avr/lib/avr5\libm.a(fp_powser.o)
+                0x00001674                __fp_powser
  .text.libgcc.div
-                0x000015ea       0x28 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr5\libgcc.a(_divmodhi4.o)
-                0x000015ea                _div
-                0x000015ea                __divmodhi4
+                0x000016c2       0x28 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr5\libgcc.a(_divmodhi4.o)
+                0x000016c2                _div
+                0x000016c2                __divmodhi4
  .text.libgcc.div
-                0x00001612       0x44 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr5\libgcc.a(_udivmodsi4.o)
-                0x00001612                __udivmodsi4
+                0x000016ea       0x44 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr5\libgcc.a(_udivmodsi4.o)
+                0x000016ea                __udivmodsi4
  .text.libgcc.div
-                0x00001656       0x2e c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr5\libgcc.a(_divmodsi4.o)
-                0x00001656                __divmodsi4
+                0x0000172e       0x2e c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr5\libgcc.a(_divmodsi4.o)
+                0x0000172e                __divmodsi4
  .text.libgcc.div
-                0x00001684       0x10 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr5\libgcc.a(_negsi2.o)
-                0x00001684                __negsi2
- .text.libgcc   0x00001694        0xc c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr5\libgcc.a(_tablejump2.o)
-                0x00001694                __tablejump2__
+                0x0000175c       0x10 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr5\libgcc.a(_negsi2.o)
+                0x0000175c                __negsi2
+ .text.libgcc   0x0000176c        0xc c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr5\libgcc.a(_tablejump2.o)
+                0x0000176c                __tablejump2__
  .text.libgcc.mul
-                0x000016a0       0x1e c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr5\libgcc.a(_umulhisi3.o)
-                0x000016a0                __umulhisi3
+                0x00001778       0x1e c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr5\libgcc.a(_umulhisi3.o)
+                0x00001778                __umulhisi3
  .text.libgcc.mul
-                0x000016be       0x16 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr5\libgcc.a(_muluhisi3.o)
-                0x000016be                __muluhisi3
+                0x00001796       0x16 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr5\libgcc.a(_muluhisi3.o)
+                0x00001796                __muluhisi3
  .text.libgcc.div
-                0x000016d4       0x28 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr5\libgcc.a(_udivmodhi4.o)
-                0x000016d4                __udivmodhi4
-                0x000016fc                . = ALIGN (0x2)
+                0x000017ac       0x28 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr5\libgcc.a(_udivmodhi4.o)
+                0x000017ac                __udivmodhi4
+                0x000017d4                . = ALIGN (0x2)
  *(.fini9)
- .fini9         0x000016fc        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr5\libgcc.a(_exit.o)
-                0x000016fc                _exit
-                0x000016fc                exit
+ .fini9         0x000017d4        0x0 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr5\libgcc.a(_exit.o)
+                0x000017d4                _exit
+                0x000017d4                exit
  *(.fini9)
  *(.fini8)
  *(.fini8)
@@ -771,11 +778,11 @@ END GROUP
  *(.fini1)
  *(.fini1)
  *(.fini0)
- .fini0         0x000016fc        0x4 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr5\libgcc.a(_exit.o)
+ .fini0         0x000017d4        0x4 c:/program files (x86)/atmel/studio/7.0/toolchain/avr8/avr8-gnu-toolchain/bin/../lib/gcc/avr/4.9.2/avr5\libgcc.a(_exit.o)
  *(.fini0)
-                0x00001700                _etext = .
+                0x000017d8                _etext = .
 
-.data           0x00800060       0xba load address 0x00001700
+.data           0x00800060       0xba load address 0x000017d8
                 0x00800060                PROVIDE (__data_start, .)
  *(.data)
  *(.data*)
@@ -795,40 +802,46 @@ END GROUP
                 0x0080011a                _edata = .
                 0x0080011a                PROVIDE (__data_end, .)
 
-.bss            0x0080011a       0x34
+.bss            0x0080011a       0x38
                 0x0080011a                PROVIDE (__bss_start, .)
  *(.bss)
  *(.bss*)
- .bss.seconds_counter
+ .bss.water_pump_counter
                 0x0080011a        0x2 IPX_Interrupt.o
-                0x0080011a                seconds_counter
- .bss.read_humidity_counter
+                0x0080011a                water_pump_counter
+ .bss.water_needed_counter
                 0x0080011c        0x2 IPX_Interrupt.o
-                0x0080011c                read_humidity_counter
+                0x0080011c                water_needed_counter
+ .bss.seconds_counter
+                0x0080011e        0x2 IPX_Interrupt.o
+                0x0080011e                seconds_counter
+ .bss.read_humidity_counter
+                0x00800120        0x2 IPX_Interrupt.o
+                0x00800120                read_humidity_counter
  .bss.humidity_level.1853
-                0x0080011e        0x4 IPX_LCD_Display.o
+                0x00800122        0x4 IPX_LCD_Display.o
  *(COMMON)
- COMMON         0x00800122       0x2b driverAdc.o
-                0x00800122                MENUs
-                0x0080012c                WATER_LEVEL
-                0x0080012d                GLOBAL_BOOL
-                0x0080012e                TEMPERATURE
-                0x00800132                CLOCK
-                0x00800138                humidity_level_sensor_1
-                0x0080013a                humidity_level_sensor_2
-                0x0080013c                MENU
-                0x0080013d                ERROR
- COMMON         0x0080014d        0x1 IPX_UART.o
-                0x0080014d                received_command
-                0x0080014e                PROVIDE (__bss_end, .)
-                0x00001700                __data_load_start = LOADADDR (.data)
-                0x000017ba                __data_load_end = (__data_load_start + SIZEOF (.data))
+ COMMON         0x00800126       0x2b driverAdc.o
+                0x00800126                MENUs
+                0x00800130                WATER_LEVEL
+                0x00800131                GLOBAL_BOOL
+                0x00800132                TEMPERATURE
+                0x00800136                CLOCK
+                0x0080013c                humidity_level_sensor_1
+                0x0080013e                humidity_level_sensor_2
+                0x00800140                MENU
+                0x00800141                ERROR
+ COMMON         0x00800151        0x1 IPX_UART.o
+                0x00800151                received_command
+                0x00800152                PROVIDE (__bss_end, .)
+                0x000017d8                __data_load_start = LOADADDR (.data)
+                0x00001892                __data_load_end = (__data_load_start + SIZEOF (.data))
 
-.noinit         0x0080014e        0x0
+.noinit         0x00800152        0x0
                 [!provide]                PROVIDE (__noinit_start, .)
  *(.noinit*)
                 [!provide]                PROVIDE (__noinit_end, .)
-                0x0080014e                _end = .
+                0x00800152                _end = .
                 [!provide]                PROVIDE (__heap_start, .)
 
 .eeprom         0x00810000        0x0
@@ -877,6 +890,7 @@ END GROUP
  .comment       0x00000030       0x31 IPX_Interrupt.o
  .comment       0x00000030       0x31 IPX_LCD_Display.o
  .comment       0x00000030       0x31 IPX_UART.o
+ .comment       0x00000030       0x31 IPX_WaterPump.o
  .comment       0x00000030       0x31 main.o
  .comment       0x00000030       0x31 Menu.o
  .comment       0x00000030       0x31 WaterLevelSensor.o
@@ -901,7 +915,7 @@ END GROUP
 .debug_sfnames
  *(.debug_sfnames)
 
-.debug_aranges  0x00000000      0x218
+.debug_aranges  0x00000000      0x238
  *(.debug_aranges)
  .debug_aranges
                 0x00000000       0x38 driverAdc.o
@@ -916,55 +930,60 @@ END GROUP
  .debug_aranges
                 0x00000158       0x30 IPX_UART.o
  .debug_aranges
-                0x00000188       0x38 main.o
+                0x00000188       0x20 IPX_WaterPump.o
  .debug_aranges
-                0x000001c0       0x30 Menu.o
+                0x000001a8       0x38 main.o
  .debug_aranges
-                0x000001f0       0x28 WaterLevelSensor.o
+                0x000001e0       0x30 Menu.o
+ .debug_aranges
+                0x00000210       0x28 WaterLevelSensor.o
 
 .debug_pubnames
  *(.debug_pubnames)
 
-.debug_info     0x00000000     0x3a56
+.debug_info     0x00000000     0x3cc8
  *(.debug_info .gnu.linkonce.wi.*)
  .debug_info    0x00000000      0x4e6 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.1.130/gcc/dev/atmega32a/avr5/crtatmega32a.o
  .debug_info    0x000004e6      0x35e driverAdc.o
  .debug_info    0x00000844      0x24d IPX_Buttons.o
  .debug_info    0x00000a91      0x206 IPX_Clock.o
- .debug_info    0x00000c97      0x381 IPX_Interrupt.o
- .debug_info    0x00001018     0x1c7c IPX_LCD_Display.o
- .debug_info    0x00002c94      0x3a9 IPX_UART.o
- .debug_info    0x0000303d      0x3c7 main.o
- .debug_info    0x00003404      0x40e Menu.o
- .debug_info    0x00003812      0x244 WaterLevelSensor.o
+ .debug_info    0x00000c97      0x3bc IPX_Interrupt.o
+ .debug_info    0x00001053     0x1c7c IPX_LCD_Display.o
+ .debug_info    0x00002ccf      0x3a9 IPX_UART.o
+ .debug_info    0x00003078      0x21f IPX_WaterPump.o
+ .debug_info    0x00003297      0x3df main.o
+ .debug_info    0x00003676      0x40e Menu.o
+ .debug_info    0x00003a84      0x244 WaterLevelSensor.o
 
-.debug_abbrev   0x00000000     0x1105
+.debug_abbrev   0x00000000     0x119d
  *(.debug_abbrev)
  .debug_abbrev  0x00000000      0x4a3 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.1.130/gcc/dev/atmega32a/avr5/crtatmega32a.o
  .debug_abbrev  0x000004a3      0x17a driverAdc.o
  .debug_abbrev  0x0000061d       0xdc IPX_Buttons.o
  .debug_abbrev  0x000006f9       0x98 IPX_Clock.o
- .debug_abbrev  0x00000791      0x12f IPX_Interrupt.o
- .debug_abbrev  0x000008c0      0x297 IPX_LCD_Display.o
- .debug_abbrev  0x00000b57      0x177 IPX_UART.o
- .debug_abbrev  0x00000cce      0x1c3 main.o
- .debug_abbrev  0x00000e91      0x1aa Menu.o
- .debug_abbrev  0x0000103b       0xca WaterLevelSensor.o
+ .debug_abbrev  0x00000791      0x122 IPX_Interrupt.o
+ .debug_abbrev  0x000008b3      0x297 IPX_LCD_Display.o
+ .debug_abbrev  0x00000b4a      0x177 IPX_UART.o
+ .debug_abbrev  0x00000cc1       0xa5 IPX_WaterPump.o
+ .debug_abbrev  0x00000d66      0x1c3 main.o
+ .debug_abbrev  0x00000f29      0x1aa Menu.o
+ .debug_abbrev  0x000010d3       0xca WaterLevelSensor.o
 
-.debug_line     0x00000000     0x1563
+.debug_line     0x00000000     0x16c0
  *(.debug_line .debug_line.* .debug_line_end)
  .debug_line    0x00000000      0x115 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.1.130/gcc/dev/atmega32a/avr5/crtatmega32a.o
  .debug_line    0x00000115      0x16f driverAdc.o
  .debug_line    0x00000284       0xfe IPX_Buttons.o
  .debug_line    0x00000382       0x92 IPX_Clock.o
- .debug_line    0x00000414      0x1d0 IPX_Interrupt.o
- .debug_line    0x000005e4      0x814 IPX_LCD_Display.o
- .debug_line    0x00000df8      0x1a0 IPX_UART.o
- .debug_line    0x00000f98      0x271 main.o
- .debug_line    0x00001209      0x219 Menu.o
- .debug_line    0x00001422      0x141 WaterLevelSensor.o
+ .debug_line    0x00000414      0x24c IPX_Interrupt.o
+ .debug_line    0x00000660      0x814 IPX_LCD_Display.o
+ .debug_line    0x00000e74      0x1a0 IPX_UART.o
+ .debug_line    0x00001014       0xbc IPX_WaterPump.o
+ .debug_line    0x000010d0      0x296 main.o
+ .debug_line    0x00001366      0x219 Menu.o
+ .debug_line    0x0000157f      0x141 WaterLevelSensor.o
 
-.debug_frame    0x00000000      0x40c
+.debug_frame    0x00000000      0x430
  *(.debug_frame)
  .debug_frame   0x00000000       0x68 driverAdc.o
  .debug_frame   0x00000068       0x34 IPX_Buttons.o
@@ -972,11 +991,12 @@ END GROUP
  .debug_frame   0x000000c0       0x7c IPX_Interrupt.o
  .debug_frame   0x0000013c      0x1b0 IPX_LCD_Display.o
  .debug_frame   0x000002ec       0x54 IPX_UART.o
- .debug_frame   0x00000340       0x54 main.o
- .debug_frame   0x00000394       0x44 Menu.o
- .debug_frame   0x000003d8       0x34 WaterLevelSensor.o
+ .debug_frame   0x00000340       0x24 IPX_WaterPump.o
+ .debug_frame   0x00000364       0x54 main.o
+ .debug_frame   0x000003b8       0x44 Menu.o
+ .debug_frame   0x000003fc       0x34 WaterLevelSensor.o
 
-.debug_str      0x00000000      0x8e8
+.debug_str      0x00000000      0x93d
  *(.debug_str)
  .debug_str     0x00000000      0x196 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.1.130/gcc/dev/atmega32a/avr5/crtatmega32a.o
  .debug_str     0x00000196      0x2c5 driverAdc.o
@@ -985,17 +1005,19 @@ END GROUP
                                 0x27e (size before relaxing)
  .debug_str     0x00000492       0x21 IPX_Clock.o
                                 0x23b (size before relaxing)
- .debug_str     0x000004b3       0xb3 IPX_Interrupt.o
-                                0x345 (size before relaxing)
- .debug_str     0x00000566      0x2b5 IPX_LCD_Display.o
+ .debug_str     0x000004b3       0xdb IPX_Interrupt.o
+                                0x36d (size before relaxing)
+ .debug_str     0x0000058e      0x2b5 IPX_LCD_Display.o
                                 0x53d (size before relaxing)
- .debug_str     0x0000081b       0x37 IPX_UART.o
+ .debug_str     0x00000843       0x37 IPX_UART.o
                                 0x2e3 (size before relaxing)
- .debug_str     0x00000852       0x5b main.o
-                                0x350 (size before relaxing)
- .debug_str     0x000008ad       0x23 Menu.o
+ .debug_str     0x0000087a       0x2d IPX_WaterPump.o
+                                0x274 (size before relaxing)
+ .debug_str     0x000008a7       0x5b main.o
+                                0x368 (size before relaxing)
+ .debug_str     0x00000902       0x23 Menu.o
                                 0x35b (size before relaxing)
- .debug_str     0x000008d0       0x18 WaterLevelSensor.o
+ .debug_str     0x00000925       0x18 WaterLevelSensor.o
                                 0x297 (size before relaxing)
 
 .debug_loc      0x00000000      0x8b5
@@ -1024,7 +1046,7 @@ END GROUP
 .debug_pubtypes
  *(.debug_pubtypes)
 
-.debug_ranges   0x00000000      0x188
+.debug_ranges   0x00000000      0x198
  *(.debug_ranges)
  .debug_ranges  0x00000000       0x28 driverAdc.o
  .debug_ranges  0x00000028       0x18 IPX_Buttons.o
@@ -1032,9 +1054,10 @@ END GROUP
  .debug_ranges  0x00000050       0x18 IPX_Interrupt.o
  .debug_ranges  0x00000068       0xa0 IPX_LCD_Display.o
  .debug_ranges  0x00000108       0x20 IPX_UART.o
- .debug_ranges  0x00000128       0x28 main.o
- .debug_ranges  0x00000150       0x20 Menu.o
- .debug_ranges  0x00000170       0x18 WaterLevelSensor.o
+ .debug_ranges  0x00000128       0x10 IPX_WaterPump.o
+ .debug_ranges  0x00000138       0x28 main.o
+ .debug_ranges  0x00000160       0x20 Menu.o
+ .debug_ranges  0x00000180       0x18 WaterLevelSensor.o
 
 .debug_macro
  *(.debug_macro)

@@ -43,6 +43,7 @@ C_SRCS +=  \
 ../IPX_Interrupt.c \
 ../IPX_LCD_Display.c \
 ../IPX_UART.c \
+../IPX_WaterPump.c \
 ../main.c \
 ../Menu.c \
 ../WaterLevelSensor.c
@@ -61,6 +62,7 @@ IPX_Clock.o \
 IPX_Interrupt.o \
 IPX_LCD_Display.o \
 IPX_UART.o \
+IPX_WaterPump.o \
 main.o \
 Menu.o \
 WaterLevelSensor.o
@@ -72,6 +74,7 @@ IPX_Clock.o \
 IPX_Interrupt.o \
 IPX_LCD_Display.o \
 IPX_UART.o \
+IPX_WaterPump.o \
 main.o \
 Menu.o \
 WaterLevelSensor.o
@@ -83,6 +86,7 @@ IPX_Clock.d \
 IPX_Interrupt.d \
 IPX_LCD_Display.d \
 IPX_UART.d \
+IPX_WaterPump.d \
 main.d \
 Menu.d \
 WaterLevelSensor.d
@@ -94,6 +98,7 @@ IPX_Clock.d \
 IPX_Interrupt.d \
 IPX_LCD_Display.d \
 IPX_UART.d \
+IPX_WaterPump.d \
 main.d \
 Menu.d \
 WaterLevelSensor.d
@@ -112,6 +117,8 @@ LINKER_SCRIPT_DEP+=
 
 
 # AVR32/GNU C Compiler
+
+
 
 
 

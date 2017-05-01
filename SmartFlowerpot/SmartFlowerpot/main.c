@@ -17,6 +17,7 @@
 #include "WaterLevelSensor.h"
 #include "IPX_UART.h"
 #include "IPX_Buttons.h"
+#include "IPX_WaterPump.h"
 
 void general_init();
 void init_globals();
@@ -32,12 +33,13 @@ int main(void)
 	init_LCD_Display();
 	init_ipx_water_level_sensor();
 	init_buttons();
+	init_water_pump_control();
 	
 	
 	
 	display_initializing_message();
 	_delay_ms(1000);
-	change_menu(TEMPERATURE_MENU);
+	change_menu(SENSOR_VALUES_MENU);
 	sei();
 	
     while (1) 
@@ -75,4 +77,6 @@ void init_globals()
 	humidity_level_sensor_2 = 0;
 	WATER_LEVEL = 0;
 	TEMPERATURE = 27;
+	WATER_NEEDED = FALSE;
+	WATER_PUMP_IS_ON = FALSE;
 }

@@ -22,6 +22,6 @@ void send_uart_8bits_data(unsigned char ID, unsigned char data);
 #define send_uart_data_tank_water_level() send_uart_8bits_data(TANK_WATER_LEVEL_ID, WATER_LEVEL)
 #define send_uart_data_humidity_sensor_1() send_uart_8bits_data(HUMIDITY_SENSOR_1_ID, (unsigned char)humidity_level_sensor_1)
 #define send_uart_data_humidity_sensor_2() send_uart_8bits_data(HUMIDITY_SENSOR_2_ID, (unsigned char)humidity_level_sensor_2)
-#define send_uart_data_temperature() send_uart_8bits_data(TEMPERATURE_ID, (unsigned char)TEMPERATURE / 10000)
+#define send_uart_data_temperature() send_uart_8bits_data(TEMPERATURE_ID, (unsigned char)(TEMPERATURE / 100))
 
 #endif /* IPX_UART_H_ */

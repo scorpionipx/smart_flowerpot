@@ -14,6 +14,8 @@ IPX_LCD_Display.c
 
 IPX_UART.c
 
+IPX_WaterPump.c
+
 main.c
 
 Menu.c

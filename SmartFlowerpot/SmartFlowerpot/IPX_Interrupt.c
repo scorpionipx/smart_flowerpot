@@ -17,6 +17,7 @@
 #include "IPX_UART.h"
 #include "IPX_Buttons.h"
 #include "IPX_Clock.h"
+#include "IPX_WaterPump.h"
 
 #define TOGGLE_PWR_LED PORTB ^= (1 << 0)
 
@@ -24,12 +25,18 @@
 #define INTERRUPT_10MS 10
 #define SECOND 5
 
+#define HUMIDITY_THRESHOLD 20 // humidity level too low
+#define HUMIDITY_TEST_CYCLES 100 // how many times to check humidity level
+#define WATERING_CYCLES 20 // how much time to keep water pump on
+
 #define READ_SENSORS_VALUES_PERIOD SENSORS_READ_INTERVAL / INTERRUPT_200MS
 #define READ_TANK_WATER_LEVEL_PERIOD TANK_WATER_LEVEL_READ_INTERVAL / INTERRUPT_200MS
 
 unsigned int read_humidity_counter = 0;
 unsigned int read_tank_water_level_counter = 201;
 unsigned int seconds_counter = 0;
+unsigned int water_needed_counter = 0;
+unsigned int water_pump_counter = 0;
 
 // 200 ms timer
 void init_interrupt_200ms()
@@ -59,6 +66,10 @@ ISR (TIMER1_COMPA_vect)
 		seconds_counter = 0;
 		increment_clock();
 		TOGGLE_PWR_LED;
+		send_uart_data_tank_water_level();
+		send_uart_data_humidity_sensor_1();
+		send_uart_data_humidity_sensor_2();
+		send_uart_data_temperature();
 	}
 	
 	read_humidity_counter ++;
@@ -76,8 +87,35 @@ ISR (TIMER1_COMPA_vect)
 		
 		read_tank_water_level();
 		read_temperature();
-		send_uart_data_tank_water_level();
-		send_uart_data_humidity_sensor_1();
-		send_uart_data_humidity_sensor_2();
+	}
+	
+	if(humidity_level_sensor_1 < HUMIDITY_THRESHOLD && humidity_level_sensor_2 < HUMIDITY_THRESHOLD && !WATER_PUMP_IS_ON)
+	{
+		water_needed_counter ++;
+		if(water_needed_counter >= HUMIDITY_TEST_CYCLES)
+		{
+			WATER_NEEDED = TRUE;
+			water_needed_counter = 0;
+		}
+	}
+	else
+	{
+		water_needed_counter = 0;
+	}
+	if(WATER_NEEDED && !WATER_PUMP_IS_ON)
+	{
+		WATER_PUMP_TURN_ON;
+		WATER_PUMP_IS_ON = TRUE;
+		WATER_NEEDED = FALSE;
+	}
+	if(WATER_PUMP_IS_ON)
+	{
+		water_pump_counter ++;
+		if(water_pump_counter >= WATERING_CYCLES)
+		{
+			WATER_PUMP_TURN_OFF;
+			WATER_PUMP_IS_ON = FALSE;
+			water_pump_counter = 0;
+		}
 	}
 }
