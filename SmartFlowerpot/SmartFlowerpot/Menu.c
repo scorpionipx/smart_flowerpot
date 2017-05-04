@@ -35,6 +35,11 @@ void next_menu()
 
 		case BATTERY_LEVEL_MENU:
 		{
+			change_menu(TEMPERATURE_MENU);
+			break;
+		}
+		case TEMPERATURE_MENU:
+		{
 			change_menu(SENSOR_VALUES_MENU);
 			break;
 		}

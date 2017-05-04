@@ -9,6 +9,7 @@
 #include "IPX_Buttons.h"
 #include "IPX_LCD_Display.h"
 #include "Menu.h"
+#include <util/delay.h>
 
 // INITIALIZE uC PORT FOR BUTTONS READING AND SET BUTTONS DEFAULT VALUE TO FALSE (RELEASED)
 void init_buttons()
@@ -44,6 +45,7 @@ void read_buttons()
 	BUTTON_1_PRESSED = BUTTON_1_VALUE;
 	if(BUTTON_1_PRESSED)
 	{
+		_delay_ms(5);
 		next_menu();
 		return;
 	}

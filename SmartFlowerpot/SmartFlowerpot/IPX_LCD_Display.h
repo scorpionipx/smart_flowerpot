@@ -18,8 +18,8 @@
 #ifndef IPX_LCD_DISPLAY_H_
 #define IPX_LCD_DISPLAY_H_
 
-#define LCD_DELAY_MS 2         // DELAY BETWEEN DATA SENT TO LCD
-#define LCD_INIT_DELAY_MS 7    // DELAY BETWEEN DATA SENT TO LCD WHEN INITIALIZING
+#define LCD_DELAY_MS 3         // DELAY BETWEEN DATA SENT TO LCD
+#define LCD_INIT_DELAY_MS 8    // DELAY BETWEEN DATA SENT TO LCD WHEN INITIALIZING
 
 void put_Char_LCD_Display(int ch, int type);
 void init_LCD_Display(void);

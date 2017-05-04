@@ -27,10 +27,13 @@ int main(void)
 {
 	general_init();
 	
+	_delay_ms(5000);
+	
 	init_UART();
 	init_interrupt_200ms();
 	ADC_Init();
 	init_LCD_Display();
+	_delay_ms(500);
 	init_ipx_water_level_sensor();
 	init_buttons();
 	init_water_pump_control();
